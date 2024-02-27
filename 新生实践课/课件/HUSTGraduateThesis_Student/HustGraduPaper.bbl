@@ -1,0 +1,111 @@
+\begin{thebibliography}{10}
+\providecommand{\bibauthor}[1]{#1}
+\providecommand{\bibeditor}[1]{#1}
+\providecommand{\bibtranslator}[1]{#1}
+\providecommand{\bibtitle}[1]{#1}
+\providecommand{\bibbooktitle}[1]{#1}
+\providecommand{\bibjournal}[1]{#1}
+\providecommand{\bibmark}[1]{#1}
+\providecommand{\bibcountry}[1]{#1}
+\providecommand{\bibpatentid}[1]{#1}
+\providecommand{\bibedition}[1]{#1}
+\providecommand{\biborganization}[1]{#1}
+\providecommand{\bibaddress}[1]{#1}
+\providecommand{\bibpublisher}[1]{#1}
+\providecommand{\bibinstitution}[1]{#1}
+\providecommand{\bibschool}[1]{#1}
+\providecommand{\bibvolume}[1]{#1}
+\providecommand{\bibnumber}[1]{#1}
+\providecommand{\bibversion}[1]{#1}
+\providecommand{\bibpages}[1]{#1}
+\providecommand{\bibmodifydate}[1]{#1}
+\providecommand{\bibcitedate}[1]{#1}
+\providecommand{\bibyear}[1]{#1}
+\providecommand{\bibdate}[1]{#1}
+\providecommand{\biburl}[1]{\newline\url{#1}}
+
+\bibitem{wenxian}
+\bibauthor{ZHAO C\@, SHI Y\@, LING H, et~al}\@. \bibtitle{Person
+  Re-identification with Visual Semantic Representation Mining and
+  Reasoning.}\bibmark{[J]}\@. \bibjournal{IEEE Transactions on Biometrics,
+  Behavior, and Identity Science}\@, \bibyear{2023}\@,
+  \bibvolume{5}\bibnumber{(4)}\thinspace{}\textnormal{:
+  }\bibpages{486\thinspace{}\textnormal{--}\thinspace{}497}\@.
+
+\bibitem{ski17}
+\bibauthor{SKINAZE}\@. \bibtitle{HUSTPaperTemp}\bibmark{[EB/OL]}\@. \@.
+  \newline\url{https://github.com/skinaze/HUSTPaperTemp}\@.
+
+\bibitem{baf96}
+\bibauthor{BAFNA V\@, PEVZNER P~A}\@. \bibtitle{Genome Rearrangements and
+  Sorting by Reversals}\bibmark{[J/OL]}\@. \bibjournal{SIAM J. Comput.}\@,
+  \bibyear{1996}\@, \bibvolume{25}\bibnumber{(2)}\thinspace{}\textnormal{:
+  }\bibpages{272\thinspace{}\textnormal{--}\thinspace{}289}\@.
+  \newline\url{http://dx.doi.org/10.1137/S0097539793250627}\@.
+
+\bibitem{STR2021Neurocom}
+\bibauthor{CHEN J\@, LI Z\@, JIN Y, et~al}\@. \bibtitle{Video Saliency
+  Prediction via Spatio-Temporal Reasoning}\bibmark{[J]}\@.
+  \bibjournal{Neurocomputing}\@, \bibyear{2021}\@,
+  \bibvolume{462}\thinspace{}\textnormal{:
+  }\bibpages{59\thinspace{}\textnormal{--}\thinspace{}68}\@.
+
+\bibitem{AVS2021Neurocom}
+\bibauthor{CHEN J\@, LI Q\@, LING H, et~al}\@. \bibtitle{Audiovisual Saliency
+  Prediction via Deep Learning}\bibmark{[J]}\@. \bibjournal{Neurocomputing}\@,
+  \bibyear{2021}\@, \bibvolume{428}\thinspace{}\textnormal{:
+  }\bibpages{248\thinspace{}\textnormal{--}\thinspace{}258}\@.
+
+\bibitem{Rezaei2014CVPR}
+\bibauthor{REZAEI M\@, KLETTE R}\@. \bibtitle{Look at the driver, look at the
+  road: No distraction! no accident!}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{CVPR}\@. \bibyear{2014}\thinspace{}\textnormal{:
+  }\bibpages{129\thinspace{}\textnormal{--}\thinspace{}136}\@.
+
+\bibitem{Mehrabian1974An}
+\bibauthor{MEHRABIAN A\@, RUSSELL J}\@. \bibbooktitle{An approach to
+  environmental psychology}\bibmark{[M]}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{MIT}\@,
+  \bibyear{1974}\@.
+
+\bibitem{Ramnath2008IJCV}
+\bibauthor{RAMNATH K\@, KOTERBA S\@, XIAO J, et~al}\@. \bibtitle{Multi-view
+  {AMM} fitting and construction}\bibmark{[J]}\@. \bibjournal{International
+  Journal of Computer Vision}\@, \bibyear{2008}\@,
+  \bibvolume{76}\thinspace{}\textnormal{:
+  }\bibpages{183\thinspace{}\textnormal{--}\thinspace{}204}\@.
+
+\bibitem{LTE2015MIP}
+\bibauthor{尹圣君\@, 钱尚达\@, 李永代, 等}\@.
+  \bibbooktitle{LTE及LTE-Advanced无线协议}\bibmark{[M]}\@.
+  \bibaddress{[出版地不详]}\thinspace{}\textnormal{:
+  }\bibpublisher{机械工业出版社}\@, \bibyear{2015}\@.
+
+\bibitem{MIH2010IEEE}
+\bibauthor{ANON}\@. \bibtitle{GIEEE 802.21 Media Independent Handover
+  (MIH)}\bibmark{[S]}\@. \bibaddress{Washington University in St.
+  Louis}\thinspace{}\textnormal{: }\bibpublisher{IEEE}\@, \bibyear{2010}\@.
+
+\bibitem{Dai2008Semantic}
+\bibauthor{戴维民}\@.
+  \bibbooktitle{语义网信息组织技术与方法}\bibmark{[M]}\@.
+  \bibaddress{[出版地不详]}\thinspace{}\textnormal{:
+  }\bibpublisher{学林出版社}\@, \bibyear{2008}\@.
+
+\bibitem{MU-MIMO2009IEEE}
+\bibauthor{PRASAD N\@, KHOJASTEPOUR M~A\@, JIANG M, et~al}\@.
+  \bibtitle{MU-MIMO: Demodulation at the Mobile Station}\bibmark{[R]}\@.
+  \bibyear{2009}\thinspace{}\textnormal{:
+  }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}11}\@.
+
+\bibitem{Multiplexing2000USA}
+\bibauthor{PAULRAJ A~J\@, Jr HEATH R~W\@, SEBASTIAN P~K, et~al}\@.
+  \bibtitle{Spatial Multiplexing in a Cellular Network}\bibmark{[P]}\@.
+  \bibdate{2000-5-23}\@.
+
+\bibitem{Euro2015WG}
+\bibtitle{立陶宛进入欧元时代}\bibmark{[N]}\@.
+  \thinspace{}\textnormal{--}\thinspace{}\@.
+  \thinspace{}\textnormal{--}\thinspace{}\@.
+
+\end{thebibliography}

@@ -1,0 +1,176 @@
+#!/bin/bash
+# --------------------------------------------------------------------------
+# Filename: makethesis
+# Author: Xianling Wang <rioxwang@foxmail.com>
+# Created: 2013-07-08
+# Modified: 2015-01-02
+# Version: 1.4
+# --------------------------------------------------------------------------
+# Change Log
+# v1.0: Batch file created.
+#       1. 'clean', 'install' and 'thesis' functions are defined.
+#       2. 'xetex' engine w/o chapbib are defined.
+# v1.1: File mode modified, function added.
+#       1. Change the dos-style line break into unix-style line break: <CR><LF> -> <LF>.
+#       2. 'wordcount' function is defined.
+# v1.4: Modify output redirecting.
+# --------------------------------------------------------------------------
+# User Configuration
+# Project name
+PROJECT="HustGraduPaper"
+# File name of your top-level tex file.
+TARGET="HustGraduPaper"
+# File name list of tex files for mainmatters.
+MAINMATTERS=("01_first_chapter" "02_second_chapter")
+# Driver type to build PDF.
+# 'xetex' for xetex engine;
+DRIVER="xetex"
+# Bib type to construct bibliography.
+# 'chapbib' for bib per chapter; 'allbib' for bib in thesis end.
+BIBTYPE="chapbib"
+# --------------------------------------------------------------------------
+# Function: Clearance
+# TMP File Clearance
+function clean()
+{
+    echo Clearing TMP files...
+    echo Clearing TMP files in installation...
+    rm -f *.dvi *.ps > /dev/null
+    echo Clearing TMP files in thesis generation...
+    rm -f *.bbl *.blg *.aux *.log *.acn *.glo *.ist *.acr *.alg *.out *.toc *.thm *.ps *.dvi > /dev/null
+    echo ===========================================
+    echo = Mission Done!
+    echo = ALL TMP files are cleared!
+    echo ===========================================
+    exit
+}
+# --------------------------------------------------------------------------
+# Function: Wordcount
+# Word Count
+function wordcount()
+{
+    echo Counting word...
+    texcount -ch -inc -incbib -html -v -sum bare_thesis.tex > wordcount.html
+    echo ===========================================
+    echo = Counting Mission Done!
+    echo = Word-counting Results are recorded in 'wordcount.html'!
+    echo ===========================================
+    exit
+}
+# --------------------------------------------------------------------------
+# Function: Making Thesis PDF
+# Thesis PDF Generation
+function thesis()
+{
+    # Check the user input configuration.
+    echo ===========================================
+    echo =
+    echo = TARGET=${TARGET}
+    echo = MAINMATTERS=${MAINMATTERS[@]}
+    echo = DRIVER=${DRIVER}
+    echo = BIBTYPE=${BIBTYPE}
+    echo =
+    echo ===========================================
+    echo Double check above configurations! Press anykey to continue, CTRL+C to stop!
+    read -n1
+    # Check the integrity of the installation.
+    echo Checking Existence of Essential Files...
+    if [ -f "${PROJECT}.cls" -a -f "${PROJECT}.cfg" -a -f "${PROJECT}.bst" ]; then
+        echo Document class installed! Generating Thesis PDF...
+    else
+        echo ===========================================
+        echo = Mission Failed!
+        echo = Cannot find essential files!
+        echo = Please './makethesis install' to reinstall HUSTGraduateThesis!
+        echo ===========================================
+        exit
+    fi
+
+    # Generate the thesis PDF according to different configurations.
+    if [ ${DRIVER} = "xetex" ]; then
+        echo Building thesis PDF...
+        xelatex ${TARGET}
+        echo Processing BIB files...
+        if [ ${BIBTYPE} = "chapbib" ]; then
+            for MATTER in ${MAINMATTERS[@]}
+            do
+                bibtex ${MATTER} > /dev/null
+            done
+        else
+            bibtex ${TARGET} > /dev/null
+        fi
+        bibtex jrnl.aux > /dev/null
+        bibtex conf.aux > /dev/null
+        bibtex patent.aux > /dev/null
+        echo Processing index files...
+        makeindex -s ${TARGET}.ist -t ${TARGET}.alg -o ${TARGET}.acr ${TARGET}.acn > /dev/null
+        echo Rebuilding to generate cross-reference...
+        xelatex ${TARGET} > /dev/null
+        xelatex ${TARGET} > /dev/null
+    else
+        echo Engine Undefined!
+        exit
+    fi
+    echo ===========================================
+    echo = Mission Done!
+    echo = Thesis PDF is successfully generated!
+    echo ===========================================
+    exit
+}
+# --------------------------------------------------------------------------
+# Function: Installation
+# Document Class and Help PDF File Generation
+function install()
+{
+    mkdir example
+    echo Extracting and installing files...
+    xetex install/${PROJECT}.ins
+    echo Building user guide...
+    xelatex -no-pdf install/${PROJECT}.dtx
+    makeindex -q -s gglo.ist -o ${PROJECT}.gls ${PROJECT}.glo
+    echo Rebuilding to generate change-log...
+    xelatex -no-pdf install/${PROJECT}.dtx > /dev/null
+    makeindex -q -s gglo.ist -o ${PROJECT}.gls ${PROJECT}.glo > /dev/null
+    echo Rebuilding to generate cross-reference...
+    xelatex install/${PROJECT}.dtx
+    echo Clearing TMP files...
+    rm -f ${PROJECT}.aux ${PROJECT}.glo ${PROJECT}.ilg ${PROJECT}.ind
+    rm -f ${PROJECT}.out ${PROJECT}.toc ${PROJECT}.idx ${PROJECT}.hd ${PROJECT}.xdv ${PROJECT}.gls
+    echo ===========================================
+    echo = Mission Done!
+    echo = HUSTGraduateThesis is successfully installed!
+    echo ===========================================
+    exit
+}
+
+# --------------------------------------------------------------------------
+# Main Function Selection
+# Default Selection: thesis
+if [ "$#" = 1 ]; then
+    if [ "$1" = "install" ]; then
+        install
+    elif [ "$1" = "thesis" ]; then
+        thesis
+    elif [ "$1" = "clean" ]; then
+        clean
+    elif [ "$1" = "wordcount" ]; then
+        wordcount
+    else
+        echo ===========================================
+        echo = Undefined Parameter!
+        echo ===========================================
+    fi
+elif [ "$#" = 0 ]; then
+    thesis
+else
+    echo ===========================================
+    echo = Input Parameter Error!
+    echo = You should input at most 1 parameter: 
+    echo =     install
+    echo =     thesis
+    echo =     clean
+    echo = or leave it blank for default!
+    echo ===========================================
+fi
+# EOF
+

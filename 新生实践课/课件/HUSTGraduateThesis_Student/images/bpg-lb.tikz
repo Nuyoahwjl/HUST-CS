@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+  \filldraw (0, 0) circle (2pt) node[align=center, below] {$0h$};
+  \filldraw (1, 0) circle (2pt) node[align=center, below] {$1t$};
+  \filldraw (2, 0) circle (2pt) node[align=center, below] {$1h$};
+  \filldraw (3, 0) circle (2pt) node[align=center, below] {$3h$};
+  \filldraw (4, 0) circle (2pt) node[align=center, below] {$3t$};
+  \filldraw (5, 0) circle (2pt) node[align=center, below] {$2t$};
+  \filldraw (6, 0) circle (2pt) node[align=center, below] {$2h$};
+  \filldraw (7, 0) circle (2pt) node[align=center, below] {$5t$};
+  \filldraw (8, 0) circle (2pt) node[align=center, below] {$5h$};
+  \filldraw (9, 0) circle (2pt) node[align=center, below] {$4h$};
+  \filldraw (10, 0) circle (2pt) node[align=center, below] {$4t$};
+  \filldraw (11, 0) circle (2pt) node[align=center, below] {$6t$};
+  \draw [thick] (0, 0) -- (1, 0);
+  \draw [thick] (2, 0) -- (3, 0);
+  \draw [thick] (4, 0) -- (5, 0);
+  \draw [thick] (6, 0) -- (7, 0);
+  \draw [thick] (8, 0) -- (9, 0);
+  \draw [thick] (10, 0) -- (11, 0);
+  \draw [thick, dotted] (1, 0) arc (0:180:0.5 and 0.8);
+  \draw [thick, dotted] (5, 0) arc (0:180:1.5 and 0.8);
+  \draw [thick, dotted] (6, 0) arc (0:180:1.0 and 0.8);
+  \draw [thick, dotted] (10, 0) arc (0:180:3.5 and 1.2);
+  \draw [thick, dotted] (9, 0) arc (0:180:1.0 and 0.8);
+  \draw [thick, dotted] (11, 0) arc (0:180:1.5 and 0.8);
+ \draw (2.5, 4pt) -- (2.5, 4pt);
+ \draw (6.5, 4pt) -- (6.5, 4pt);
+\end{tikzpicture}

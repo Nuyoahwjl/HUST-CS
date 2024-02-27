@@ -1,0 +1,36 @@
+\contentsline {section}{摘要}{I}{section*.1}%
+\contentsline {section}{Abstract}{II}{section*.2}%
+\contentsline {section}{\numberline {1}绪论}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}课题背景}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}研究背景和趋势}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}面临的问题和挑战}{2}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}国内外研究现状}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}研究目的和主要内容}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}论文结构}{2}{subsection.1.4}%
+\contentsline {section}{\numberline {2}必要性与可行性分析}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}什么是必要性}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}什么是可行性}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}第四章性能测试要针对第一第二章提出的问题展开}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}本章小结}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}总体架构与功能模块设计}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}翻译主要靠有道怎么办}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}不会找文献怎么办}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}看不懂英文文献怎么办}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}不会用Visio画思维导图怎么办}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}本章小结}{8}{subsection.3.5}%
+\contentsline {section}{\numberline {4}功能模块实现与性能分析}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}程序调不通怎么办}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}依赖包装不了怎么办}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}环境变量配置不好怎么办}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}性能比不过SoTA怎么办}{11}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}贴代码}{11}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}本章小结}{12}{subsection.4.6}%
+\contentsline {section}{\numberline {5}总结与展望}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}所做工作的总结}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}存在的问题与展望}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}字数不够怎么办}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}查重不过怎么办}{13}{subsection.5.4}%
+\contentsline {section}{致谢}{14}{section*.11}%
+\contentsline {section}{参考文献}{15}{section*.12}%
+\contentsline {section}{附录A 本科期间承担或参与大创项目列表}{17}{section*.13}%
+\contentsline {section}{附录B 本科期间发表学术论文列表}{18}{section*.14}%
