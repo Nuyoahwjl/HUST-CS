@@ -1,3 +1,4 @@
+
 def say():
     print("人生苦短, 我要跟陈老师学Python!!!")
 def _CLanguage():
