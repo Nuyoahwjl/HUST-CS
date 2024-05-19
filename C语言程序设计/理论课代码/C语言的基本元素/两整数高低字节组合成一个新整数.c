@@ -4,5 +4,4 @@
  k= (unsigned short)k>>8|(unsigned short)p<<8
 
 
-    
  /**********End**********/
