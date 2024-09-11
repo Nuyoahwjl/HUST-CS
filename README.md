@@ -1,4 +1,4 @@
-<div align="center" style="front-size:50px;">
+<div align="center" style="front-size:100px;">
   <strong><del>HUST-CS 23级课程存档</del></strong>
 </div>
 
