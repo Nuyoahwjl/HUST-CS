@@ -1,3 +1,9 @@
+<div style="text-align:center;front-size:24px;">
+  <strong><del>HUST-CS 23级课程存档</del></strong>
+</div>
+
+
+
 <div align = center>
 <img src="./hust.png" width="360" height="300"/>
 </div>
