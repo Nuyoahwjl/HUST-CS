@@ -12,6 +12,6 @@
 ![](https://nuyoahwjl.github.io/img/coding.gif)
 -->
 
-<div style="text-align:center;">
-  <img src="https://nuyoahwjl.github.io/img/coding.gif" alt="" style="width:200px;height:100px;">
-</div>
+<div align="center">
+  <img src="https://nuyoahwjl.github.io/img/coding.gif" />
+<div align="center">
