@@ -1,5 +1,5 @@
 <div align="center" >
-  <strong><del><font size="50">HUST-CS 23级课程存档</font></del></strong>
+  <strong><del style="font-size:50px;">HUST-CS 23级课程存档</del></strong>
 </div>
 <div align = center>
   
