@@ -1,5 +1,5 @@
 <div align = center>
-<img src="./hust.png" width="" height="180"/>
+<img src="./hust.png" width="400" height="300"/>
 </div>
 
 <!--
