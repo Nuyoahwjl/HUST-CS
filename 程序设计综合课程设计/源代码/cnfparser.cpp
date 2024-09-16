@@ -1,7 +1,7 @@
 /*----------------------------cnfparser----------------------------*/
 
 #include "SAT.hpp"
-
+ 
 /*
  @ 函数名称: ReadFile
  @ 接受参数: clauseList &,char[]

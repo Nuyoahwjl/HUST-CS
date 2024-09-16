@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 
 /*头文件*/
 #include <stdio.h>
