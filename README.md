@@ -10,5 +10,6 @@
 <br>
 
 <div align="center">
+  <alt="https://shields.io/">
   <img src="https://img.shields.io/github/languages/code-size/Nuyoahwjl/HUST-CS?logo=visualstudiocode&style=for-the-badge" />
 </div>
