@@ -1,6 +1,6 @@
 
 <div align = center>
-<img src="./HUST.png" height="300" />
+<img src="./HUST.png" height="400" />
 </div>
 
 <div align="center">
