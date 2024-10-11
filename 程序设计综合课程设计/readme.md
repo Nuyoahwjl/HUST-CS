@@ -1,7 +1,7 @@
+<div align = center>
+<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="600">
+</div>
 
-<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="1000">
-
-### `HUST-CS 23级程序设计综合课程设计` 
 # <a name="_toc165911183"></a>**基于SAT的对角线数独游戏求解程序**
 ## <a name="_toc165911184"></a>**1.1 问题概述**
 SAT问题即命题逻辑公式的可满足性问题（satisfiability problem），是计算机科学与人工智能基本问题，是一个典型的NP完全问题，可广泛应用于许多实际问题如硬件设计、安全协议验证等，具有重要理论意义与应用价值。SAT问题也是程序设计与竞赛的经典问题。
@@ -17,7 +17,7 @@ SAT问题一般可描述为：给定布尔变元集合{*x*<sub>1</sub>, *x*<sub>
 一个CNF SAT公式或算例的具体信息通常存储在一个cnf 文件中，下图1.1是算例problem1.cnf文件前若干行的截图。
 
 <div align = center>
-<img src="./png/1.1.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.1.png" width="" height=""/>
 </div>
 
 在每个CNF文件的开始，由‘c’开头的是若干注释说明行；‘p’开头的行说明公式的总体信息，包括：范式为CNF；公式有200个布尔变元，由1到200的整数表示；320个子句。之后每行对应一个子句，0为结束标记。46表示第46号变元，且为正文字；-46则是对应的负文字，文字之间以空格分隔。
@@ -33,7 +33,7 @@ DPLL算法是基于树/二叉树的回溯搜索算法，主要使用两种基本
 交错使用上述两种策略可不断地对公式化简，并最终达到终止状态，其执行过程可表示为一棵二叉搜索树,如下图1.2所示。
 
 <div align = center>
-<img src="./png/1.2.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.2.png" width="" height=""/>
 </div>
 
 
@@ -86,7 +86,7 @@ DPLL算法是基于树/二叉树的回溯搜索算法，主要使用两种基本
 一个数独游戏初始时已经提供了一些提示数，如图2.3中的左图，要求在剩下的空格中填满数字。初始游戏格局要求只有唯一解（一般至少要有17个提示数），基于推理可以求解。如何生成一个有效的数独游戏格局？一种方案可以从互联网或数独文件读取不少于50个不同的初始合法格局（此生成设计计分评定为良）；另一种方案是设计一种算法自动生成（此生成设计计分评定为优），一般可采用从完整合法填充开始，基于挖洞法生成<sup>[9-11]</sup>。
 
 <div align = center>
-<img src="./png/1.3.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.3.png" width="" height=""/>
 </div>
 
 
@@ -161,7 +161,7 @@ SAT公式CNF文件中，一般变元是从1进行连续编码的，可以将上�
 对角线数独游戏<sup>[12-13]</sup>是一种变型的数独，即在上述普通数独的基础上又增加了一类约束：对角线约束，如图1.4所示。对角线约束要求在两条对角线（撇对角线与捺对角线）上的数字也不能重复。
 
 <div align = center>
-<img src="./png/1.4.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.4.png" width="" height=""/>
 </div>
 
 
@@ -174,7 +174,7 @@ SAT公式CNF文件中，一般变元是从1进行连续编码的，可以将上�
 根据设计问题的功能要求，图2.5提供了一个程序处理流程图，红色部分为基于DPLL的SAT求解相关功能模块（**课程设计首先必须完成的功能**），蓝色部分是游戏生成、转化、求解等处理模块（**求解必须调用DPLL SAT求解过程**）。此流程图仅供参考，不限定同学们的设计，可以以此为参照自由发挥。
 
 <div align = center>
-<img src="./png/1.5.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.5.png" width="" height=""/>
 </div>
 
 
@@ -195,7 +195,7 @@ SAT公式CNF文件中，一般变元是从1进行连续编码的，可以将上�
 本应用处理的主要数据对象有变元或文字、子句、公式等。同学们可以分析这些数据的逻辑关系及其施加的基本运算而建立相应的抽象数据类型，设计其物理存储结构。如子句有创建createClause、销毁destroyClause、增加addClause、删除removeClause、判断是否为单子句isUnitClause、评估子句的真假状态evaluateClause等运算。由于每个CNF公式变元与子句数可能不同，同一个实例中子句长度也可能不等,一种基本的处理方式是将子句表示为由文字构成的链表；整个公式则是由子句构成的链表，如图2.6所示，这里仅供参考（也许并非最优结构），同学们可自行设计相应的物理存储结构并进行优化,有效支持回溯。
 
 <div align = center>
-<img src="./png/1.6.png" width="" height=""/>
+<img src="https://github.com/Nuyoahwjl/HUST-SAT/raw/main/png/1.6.png" width="" height=""/>
 </div>
 
 
