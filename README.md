@@ -1,7 +1,7 @@
 <div align="center">
   <img width="300" src="./HUST-CS.png" />
-  <h2 align="center">🏫 School of Computer Science&Technology, HUST 🏫</h2>
-  <p align="center">🏆 Course archive: notes, code, lab reports, courseware, etc 🏆</p>
+  <h2 align="center">🏫 <i>School of Computer Science&Technology, HUST<i> 🏫</h2>
+  <p align="center">🏆 <i>Course archive: notes, code, lab reports, courseware, etc<i> 🏆</p>
 </div>
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 </div>
 <p align="center">
-❤️ If you have any questions, please ask ChatGPT ❤️
+❤️ <i>If you have any questions, please ask ChatGPT<i> ❤️
 </p>
 <div align="center">
   <a href="https://chatgpt.com">
@@ -24,12 +24,12 @@
 <br>
 
 <div align="center">
-<h2 align="center">⭐ Star History ⭐</h2>
+<h2 align="center">⭐ <i>Star History<i> ⭐</h2>
 <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
-   <img width="3600" alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
+   <img width="600" alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
  </picture>
 </a>
 </div>
@@ -37,7 +37,7 @@
 <br>
 
 <div align="center">
-<h2 align="center">💻 Coding.gif 💻</h2>
+<h2 align="center">⚡️ <i>Stay Awesome<i> ⚡️</h2>
   <img src="https://nuyoahwjl.github.io/img/coding.gif" />
 </div>
 
