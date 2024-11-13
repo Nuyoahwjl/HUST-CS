@@ -12,7 +12,7 @@
 <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline&theme=dark" />
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
  </picture>
 </a>
