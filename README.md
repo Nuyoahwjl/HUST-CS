@@ -41,16 +41,16 @@
 	<tr>
 		<td align="left">
 		  <a href="https://myoctocat.com">
-			  <img src="./CAT.png" alt="Octocat" width="430" />
+			  <img src="./Cat.png" alt="Octocat" width="500" />
 		  </a>
 		</td>
 		<td align="right">
 		  <a href="https://dday-widget.minung.dev">
-    	  <img src="https://dday-widget.minung.dev/widget?text=New%20Year%20%F0%9F%99%82&date=2025-01-01&startDate=2024-01-01&theme=theme2" alt="dday-widget.svg" width="570" />
+    	  <img src="https://dday-widget.minung.dev/widget?text=New%20Year%20%F0%9F%99%82&date=2025-01-01&startDate=2024-01-01&theme=theme2" alt="dday-widget.svg" width="500" />
   		</a>
     <br>
       <a href="https://streak-stats.demolab.com">
-		  <img src="https://nuyoahwjl.github.io/img/coding.gif" width="570" />
+		  <img src="https://nuyoahwjl.github.io/img/coding.gif" width="500" />
 		  </a>
 		</td>
 	</tr>
