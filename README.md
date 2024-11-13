@@ -26,11 +26,7 @@
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
 <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
    <img width="700" alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline" />
- </picture>
 </a>
 </div>
 
@@ -38,8 +34,28 @@
 
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
-  <img src="https://nuyoahwjl.github.io/img/coding.gif" />
 </div>
+
+<p align="center">
+	<table>
+	<tr>
+		<td align="left">
+		  <a href="https://myoctocat.com">
+			  <img src="./cat.png" alt="Octocat" width="400" />
+		  </a>
+		</td>
+		<td align="right">
+		  <a href="https://dday-widget.minung.dev">
+    	  <img src="https://dday-widget.minung.dev/widget?text=New%20Year%20%F0%9F%99%82&date=2025-01-01&startDate=2024-01-01&theme=theme2" alt="dday-widget.svg" width="400" />
+  		</a>
+    <br>
+      <a href="https://streak-stats.demolab.com">
+		  <img src="https://nuyoahwjl.github.io/img/coding.gif" width="500" />
+		  </a>
+		</td>
+	</tr>
+	</table>
+</p>
 
 
 <br>
@@ -49,3 +65,5 @@
   <a href="https://img.shields.io">
   <img src="https://img.shields.io/github/languages/code-size/Nuyoahwjl/HUST-CS?logo=visualstudiocode&style=for-the-badge" />
 </div>
+
+
