@@ -7,9 +7,9 @@
 
 ![stargazers](https://img.shields.io/github/stars/nuyoahwjl/HUST-CS)
 ![forks](https://img.shields.io/github/forks/nuyoahwjl/HUST-CS)
-![license](https://img.shields.io/github/license/nuyoahwjl/HUST-CS?style=plastic)
-![commit-activity](https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=plastic)
-![GitHub language count](https://img.shields.io/github/languages/count/nuyoahwjl/HUST-CS?style=plastic)
+![license](https://img.shields.io/github/license/nuyoahwjl/HUST-CS?style=flat)
+![commit-activity](https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=flat)
+![GitHub language count](https://img.shields.io/github/languages/count/nuyoahwjl/HUST-CS?style=flat)
 
 </div>
 <p align="center">
