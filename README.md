@@ -5,8 +5,8 @@
 </div>
 <div align="center">
 
-![stargazers](https://img.shields.io/github/stars/nuyoahwjl/HUST-CS?style=plastic)
-![forks](https://img.shields.io/github/forks/nuyoahwjl/HUST-CS?style=plastic)
+![stargazers](https://img.shields.io/github/stars/nuyoahwjl/HUST-CS)
+![forks](https://img.shields.io/github/forks/nuyoahwjl/HUST-CS)
 ![license](https://img.shields.io/github/license/nuyoahwjl/HUST-CS?style=plastic)
 ![commit-activity](https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=plastic)
 ![GitHub language count](https://img.shields.io/github/languages/count/nuyoahwjl/HUST-CS?style=plastic)
