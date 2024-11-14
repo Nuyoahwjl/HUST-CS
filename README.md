@@ -8,7 +8,7 @@
 ![stargazers](https://img.shields.io/github/stars/nuyoahwjl/HUST-CS)
 ![forks](https://img.shields.io/github/forks/nuyoahwjl/HUST-CS)
 ![license](https://img.shields.io/github/license/nuyoahwjl/HUST-CS?style=flat)
-![commit-activity](https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=flat)
+![code-size](https://img.shields.io/github/languages/code-size/Nuyoahwjl/HUST-CS?logo=visualstudiocode&style=flat)
 ![GitHub language count](https://img.shields.io/github/languages/count/nuyoahwjl/HUST-CS?style=flat)
 
 </div>
@@ -39,9 +39,15 @@
 
 <br>
 
+
+<!--
 <div align="center">
   <a href="https://img.shields.io">
-  <img src="https://img.shields.io/github/languages/code-size/Nuyoahwjl/HUST-CS?logo=visualstudiocode&style=flat" />
+  <img src="https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=flat" />
 </div>
+-->
+
+
+
 
 
