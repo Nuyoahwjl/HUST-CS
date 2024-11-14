@@ -34,7 +34,11 @@
 
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
+   <img src="https://github.com/Nuyoahwjl/Nuyoahwjl/header_.png"/>
 </div>
+
+
+<!--
 
 <div align="center">
 	<table>
@@ -56,6 +60,9 @@
 	</tr>
 	</table>
 </div>
+
+-->
+
 
 
 <br>
