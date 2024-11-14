@@ -34,7 +34,7 @@
 
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
-   <img src="https://github.com/Nuyoahwjl/Nuyoahwjl/header_.png"/>
+   <img src="https://raw.githubusercontent.com/Nuyoahwjl/Nuyoahwjl/main/header_.png"/>
 </div>
 
 
