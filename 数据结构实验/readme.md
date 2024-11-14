@@ -24,8 +24,11 @@
 
 - [演示系统(cpp)](./Graph/Graph_ADT.cpp) （`Graph`）
 
+
+<!--
+
 <div align="left">
   <img alt="GIF" src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif" />
 </div>
 
-
+-->
