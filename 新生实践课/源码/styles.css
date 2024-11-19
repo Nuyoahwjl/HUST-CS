@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.lazy-load {
+    width: 300px; /* 设定图片的初始宽度 */
+    transition: all 0.3s ease-in-out; /* 过渡效果，包括过渡属性、时长、速度曲线 */
+}
+
+.lazy-load:hover {
+    transform: scale(1.2); /* 在鼠标悬停时放大图片 */
+}
