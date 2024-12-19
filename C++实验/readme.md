@@ -16,7 +16,7 @@ gitGraph
    commit id: "extract TurnLeftCommand"
    commit id: "extract TurnRightCommand"
    commit id: "abstract ICommand"
-   branch ab2-oop-three-features
+   branch lab2-oop-three-features
    commit id: "feat: Add test cases for fast command"
    commit id: "test: Pass test cases for fast command"
    branch lab2-oop-support-F
