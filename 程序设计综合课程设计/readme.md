@@ -1,7 +1,3 @@
-<div align = center>
-<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="600"/>
-</div>
-
 # <a name="_toc165911183"></a>**基于SAT的对角线数独游戏求解程序**
 ## <a name="_toc165911184"></a>**1.1 问题概述**
 SAT问题即命题逻辑公式的可满足性问题（satisfiability problem），是计算机科学与人工智能基本问题，是一个典型的NP完全问题，可广泛应用于许多实际问题如硬件设计、安全协议验证等，具有重要理论意义与应用价值。SAT问题也是程序设计与竞赛的经典问题。
@@ -229,16 +225,13 @@ SAT公式CNF文件中，一般变元是从1进行连续编码的，可以将上�
 
 [8] Uwe Pfeiffer, Tomas Karnagel and Guido Scheffler. A Sudoku-Solver for Large Puzzles using SAT. LPAR-17-short (EPiC Series, vol. 13): 52–57
 
-[9] Sudoku Puzzles Generating: from Easy to Evil.
-
-<http://zhangroup.aporc.org/images/files/Paper_3485.pdf>
+[9] Sudoku Puzzles Generating: from Easy to Evil.<http://zhangroup.aporc.org/images/files/Paper_3485.pdf>
 
 [10] 薛源海，蒋彪彬，李永卓. 基于“挖洞”思想的数独游戏生成算法. 数学的实践与认识,2009,39(21):1-7
 
 [11] 黄祖贤. 数独游戏的问题生成及求解算法优化. 安徽工业大学学报(自然科学版), 2015,32(2):187-191
 
-<a name="_hlk165907229"></a>[12] 对角线数独简介,
+[12] 对角线数独简介,<https://www.toutiao.com/article/7268970095840756224/?log\_from=c34b227a9af95\_1715086601212>
 
-https://www.toutiao.com/article/7268970095840756224/?log\_from=c34b227a9af95\_1715086601212
+[13] X-Sudoku online，<http://www.sudoku-space.com/x-sudoku/>
 
-[13] X-Sudoku online，http://www.sudoku-space.com/x-sudoku/
