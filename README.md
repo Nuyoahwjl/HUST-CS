@@ -34,7 +34,7 @@
 
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
-   <img src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/Nuyoahwjl/header_.png"/>
+   <img src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/Nuyoahwjl/image/header_.png"/>
 </div>
 
 <br>
