@@ -15,7 +15,7 @@ jobs:
 
     - name: Download STAR-HISTORY PNG
       run: |
-        curl -s -o STAR-HISTORY.png "https://star-history.com/#nuyoahwjl/HUST-CS&Timeline"
+        curl -s -o STAR-HISTORY.png "https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline"
 
     - name: Commit changes
       run: |
