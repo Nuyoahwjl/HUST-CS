@@ -8,7 +8,9 @@ on:
 jobs:
   update-STAR-HISTORY:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -23,4 +25,4 @@ jobs:
         git config --global user.email "actions@github.com"
         git add STAR-HISTORY.png
         git diff --quiet && git diff --staged --quiet || git commit -m "Update STAR-HISTORY.png"
-        git push
+        git push https://x-access-token:${GITHUB_TOKEN}@github.com/Nuyoahwjl/HUST-CS.git HEAD:main
