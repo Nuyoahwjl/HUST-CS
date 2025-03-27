@@ -15,14 +15,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Download STAR-HISTORY PNG
+    - name: Download STAR-HISTORY SVG
       run: |
-        curl -s -o STAR-HISTORY.png "https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline"
+        curl -s -o STAR-HISTORY.svg "https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline"
 
     - name: Commit changes
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add STAR-HISTORY.png
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update STAR-HISTORY.png"
+        git add STAR-HISTORY.svg
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update STAR-HISTORY.svg"
         git push https://x-access-token:${GITHUB_TOKEN}@github.com/Nuyoahwjl/HUST-CS.git HEAD:main
