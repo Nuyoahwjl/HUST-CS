@@ -13,7 +13,7 @@
 	  <tr>
 		  <td align="left">
 		    <a href="https://myoctocat.com">
-			    <img src="https://raw.githubusercontent.com//Nuyoahwjl/HUST-CS/main/Cat.png" alt="Octocat" width="540" />
+			    <img src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/Nuyoahwjl/cat.png" alt="Octocat" width="540" />
 		    </a>
 		  </td>
 		  <td align="right">
