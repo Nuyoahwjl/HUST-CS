@@ -26,7 +26,7 @@
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
-     <img width="500" alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline"/>
+     <img width="500" alt="Star History Chart" src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/HUST-CS/STAR-HISTORY.svg"/>
   </a>
 </div>
 
