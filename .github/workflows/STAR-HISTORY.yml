@@ -6,7 +6,7 @@ on:
   workflow_dispatch:       # 允许手动触发
 
 jobs:
-  update-trophy:
+  update-STAR-HISTORY:
     runs-on: ubuntu-latest
 
     steps:
