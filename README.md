@@ -22,10 +22,6 @@
 </div>
 
 
-<br>
-
-
-
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
