@@ -26,7 +26,6 @@
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://www.star-history.com/embed?secret=Z2hwX2tXNWZDSEJrOU4xVUxodHpKQ3N0TDJUdm5SNGVjWTF0NkloZg==#Nuyoahwjl/HUST-CS&Date" frameBorder="0"></iframe>
-  </a>
 </div>
 
 <div align="center">
