@@ -22,12 +22,22 @@
 </div>
 
 
-<div align="center">
+<!-- <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
      <img width="500" alt="Star History Chart" src="https://api.star-history.com/svg?repos=nuyoahwjl/HUST-CS&type=Timeline"/>
   </a>
+</div> -->
+
+
+<div align="center">
+<h2 align="center">⭐ <i>Star History</i> ⭐</h2>
+  <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history?repo_id=762912553">
+     <img width="500" alt="Star History Chart" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=762912553&image_size=auto&color_scheme=light"/>
+  </a>
 </div>
+
+
 
 
 <div align="center">
