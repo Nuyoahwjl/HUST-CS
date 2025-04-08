@@ -13,11 +13,11 @@
 
 </div>
 <p align="center">
-❤️ <i>If you have any questions, please ask ChatGPT</i> ❤️
+❤️ <i>If you have any questions, please ask DeepSeek</i> ❤️
 </p>
 <div align="center">
-  <a href="https://chatgpt.com">
-    <img src="https://img.shields.io/badge/ChatGPT-74aa9c?style=plat&logo=openai&logoColor=white"/>
+  <a href="https://deepseek.com">
+    <img src="https://img.shields.io/badge/DeepSeek-000000?style=plat&logo=&logoColor=white"/>
   </a>
 </div>
 
