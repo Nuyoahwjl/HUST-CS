@@ -1,4 +1,15 @@
-typedef int KeyType; 
+#include "stdio.h"
+#include "stdlib.h"
+#define TRUE 1
+#define FALSE 0
+#define OK 1
+#define ERROR 0
+#define INFEASIBLE -1
+#define OVERFLOW -2
+#define MAX_VERTEX_NUM 20
+typedef int status;
+typedef int KeyType;
+
 typedef struct {  //二叉树结点数据类型定义
      KeyType  key;
      char others[20];
