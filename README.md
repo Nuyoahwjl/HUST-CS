@@ -35,7 +35,7 @@
 <div align="center">
 <h2 align="center">📥 <i>Clone the Repository</i> 📥</h2>
   <p align="center"><i>Get your local copy with one command!</i></p>
-  <p align="center"><b><i>git clone https://github.com/Nuyoahwjl/HUST-CS.git</i></b></p>
+  <p align="center"><b><i>"git clone https://github.com/Nuyoahwjl/HUST-CS.git"</i></b></p>
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/nuyoahwjl/HUST-CS)
 ![GitHub contributors](https://img.shields.io/github/contributors/nuyoahwjl/HUST-CS)
@@ -61,7 +61,7 @@
 <div align="center">
 <h2 align="center">📌 <i>Contribution Guidelines</i> 📌</h2>
   <h4 align="center">✅ <i>We welcome</i> ✅</h4>
-  <p align="center"><b><i>📚Course notes/material improvements、🐛Bug fixes in code samples、🧪Lab report templates 、🎯Any helpful additions</i></b></p>
+  <p align="center"><b><i>📚Course notes/material improvements、🐛Bug fixes in code samples、🧪Lab report templates</i></b></p>
   <h4 align="center">❌ <i>Please avoid</i> ❌</h4>
   <p align="center"><b><i>🚫Copyright-protected content 、🗑️Low-quality/unrelated materials、🔒Sensitive information</i></b></p>
 </div>
