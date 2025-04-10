@@ -25,6 +25,13 @@
 </div>
 
 
+<div align="center">
+<h2 align="center">📥 <i>Clone the Repository</i> 📥</h2>
+  <p align="center"><i>Get your local copy with one command!</i></p>
+  <code align="center"><b><i>git clone https://github.com/Nuyoahwjl/HUST-CS.git</i></b></code>
+</div>
+
+
 <!-- <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
@@ -36,15 +43,8 @@
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://starchart.cc/Nuyoahwjl/HUST-CS">
-     <img width="500" alt="Star History Chart" src="https://starchart.cc/Nuyoahwjl/HUST-CS.svg?variant=adaptive"/>
+     <img width="600" alt="Star History Chart" src="https://starchart.cc/Nuyoahwjl/HUST-CS.svg?variant=adaptive"/>
   </a>
-</div>
-
-
-<div align="center">
-<h2 align="center">📥 <i>Clone the Repository</i> 📥</h2>
-  <p align="center"><i>Get your local copy with one command!</i></p>
-  <code align="center"><b><i>git clone https://github.com/Nuyoahwjl/HUST-CS.git</i></b></code>
 </div>
 
 
