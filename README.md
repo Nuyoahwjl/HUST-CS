@@ -82,6 +82,10 @@
 <br>
 
 
+<p align="center">🖋️ Crafted with ♥ by [chia.le] 🖋️</p>
+<p align="center">📬 Reach me at [chia.le@foxmial.com] 📬</p>
+
+
 <!--
 <div align="center">
   <a href="https://img.shields.io">
