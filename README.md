@@ -40,7 +40,7 @@
 </div>
 
 
-<div align="center">
+<!-- <div align="center">
 <h2 align="center">✍️ <i>How to Contribute</i> ✍️</h2>
   <p align="center">🍴 <i>1-Fork the Repository</i> 🍴</p>
   <p align="center"><b><i>Click the 'Fork' button at top-right corner</i></b></p>
@@ -55,7 +55,7 @@
   <br>
   <p align="center">🔄 <i>5-Create Pull Request</i> 🔄</p>
   <p align="center"><b><i>Open PR from your forked repo to main repository</i></b></p>
-</div>
+</div> -->
 
 
 <!-- <div align="center">
