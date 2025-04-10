@@ -45,26 +45,26 @@
 
 <div align="center">
 <h2 align="center">✍️ <i>How to Contribute</i> ✍️</h2>
-  <h4 align="center">🍴 <i>1-Fork the Repository</i> 🍴</h4>
+  <p align="center">🍴 <i>1-Fork the Repository</i> 🍴</p>
   <p align="center"><b><i>Click the 'Fork' button at top-right corner</i></b></p>
-  <h4 align="center">🌿 <i>2-Create a Branch</i> 🌿</h4>
+  <p align="center">🌿 <i>2-Create a Branch</i> 🌿</p>
   <p align="center"><b><i>git checkout -b your-feature-branch</i></b></p>
-  <h4 align="center">💾 <i>3-Commit Changes</i> 💾</h4>
-  <p align="center"><b><i>git commit -m "Add: [Your meaningful message]"</i></b></p>  
-  <h4 align="center">🚀 <i>4-Push to GitHub</i> 🚀</h4>
+  <p align="center">💾 <i>3-Commit Changes</i> 💾</p>
+  <p align="center"><b><i>git commit -m "Add: [Your message]"</i></b></p>  
+  <p align="center">🚀 <i>4-Push to GitHub</i> 🚀</p>
   <p align="center"><b><i>git push origin your-feature-branch</i></b></p>
-  <h4 align="center">🔄 <i>5-Create Pull Request</i> 🔄</h4>
+  <p align="center">🔄 <i>5-Create Pull Request</i> 🔄</p>
   <p align="center"><b><i>Open PR from your forked repo to main repository</i></b></p>
 </div>
 
 
-<div align="center">
+<!-- <div align="center">
 <h2 align="center">📌 <i>Contribution Guidelines</i> 📌</h2>
   <h4 align="center">✅ <i>We welcome</i> ✅</h4>
   <p align="center"><b><i>📚Course notes/material improvements、🐛Bug fixes in code samples、🧪Lab report templates</i></b></p>
   <h4 align="center">❌ <i>Please avoid</i> ❌</h4>
   <p align="center"><b><i>🚫Copyright-protected content 、🗑️Low-quality/unrelated materials、🔒Sensitive information</i></b></p>
-</div>
+</div> -->
 
 
 <div align="center">
