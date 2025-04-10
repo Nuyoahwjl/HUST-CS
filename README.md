@@ -21,7 +21,6 @@
   </a>
 </div>
 
-
 <!-- <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://star-history.com/#nuyoahwjl/HUST-CS&Timeline">
@@ -29,14 +28,17 @@
   </a>
 </div> -->
 
-
-
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
    <img src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/Nuyoahwjl/image/header_.png"/>
 </div>
-
 <br>
+
+
+
+
+
+
 
 
 <!--
@@ -48,31 +50,7 @@
 
 
 
-<!--
-<div align="center">
 
-``` mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-</div>
--->
 
 
 
