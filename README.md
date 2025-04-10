@@ -83,7 +83,7 @@
 
 
 <p align="center">🖋️ Crafted with ♥ by [chia.le] 🖋️</p>
-<p align="center">📬 Reach me at [chia.le@foxmial.com] 📬</p>
+<p align="center">📬 Reach me at [chia.le@foxmail.com] 📬</p>
 
 
 <!--
