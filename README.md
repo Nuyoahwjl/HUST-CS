@@ -34,6 +34,14 @@
 
 
 <div align="center">
+<h2 align="center">⭐ <i>Star History</i> ⭐</h2>
+  <a href="https://starchart.cc/Nuyoahwjl/HUST-CS">
+     <img width="500" alt="Star History Chart" src="https://starchart.cc/Nuyoahwjl/HUST-CS.svg?variant=adaptive"/>
+  </a>
+</div>
+
+
+<div align="center">
 <h2 align="center">📥 <i>Clone the Repository</i> 📥</h2>
   <p align="center"><i>Get your local copy with one command!</i></p>
   <code align="center"><b><i>git clone https://github.com/Nuyoahwjl/HUST-CS.git</i></b></code>
