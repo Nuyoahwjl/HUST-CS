@@ -82,8 +82,8 @@
 <br>
 
 
-<p align="center">🖋️ Crafted with ♥ by [chia.le] 🖋️</p>
-<p align="center">📬 Reach me at [chia.le@foxmail.com] 📬</p>
+<p align="center">🖋️ <i>Crafted with ♥ by [chia.le]</i> 🖋️</p>
+<p align="center">📬 <i>Reach me at [chia.le@foxmail.com]</i> 📬</p>
 
 
 <!--
