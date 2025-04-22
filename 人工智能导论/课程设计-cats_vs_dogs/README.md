@@ -1,4 +1,4 @@
-# 基于CNN的猫狗识别系统
+# 基于CNN的猫狗分类系统
 
 这是一个基于卷积神经网络（CNN）实现的猫狗分类系统。通过深度学习，模型能够识别图像中的猫或狗，输出其类别及概率。该项目主要分为数据预处理、模型构建、训练和评估四个部分。
 
@@ -137,9 +137,11 @@ python test.py
 - 该项目使用 TensorFlow 1.x，如果你使用的是 TensorFlow 2.x，确保启用了兼容模式：`import tensorflow.compat.v1 as tf` 并调用 `tf.disable_v2_behavior()`。
 
 ## 训练图（准确率与损失值）
+> [!important]
+> 由于每50步记录一次数据且没有做平滑处理，此图不太美观
 
-![准确率和损失值图](./image/Accuracy&Loss.png)  
+![准确率和损失值图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats_Vs_Dogs/image/Accuracy&Loss.png)  
 
 ## 预测结果图
 
-![预测结果图](./image/Prediction.png)
+![预测结果图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats_Vs_Dogs/image/Prediction.png)
