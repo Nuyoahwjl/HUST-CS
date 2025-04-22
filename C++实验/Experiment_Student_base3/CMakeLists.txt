@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-PROJECT("Experiment_Student")
+PROJECT("Experiment_Student_base3")
 
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "-Wno-deprecated-declarations -Wall -Werror -Wnon-virtual-dtor -Woverloaded-virtual")
