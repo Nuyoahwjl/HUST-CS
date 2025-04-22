@@ -1,0 +1,1 @@
+ "D:/Desktop/HUST-CS/C++_/Experiment_Student/bin/libExperiment_Student.a" ../lib/libgtest_main.a ../lib/libgtest.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

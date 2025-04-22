@@ -1,0 +1,1 @@
+-I"D:/Desktop/HUST-CS/C++_/Experiment_Student/include" -I"D:/Desktop/HUST-CS/C++_/Experiment_Student/src" -isystem "D:/Desktop/HUST-CS/C++_/Experiment_Student/tests/googletest/googletest/include" -isystem "D:/Desktop/HUST-CS/C++_/Experiment_Student/tests/googletest/googletest"
