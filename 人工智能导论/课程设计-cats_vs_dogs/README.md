@@ -140,8 +140,8 @@ python test.py
 > [!important]
 > 由于每100步记录一次数据且没有做平滑处理，此图不太美观
 
-![准确率和损失值图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats_Vs_Dogs/image/Accuracy&Loss.png)  
+![准确率和损失值图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats-Vs-Dogs/image/Accuracy&Loss.png)  
 
 ## 预测结果图
 
-![预测结果图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats_Vs_Dogs/image/Prediction.png)
+![预测结果图](https://cdn.jsdelivr.net/gh//Nuyoahwjl/Cats-Vs-Dogs/image/Prediction.png)
