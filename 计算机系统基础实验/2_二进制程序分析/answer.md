@@ -6,7 +6,7 @@
 0x565564e3 <+22>:	push   0x1c(%esp)
 0x565564e7 <+26>:	call   0x56556a1a <strings_not_equal>
 ```
-![alt text](.\png\15.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/15.png)
 
 
 ----------
@@ -207,7 +207,7 @@ edi            0x565581e0          1448444384
 0x565567a1 <+72>:	mov    %edi,%ebp
 0x565567a3 <+74>:	jmp    0x565567c8 <phase_6+111>
 ```
-![alt text](.\png\4.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/4.png)
 #### 0x10(%esp)为数组首地址，0x14(%esp)为第一个数，第一个数<=6
 ``` bash
 0x565567c8 <+111>:	mov    0x10(%esp),%eax   
@@ -311,7 +311,7 @@ edi            0x565581e0          1448444384
 0x5655681d <+196>:	cmp    $0x1,%ecx
 0x56556820 <+199>:	jle    0x5655682c <phase_6+211>
 ```
-![alt text](.\png\1.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/1.png)
 #### 初始时，%edx为链表首地址，1个结点占12个字节
 ``` bash
 0x56556822 <+201>:	mov    0x8(%edx),%edx
@@ -323,7 +323,7 @@ edi            0x565581e0          1448444384
 [key|value]
 [1|457] -> [2|863] -> [3|513] -> [4|516] -> [5|928] -> [6|751] -> NULL
 ```
-![alt text](.\png\2.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/2.png)
 #### %esp+0x44处依次存放链表第a[n]个结点的地址(n:0~5)
 ``` bash
 0x5655682c <+211>:	mov    %edx,0x44(%esp,%edi,4)
@@ -331,7 +331,7 @@ edi            0x565581e0          1448444384
 0x56556833 <+218>:	cmp    $0x6,%esi
 0x56556836 <+221>:	jne    0x5655680c <phase_6+179>
 ```
-![alt text](.\png\3.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/3.png)
 #### 重置链表(改变指针的连接)，其key值顺序与a[n]一致
 ``` bash
 0x56556838 <+223>:	mov    0x44(%esp),%esi
@@ -383,7 +383,7 @@ edi            0x565581e0          1448444384
 0x56556d29 <+89>:	push   %eax
 0x56556d2a <+90>:	call   0x56556140 <__isoc99_sscanf@plt>
 ```
-![alt text](.\png\5.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/5.png)
 #### %eax检查第四关是否输入了字符串，所以先随便输入123abc进行测试
 ``` bash
 0x56556d32 <+98>:	cmp    $0x3,%eax
@@ -399,7 +399,7 @@ edi            0x565581e0          1448444384
 0x56556d59 <+137>:	push   %eax
 0x56556d5a <+138>:	call   0x56556a1a <strings_not_equal>
 ```
-![alt text](.\png\6.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/6.png)
 #### 添加"DrEvil"后
 ``` bash
 0x56556d5a <+138>:	call   0x56556a1a <strings_not_equal>
@@ -411,7 +411,7 @@ edi            0x565581e0          1448444384
 0x56556d6f <+159>:	push   %eax
 0x56556d70 <+160>:	call   0x565560f0 <puts@plt>
 ```
-![alt text](.\png\7.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/7.png)
 #### 接下来进入secret_phase
 ``` bash
 0x56556d75 <+165>:	lea    -0x2ce4(%ebx),%eax
@@ -419,7 +419,7 @@ edi            0x565581e0          1448444384
 0x56556d7e <+174>:	call   0x565560f0 <puts@plt>
 0x56556d83 <+179>:	call   0x565568f0 <secret_phase>
 ```
-![alt text](.\png\8.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/8.png)
 #### 输入1 3进行测试
 ``` bash
 0x56556908 <+24>:	push   $0xa
@@ -427,7 +427,7 @@ edi            0x565581e0          1448444384
 0x5655690c <+28>:	push   %eax
 0x5655690d <+29>:	call   0x565561b0 <strtol@plt>
 ```
-![alt text](.\png\9.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/9.png)
 #### 第一个数<=1001
 ``` bash
 0x56556912 <+34>:	mov    %eax,%esi
@@ -445,13 +445,13 @@ edi            0x565581e0          1448444384
 0x5655692b <+59>:	push   %eax
 0x5655692c <+60>:	call   0x5655689f <fun7>
 ```
-![alt text](.\png\10.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/10.png)
 #### 进入fun7函数，%edx为根结点地址，%ecx为第一个数
 ``` bash
 0x565568a3 <+4>:	mov    0x10(%esp),%edx
 0x565568a7 <+8>:	mov    0x14(%esp),%ecx
 ```
-![alt text](.\png\11.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/11.png)
 #### 第一个数小于结点值则进入左子树查找，大于则进入右子树查找
 #### 查找到或进入右子树，%eax赋为0
 #### 查找完左子树，%eax=2*%eax
@@ -493,6 +493,6 @@ edi            0x565581e0          1448444384
 0x56556934 <+68>:	cmp    $0x3,%eax
 0x56556937 <+71>:	jne    0x5655695a <secret_phase+106>
 ```
-![alt text](.\png\12.png)
-![alt text](.\png\13.png)
-![alt text](.\png\14.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/12.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/13.png)
+![](https://cdn.jsdelivr.net/gh/Nuyoahwjl/HUST-ICS/2_二进制程序分析/png/14.png)
