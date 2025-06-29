@@ -1,0 +1,101 @@
+rule,confidence
+baking powder --> whole milk,0.5229885057471264
+"rolls/buns,beef --> whole milk",0.5
+"yogurt,beef --> whole milk",0.5217391304347826
+"yogurt,bottled beer --> whole milk",0.5604395604395604
+"bottled water,butter --> whole milk",0.6022727272727273
+"brown bread,other vegetables --> whole milk",0.5
+"root vegetables,brown bread --> whole milk",0.56
+"tropical fruit,brown bread --> whole milk",0.5333333333333333
+"butter,citrus fruit --> whole milk",0.5555555555555556
+"butter,domestic eggs --> whole milk",0.6210526315789474
+"butter,root vegetables --> other vegetables",0.5118110236220472
+"butter,tropical fruit --> other vegetables",0.5510204081632653
+"butter,whipped/sour cream --> other vegetables",0.57
+"butter,other vegetables --> whole milk",0.5736040609137056
+"butter,root vegetables --> whole milk",0.6377952755905512
+"butter,tropical fruit --> whole milk",0.6224489795918368
+"butter,whipped/sour cream --> whole milk",0.66
+"butter,yogurt --> whole milk",0.6388888888888888
+"root vegetables,chicken --> other vegetables",0.5233644859813084
+"rolls/buns,chicken --> whole milk",0.5473684210526316
+"root vegetables,chicken --> whole milk",0.5514018691588785
+"citrus fruit,domestic eggs --> whole milk",0.5490196078431373
+"root vegetables,citrus fruit --> other vegetables",0.5862068965517241
+"citrus fruit,whipped/sour cream --> other vegetables",0.5233644859813084
+"root vegetables,citrus fruit --> whole milk",0.5172413793103449
+"citrus fruit,whipped/sour cream --> whole milk",0.5794392523364486
+"yogurt,coffee --> whole milk",0.5208333333333334
+"yogurt,cream cheese --> whole milk",0.5327868852459017
+"curd,root vegetables --> other vegetables",0.5046728971962616
+"tropical fruit,curd --> other vegetables",0.5148514851485149
+"curd,other vegetables --> whole milk",0.5739644970414202
+"curd,rolls/buns --> whole milk",0.5858585858585859
+"curd,root vegetables --> whole milk",0.5700934579439252
+"tropical fruit,curd --> whole milk",0.6336633663366337
+"tropical fruit,curd --> yogurt",0.5148514851485149
+"curd,whipped/sour cream --> whole milk",0.5631067961165048
+"yogurt,curd --> whole milk",0.5823529411764706
+"margarine,domestic eggs --> whole milk",0.6219512195121951
+"root vegetables,domestic eggs --> other vegetables",0.5106382978723404
+"whipped/sour cream,domestic eggs --> other vegetables",0.5102040816326531
+"domestic eggs,other vegetables --> whole milk",0.5525114155251142
+"domestic eggs,pip fruit --> whole milk",0.6235294117647059
+"root vegetables,domestic eggs --> whole milk",0.5957446808510638
+"tropical fruit,domestic eggs --> whole milk",0.6071428571428571
+"whipped/sour cream,domestic eggs --> whole milk",0.5714285714285714
+"yogurt,domestic eggs --> whole milk",0.5390070921985816
+"frankfurter,root vegetables --> whole milk",0.5
+"tropical fruit,frankfurter --> whole milk",0.5483870967741935
+"yogurt,frankfurter --> whole milk",0.5545454545454546
+"frozen vegetables,root vegetables --> other vegetables",0.5263157894736842
+"frozen vegetables,other vegetables --> whole milk",0.5428571428571428
+"frozen vegetables,rolls/buns --> whole milk",0.5
+"frozen vegetables,root vegetables --> whole milk",0.5350877192982456
+"root vegetables,fruit/vegetable juice --> other vegetables",0.5508474576271186
+"root vegetables,fruit/vegetable juice --> whole milk",0.5423728813559322
+"yogurt,fruit/vegetable juice --> whole milk",0.5054347826086957
+"hygiene articles,other vegetables --> whole milk",0.5425531914893617
+"long life bakery product,other vegetables --> whole milk",0.5333333333333333
+"root vegetables,margarine --> other vegetables",0.5321100917431193
+"margarine,rolls/buns --> whole milk",0.5379310344827586
+"newspapers,root vegetables --> other vegetables",0.5221238938053098
+"newspapers,root vegetables --> whole milk",0.504424778761062
+"oil,other vegetables --> whole milk",0.5102040816326531
+"onions,root vegetables --> other vegetables",0.6021505376344086
+"onions,whole milk --> other vegetables",0.5462184873949579
+"root vegetables,pastry --> other vegetables",0.5370370370370371
+"root vegetables,pip fruit --> other vegetables",0.5228758169934641
+"whipped/sour cream,pip fruit --> other vegetables",0.6043956043956044
+"other vegetables,pip fruit --> whole milk",0.5175097276264592
+"root vegetables,pork --> other vegetables",0.5149253731343284
+"root vegetables,rolls/buns --> other vegetables",0.502092050209205
+"shopping bags,root vegetables --> other vegetables",0.5158730158730159
+"tropical fruit,root vegetables --> other vegetables",0.5845410628019324
+"root vegetables,whipped/sour cream --> other vegetables",0.5
+"yogurt,root vegetables --> other vegetables",0.5
+"sugar,other vegetables --> whole milk",0.5849056603773585
+"tropical fruit,whipped/sour cream --> other vegetables",0.5661764705882353
+"whipped/sour cream,other vegetables --> whole milk",0.5070422535211268
+"yogurt,other vegetables --> whole milk",0.5128805620608899
+"root vegetables,pastry --> whole milk",0.5185185185185185
+"tropical fruit,pastry --> whole milk",0.5076923076923077
+"yogurt,pastry --> whole milk",0.5172413793103449
+"root vegetables,pip fruit --> whole milk",0.5751633986928104
+"sausage,pip fruit --> whole milk",0.5188679245283019
+"whipped/sour cream,pip fruit --> whole milk",0.6483516483516484
+"yogurt,pip fruit --> whole milk",0.5310734463276836
+"pork,rolls/buns --> whole milk",0.5495495495495496
+"root vegetables,pork --> whole milk",0.5
+"root vegetables,rolls/buns --> whole milk",0.5230125523012552
+"whipped/sour cream,rolls/buns --> whole milk",0.5347222222222222
+"root vegetables,sausage --> whole milk",0.5170068027210885
+"tropical fruit,root vegetables --> whole milk",0.5700483091787439
+"root vegetables,whipped/sour cream --> whole milk",0.5535714285714286
+"yogurt,root vegetables --> whole milk",0.562992125984252
+"tropical fruit,sausage --> whole milk",0.5182481751824818
+"sausage,whipped/sour cream --> whole milk",0.5617977528089888
+"tropical fruit,whipped/sour cream --> whole milk",0.5735294117647058
+"tropical fruit,yogurt --> whole milk",0.5173611111111112
+"yogurt,whipped/sour cream --> whole milk",0.5245098039215687
+Total Rules: 99

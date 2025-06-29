@@ -1,0 +1,266 @@
+itemset,support
+"rolls/buns,beef,other vegetables",0.005795627859684799
+"root vegetables,beef,other vegetables",0.007930859176410779
+"whole milk,beef,other vegetables",0.009252669039145907
+"yogurt,beef,other vegetables",0.005185561769191663
+"whole milk,rolls/buns,beef",0.00681240467717336
+"root vegetables,whole milk,beef",0.008032536858159633
+"yogurt,whole milk,beef",0.006100660904931368
+"bottled water,bottled beer,soda",0.005083884087442806
+"bottled water,bottled beer,whole milk",0.006100660904931368
+"bottled beer,whole milk,other vegetables",0.007625826131164209
+"bottled beer,whole milk,rolls/buns",0.005388917132689374
+"yogurt,bottled beer,whole milk",0.005185561769191663
+"bottled water,butter,whole milk",0.005388917132689374
+"bottled water,citrus fruit,other vegetables",0.005083884087442806
+"bottled water,citrus fruit,whole milk",0.005897305541433655
+"bottled water,soda,fruit/vegetable juice",0.005185561769191663
+"bottled water,whole milk,fruit/vegetable juice",0.005795627859684799
+"bottled water,rolls/buns,other vegetables",0.007320793085917641
+"bottled water,root vegetables,other vegetables",0.007015760040671073
+"bottled water,sausage,other vegetables",0.005083884087442806
+"bottled water,soda,other vegetables",0.0056939501779359435
+"bottled water,tropical fruit,other vegetables",0.0062023385866802234
+"bottled water,whole milk,other vegetables",0.010777834265378749
+"bottled water,yogurt,other vegetables",0.00813421453990849
+"bottled water,soda,rolls/buns",0.00681240467717336
+"bottled water,rolls/buns,tropical fruit",0.005388917132689374
+"bottled water,whole milk,rolls/buns",0.008744280630401627
+"bottled water,rolls/buns,yogurt",0.0071174377224199285
+"bottled water,root vegetables,whole milk",0.007320793085917641
+"bottled water,soda,tropical fruit",0.005185561769191663
+"bottled water,whole milk,soda",0.0075241484494153535
+"bottled water,soda,yogurt",0.007422470767666497
+"bottled water,whole milk,tropical fruit",0.008032536858159633
+"bottled water,yogurt,tropical fruit",0.0071174377224199285
+"bottled water,whole milk,yogurt",0.009659379766141332
+"brown bread,whole milk,other vegetables",0.009354346720894764
+"yogurt,brown bread,other vegetables",0.005185561769191663
+"brown bread,whole milk,rolls/buns",0.0052872394509405184
+"root vegetables,brown bread,whole milk",0.0056939501779359435
+"whole milk,brown bread,soda",0.005083884087442806
+"tropical fruit,brown bread,whole milk",0.0056939501779359435
+"yogurt,brown bread,whole milk",0.0071174377224199285
+"butter,citrus fruit,whole milk",0.005083884087442806
+"butter,whole milk,domestic eggs",0.005998983223182512
+"butter,rolls/buns,other vegetables",0.0056939501779359435
+"butter,root vegetables,other vegetables",0.0066090493136756485
+"butter,tropical fruit,other vegetables",0.005490594814438231
+"butter,whipped/sour cream,other vegetables",0.005795627859684799
+"butter,whole milk,other vegetables",0.011489578037620742
+"butter,yogurt,other vegetables",0.006405693950177936
+"butter,whole milk,rolls/buns",0.0066090493136756485
+"butter,root vegetables,whole milk",0.008235892221657347
+"butter,whole milk,tropical fruit",0.0062023385866802234
+"butter,whole milk,whipped/sour cream",0.006710726995424504
+"butter,whole milk,yogurt",0.009354346720894764
+"root vegetables,chicken,other vegetables",0.0056939501779359435
+"whole milk,chicken,other vegetables",0.008439247585155059
+"whole milk,rolls/buns,chicken",0.0052872394509405184
+"root vegetables,whole milk,chicken",0.005998983223182512
+"whole milk,other vegetables,chocolate",0.005490594814438231
+"whole milk,soda,chocolate",0.005083884087442806
+"citrus fruit,whole milk,domestic eggs",0.0056939501779359435
+"pip fruit,citrus fruit,other vegetables",0.005897305541433655
+"citrus fruit,rolls/buns,other vegetables",0.005998983223182512
+"root vegetables,citrus fruit,other vegetables",0.010371123538383325
+"tropical fruit,citrus fruit,other vegetables",0.009049313675648195
+"citrus fruit,whipped/sour cream,other vegetables",0.0056939501779359435
+"citrus fruit,whole milk,other vegetables",0.013014743263853584
+"yogurt,citrus fruit,other vegetables",0.007625826131164209
+"tropical fruit,citrus fruit,pip fruit",0.005592272496187087
+"citrus fruit,whole milk,pip fruit",0.005185561769191663
+"citrus fruit,whole milk,rolls/buns",0.007219115404168785
+"yogurt,citrus fruit,rolls/buns",0.005795627859684799
+"tropical fruit,root vegetables,citrus fruit",0.0056939501779359435
+"root vegetables,citrus fruit,whole milk",0.009150991357397052
+"tropical fruit,citrus fruit,whole milk",0.009049313675648195
+"tropical fruit,citrus fruit,yogurt",0.00630401626842908
+"whole milk,citrus fruit,whipped/sour cream",0.00630401626842908
+"yogurt,citrus fruit,whole milk",0.010269445856634469
+"whole milk,other vegetables,coffee",0.006405693950177936
+"yogurt,whole milk,coffee",0.005083884087442806
+"cream cheese,whole milk,other vegetables",0.006710726995424504
+"yogurt,cream cheese,other vegetables",0.0052872394509405184
+"yogurt,cream cheese,whole milk",0.0066090493136756485
+"curd,root vegetables,other vegetables",0.005490594814438231
+"tropical fruit,curd,other vegetables",0.0052872394509405184
+"curd,whole milk,other vegetables",0.009862735129639044
+"yogurt,curd,other vegetables",0.006100660904931368
+"curd,whole milk,rolls/buns",0.005897305541433655
+"curd,root vegetables,whole milk",0.0062023385866802234
+"tropical fruit,curd,whole milk",0.006507371631926792
+"tropical fruit,curd,yogurt",0.0052872394509405184
+"curd,whole milk,whipped/sour cream",0.005897305541433655
+"yogurt,curd,whole milk",0.010066090493136757
+"whole milk,margarine,domestic eggs",0.005185561769191663
+"rolls/buns,domestic eggs,other vegetables",0.005897305541433655
+"root vegetables,domestic eggs,other vegetables",0.007320793085917641
+"soda,domestic eggs,other vegetables",0.005083884087442806
+"whipped/sour cream,domestic eggs,other vegetables",0.005083884087442806
+"whole milk,domestic eggs,other vegetables",0.012302999491611592
+"yogurt,domestic eggs,other vegetables",0.005795627859684799
+"whole milk,domestic eggs,pip fruit",0.005388917132689374
+"whole milk,rolls/buns,domestic eggs",0.0066090493136756485
+"root vegetables,whole milk,domestic eggs",0.008540925266903915
+"whole milk,soda,domestic eggs",0.005185561769191663
+"tropical fruit,whole milk,domestic eggs",0.006914082358922217
+"whole milk,whipped/sour cream,domestic eggs",0.0056939501779359435
+"yogurt,whole milk,domestic eggs",0.007727503812913066
+"frankfurter,rolls/buns,other vegetables",0.005592272496187087
+"frankfurter,whole milk,other vegetables",0.007625826131164209
+"frankfurter,whole milk,rolls/buns",0.005998983223182512
+"frankfurter,root vegetables,whole milk",0.005083884087442806
+"tropical fruit,frankfurter,whole milk",0.005185561769191663
+"yogurt,frankfurter,whole milk",0.0062023385866802234
+"frozen vegetables,root vegetables,other vegetables",0.006100660904931368
+"frozen vegetables,whole milk,other vegetables",0.009659379766141332
+"yogurt,frozen vegetables,other vegetables",0.0052872394509405184
+"frozen vegetables,whole milk,rolls/buns",0.005083884087442806
+"frozen vegetables,root vegetables,whole milk",0.0062023385866802234
+"yogurt,frozen vegetables,whole milk",0.006100660904931368
+"root vegetables,other vegetables,fruit/vegetable juice",0.0066090493136756485
+"tropical fruit,other vegetables,fruit/vegetable juice",0.0066090493136756485
+"whole milk,other vegetables,fruit/vegetable juice",0.01047280122013218
+"yogurt,other vegetables,fruit/vegetable juice",0.008235892221657347
+"whole milk,rolls/buns,fruit/vegetable juice",0.005592272496187087
+"root vegetables,whole milk,fruit/vegetable juice",0.006507371631926792
+"whole milk,soda,fruit/vegetable juice",0.006100660904931368
+"yogurt,soda,fruit/vegetable juice",0.005083884087442806
+"tropical fruit,whole milk,fruit/vegetable juice",0.005998983223182512
+"yogurt,whole milk,fruit/vegetable juice",0.00945602440264362
+"whole milk,hamburger meat,other vegetables",0.00630401626842908
+"whole milk,hygiene articles,other vegetables",0.005185561769191663
+"long life bakery product,whole milk,other vegetables",0.0056939501779359435
+"margarine,rolls/buns,other vegetables",0.005185561769191663
+"root vegetables,margarine,other vegetables",0.005897305541433655
+"whole milk,margarine,other vegetables",0.009252669039145907
+"yogurt,margarine,other vegetables",0.0056939501779359435
+"whole milk,margarine,rolls/buns",0.007930859176410779
+"yogurt,whole milk,margarine",0.007015760040671073
+"napkins,whole milk,other vegetables",0.00681240467717336
+"napkins,whole milk,rolls/buns",0.0052872394509405184
+"yogurt,napkins,whole milk",0.006100660904931368
+"newspapers,rolls/buns,other vegetables",0.005490594814438231
+"newspapers,root vegetables,other vegetables",0.005998983223182512
+"newspapers,whole milk,other vegetables",0.008337569903406202
+"yogurt,newspapers,other vegetables",0.005592272496187087
+"newspapers,whole milk,rolls/buns",0.007625826131164209
+"yogurt,newspapers,rolls/buns",0.005083884087442806
+"newspapers,root vegetables,whole milk",0.005795627859684799
+"tropical fruit,newspapers,whole milk",0.005083884087442806
+"yogurt,newspapers,whole milk",0.0066090493136756485
+"oil,whole milk,other vegetables",0.005083884087442806
+"onions,root vegetables,other vegetables",0.0056939501779359435
+"onions,whole milk,other vegetables",0.0066090493136756485
+"rolls/buns,pastry,other vegetables",0.006100660904931368
+"root vegetables,pastry,other vegetables",0.005897305541433655
+"soda,pastry,other vegetables",0.005490594814438231
+"tropical fruit,pastry,other vegetables",0.005083884087442806
+"whole milk,pastry,other vegetables",0.010574478901881037
+"yogurt,pastry,other vegetables",0.0066090493136756485
+"pip fruit,rolls/buns,other vegetables",0.005083884087442806
+"pip fruit,root vegetables,other vegetables",0.00813421453990849
+"tropical fruit,pip fruit,other vegetables",0.00945602440264362
+"pip fruit,whipped/sour cream,other vegetables",0.005592272496187087
+"pip fruit,whole milk,other vegetables",0.013523131672597865
+"yogurt,pip fruit,other vegetables",0.00813421453990849
+"rolls/buns,pork,other vegetables",0.005592272496187087
+"root vegetables,pork,other vegetables",0.007015760040671073
+"whole milk,pork,other vegetables",0.010167768174885612
+"root vegetables,rolls/buns,other vegetables",0.012201321809862735
+"sausage,rolls/buns,other vegetables",0.008845958312150484
+"shopping bags,rolls/buns,other vegetables",0.0052872394509405184
+"soda,rolls/buns,other vegetables",0.009862735129639044
+"tropical fruit,rolls/buns,other vegetables",0.007829181494661922
+"whipped/sour cream,rolls/buns,other vegetables",0.006710726995424504
+"whole milk,rolls/buns,other vegetables",0.017895271987798677
+"yogurt,rolls/buns,other vegetables",0.011489578037620742
+"root vegetables,sausage,other vegetables",0.00681240467717336
+"shopping bags,root vegetables,other vegetables",0.0066090493136756485
+"root vegetables,soda,other vegetables",0.008235892221657347
+"tropical fruit,root vegetables,other vegetables",0.012302999491611592
+"root vegetables,whipped/sour cream,other vegetables",0.008540925266903915
+"root vegetables,whole milk,other vegetables",0.023182511438739197
+"yogurt,root vegetables,other vegetables",0.012913065582104729
+"shopping bags,sausage,other vegetables",0.005388917132689374
+"sausage,soda,other vegetables",0.007219115404168785
+"tropical fruit,sausage,other vegetables",0.005998983223182512
+"sausage,whole milk,other vegetables",0.010167768174885612
+"yogurt,sausage,other vegetables",0.00813421453990849
+"shopping bags,soda,other vegetables",0.005388917132689374
+"shopping bags,whole milk,other vegetables",0.007625826131164209
+"shopping bags,yogurt,other vegetables",0.005388917132689374
+"tropical fruit,soda,other vegetables",0.007219115404168785
+"whole milk,soda,other vegetables",0.013929842399593289
+"yogurt,soda,other vegetables",0.008337569903406202
+"whole milk,sugar,other vegetables",0.00630401626842908
+"tropical fruit,whipped/sour cream,other vegetables",0.007829181494661922
+"tropical fruit,whole milk,other vegetables",0.01708185053380783
+"tropical fruit,yogurt,other vegetables",0.012302999491611592
+"whole milk,whipped/sour cream,other vegetables",0.014641586171835282
+"yogurt,whipped/sour cream,other vegetables",0.010167768174885612
+"whole milk,white bread,other vegetables",0.005897305541433655
+"yogurt,whole milk,other vegetables",0.02226741230299949
+"whole milk,pastry,pip fruit",0.005083884087442806
+"soda,pastry,rolls/buns",0.005388917132689374
+"whole milk,pastry,rolls/buns",0.008540925266903915
+"yogurt,pastry,rolls/buns",0.005795627859684799
+"root vegetables,whole milk,pastry",0.0056939501779359435
+"sausage,whole milk,pastry",0.0056939501779359435
+"whole milk,soda,pastry",0.008235892221657347
+"tropical fruit,whole milk,pastry",0.006710726995424504
+"yogurt,whole milk,pastry",0.009150991357397052
+"whole milk,rolls/buns,pip fruit",0.0062023385866802234
+"tropical fruit,root vegetables,pip fruit",0.0052872394509405184
+"root vegetables,whole milk,pip fruit",0.008947635993899338
+"yogurt,root vegetables,pip fruit",0.0052872394509405184
+"sausage,whole milk,pip fruit",0.005592272496187087
+"tropical fruit,whole milk,pip fruit",0.008439247585155059
+"tropical fruit,yogurt,pip fruit",0.006405693950177936
+"whole milk,whipped/sour cream,pip fruit",0.005998983223182512
+"yogurt,whole milk,pip fruit",0.009557702084392475
+"whole milk,pork,rolls/buns",0.0062023385866802234
+"root vegetables,whole milk,pork",0.00681240467717336
+"tropical fruit,root vegetables,rolls/buns",0.005897305541433655
+"root vegetables,whole milk,rolls/buns",0.012709710218607015
+"yogurt,root vegetables,rolls/buns",0.007219115404168785
+"shopping bags,sausage,rolls/buns",0.005998983223182512
+"sausage,soda,rolls/buns",0.009659379766141332
+"sausage,whole milk,rolls/buns",0.009354346720894764
+"yogurt,sausage,rolls/buns",0.005998983223182512
+"shopping bags,soda,rolls/buns",0.00630401626842908
+"shopping bags,whole milk,rolls/buns",0.0052872394509405184
+"tropical fruit,soda,rolls/buns",0.005388917132689374
+"whole milk,soda,rolls/buns",0.008845958312150484
+"yogurt,soda,rolls/buns",0.00864260294865277
+"tropical fruit,whole milk,rolls/buns",0.010981189628876462
+"tropical fruit,rolls/buns,yogurt",0.008744280630401627
+"whole milk,whipped/sour cream,rolls/buns",0.007829181494661922
+"yogurt,whole milk,rolls/buns",0.015556685307574987
+"root vegetables,sausage,whole milk",0.007727503812913066
+"yogurt,root vegetables,sausage",0.005185561769191663
+"shopping bags,root vegetables,whole milk",0.0052872394509405184
+"whole milk,root vegetables,soda",0.00813421453990849
+"tropical fruit,root vegetables,whole milk",0.011997966446365024
+"tropical fruit,root vegetables,yogurt",0.00813421453990849
+"whole milk,root vegetables,whipped/sour cream",0.00945602440264362
+"yogurt,root vegetables,whipped/sour cream",0.006405693950177936
+"yogurt,root vegetables,whole milk",0.014539908490086425
+"shopping bags,sausage,soda",0.0056939501779359435
+"whole milk,sausage,soda",0.006710726995424504
+"yogurt,sausage,soda",0.005592272496187087
+"tropical fruit,sausage,whole milk",0.007219115404168785
+"whole milk,sausage,whipped/sour cream",0.005083884087442806
+"yogurt,sausage,whole milk",0.008744280630401627
+"shopping bags,whole milk,soda",0.00681240467717336
+"shopping bags,whole milk,yogurt",0.0052872394509405184
+"tropical fruit,whole milk,soda",0.007829181494661922
+"tropical fruit,soda,yogurt",0.0066090493136756485
+"whole milk,soda,whipped/sour cream",0.005490594814438231
+"yogurt,whole milk,soda",0.01047280122013218
+"tropical fruit,whole milk,whipped/sour cream",0.007930859176410779
+"tropical fruit,whipped/sour cream,yogurt",0.0062023385866802234
+"tropical fruit,whole milk,yogurt",0.015149974580579562
+"yogurt,whole milk,whipped/sour cream",0.010879511947127605
+Total Frequent Itemsets: 264
