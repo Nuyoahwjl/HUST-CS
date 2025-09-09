@@ -17,7 +17,7 @@
 </div>
 
 
-<p align="center">❤️ <i>If you have any questions, please ask DeepSeek</i> ❤️</p>
+<p align="center">❤️ <i>If you have any questions, click to ask DeepSeek</i> ❤️</p>
 <div align="center">
   <a href="https://deepseek.com">
     <img src="https://img.shields.io/badge/DeepSeek-000000?style=plat&logo=&logoColor=white"/>
