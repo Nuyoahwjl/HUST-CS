@@ -86,11 +86,12 @@
 <p align="center">📬 <i>Reach me at [chia.le@foxmail.com]</i> 📬</p>
 
 
-
+<!--
 <div align="center">
   <a href="https://img.shields.io">
   <img src="https://img.shields.io/github/commit-activity/m/nuyoahwjl/HUST-CS?style=flat" />
 </div>
+-->
 
 
 
