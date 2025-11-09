@@ -1,0 +1,12 @@
+model: imdn
+scale: 3
+train:
+  train_dir: data/T91
+  val_dir: data/Set5
+  epochs: 500
+  batch_size: 16
+  patch_size: 96
+  lr: 1e-4
+  opt: Adam
+  crit: MSE
+  save_dir: output/imdn_x3

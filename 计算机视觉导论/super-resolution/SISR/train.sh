@@ -1,0 +1,1 @@
+python train.py --config configs/srcnn_x2.yaml
