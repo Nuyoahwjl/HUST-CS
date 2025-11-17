@@ -1,0 +1,24 @@
+\usepackage{listings}
+\usepackage{color}
+\definecolor{eclipseBlue}{RGB}{42,0.0,255}
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+
+\lstset {
+  basicstyle=\small\ttfamily,
+  captionpos=b,
+  tabsize=2,
+  columns=fixed,
+  breaklines=true,
+  frame=l,
+  numbers=left,
+  numberstyle=\small\ttfamily,
+  morekeywords= {
+    EQUAL, GREATER, LESS, NONE, SOME, abstraction, abstype, and, andalso, array, as, before, bool, case, char, datatype, do, else, end, eqtype, exception, exn, false, fn, fun, functor, handle, if, in, include, infix, infixr, int, let, list, local, nil, nonfix, not, o, of, op, open, option, orelse, overload, print, raise, real, rec, ref, sharing, sig, signature, string, struct, structure, substring, then, true, type, unit, val, vector, where, while, with, withtype, word
+  },
+  morestring=[b]",
+  morecomment=[s]{(*}{*)},
+  stringstyle=\color{black},
+  identifierstyle=\color{eclipseBlue},
+  keywordstyle=\color{red},
+  commentstyle=\color{eclipseGreen}
+}
