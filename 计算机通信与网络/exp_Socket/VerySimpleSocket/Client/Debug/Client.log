@@ -1,0 +1,4 @@
+﻿  Client.cpp
+d:\desktop\computer-networking\exp_socket\socket\client\client.cpp(11): warning C4326: “main”的返回类型应为“int”而非“void”
+d:\desktop\computer-networking\exp_socket\socket\client\client.cpp(31): warning C4101: “addrLen”: 未引用的局部变量
+  Client.vcxproj -> D:\Desktop\Computer-Networking\exp_Socket\Socket\Client\Debug\Client.exe

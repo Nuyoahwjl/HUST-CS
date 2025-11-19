@@ -1,0 +1,3 @@
+D:/CLionProjects/StopWait/cmake-build-debug/CMakeFiles/stop_wait.dir
+D:/CLionProjects/StopWait/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLionProjects/StopWait/cmake-build-debug/CMakeFiles/rebuild_cache.dir

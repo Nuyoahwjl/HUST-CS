@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  SessionSocket.cpp
+  ChatRoomClientGUIDlg.cpp
+  ChatRoomClientGUI.cpp
+  正在生成代码...
+ChatRoomClientGUI.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  ChatRoomClientGUI.vcxproj -> D:\DotNetProject\VS2017\WinsockExample\Debug\ChatRoomClientGUI.exe

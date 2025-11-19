@@ -1,0 +1,11 @@
+[project]
+name = "lab2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mininet>=2.3.0.dev6",
+    "os-ken>=3.0.1",
+    "tinyrpc>=1.1.7",
+]

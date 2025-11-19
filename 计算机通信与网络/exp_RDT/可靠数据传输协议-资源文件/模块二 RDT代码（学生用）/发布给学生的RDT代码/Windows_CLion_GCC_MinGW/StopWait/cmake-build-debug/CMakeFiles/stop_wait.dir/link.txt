@@ -1,0 +1,3 @@
+"D:\JetBrains\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\stop_wait.dir/objects.a
+D:\mingw64\bin\ar.exe cr CMakeFiles\stop_wait.dir/objects.a @CMakeFiles\stop_wait.dir\objects1.rsp
+D:\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\stop_wait.dir/objects.a -Wl,--no-whole-archive  -o ..\bin\stop_wait.exe -Wl,--out-implib,..\bin\libstop_wait.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\stop_wait.dir\linklibs.rsp

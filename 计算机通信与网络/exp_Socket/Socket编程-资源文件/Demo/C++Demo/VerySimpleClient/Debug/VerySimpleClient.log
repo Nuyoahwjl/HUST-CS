@@ -1,0 +1,4 @@
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  Client.cpp
+d:\dotnetproject\vs2017\winsockexample\verysimpleclient\client.cpp(31): warning C4101: “addrLen”: 未引用的局部变量
+  VerySimpleClient.vcxproj -> D:\DotNetProject\VS2017\WinsockExample\Debug\VerySimpleClient.exe

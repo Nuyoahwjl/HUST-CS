@@ -1,0 +1,7 @@
+﻿  WinsockEnv.cpp
+  Server.cpp
+  Run.cpp
+  Config.cpp
+  正在生成代码...
+Config.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  ChatRoomServerAsyn.vcxproj -> D:\DotNetProject\VS2017\WinsockExample\Debug\ChatRoomServerAsyn.exe

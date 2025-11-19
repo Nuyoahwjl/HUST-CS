@@ -1,0 +1,237 @@
+=================
+hard_timeout=0
+=================
+
+------------
+Terminal 1 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 20ms
+Audited 38 packages in 15ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+(lab2) huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ osken-manager self_learning_switch.py
+2 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app self_learning_switch.py
+loading app os_ken.controller.ofp_handler
+instantiating app self_learning_switch.py of Switch
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+[Packet matched]
+dpid=2, src=ca:14:93:cd:8f:05, in_port=1, dst=52:f1:b2:66:4c:df, out_port=2
+[Packet matched]
+dpid=1, src=ca:14:93:cd:8f:05, in_port=2, dst=52:f1:b2:66:4c:df, out_port=4
+[Packet matched]
+dpid=4, src=ca:14:93:cd:8f:05, in_port=2, dst=52:f1:b2:66:4c:df, out_port=1
+[Packet matched]
+dpid=4, src=52:f1:b2:66:4c:df, in_port=1, dst=ca:14:93:cd:8f:05, out_port=2
+[Packet matched]
+dpid=1, src=52:f1:b2:66:4c:df, in_port=4, dst=ca:14:93:cd:8f:05, out_port=2
+[Packet matched]
+dpid=2, src=52:f1:b2:66:4c:df, in_port=2, dst=ca:14:93:cd:8f:05, out_port=1
+
+------------
+Terminal 2
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 1ms
+Audited 38 packages in 3ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ sudo ./topo_1.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(s1, h1) (10.00Mbit 50ms delay) (10.00Mbit 50ms delay) (s1, s2) (10.00Mbit 34ms delay) (10.00Mbit 34ms delay) (s1, s3) (10.00Mbit 13ms delay) (10.00Mbit 13ms delay) (s1, s4) (s2, h2) (s3, h3) (s4, h4) 
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(10.00Mbit 50ms delay) (10.00Mbit 34ms delay) (10.00Mbit 13ms delay) (10.00Mbit 50ms delay) (10.00Mbit 34ms delay) (10.00Mbit 13ms delay) 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+*** Starting CLI:
+mininet> h3 wireshark &
+mininet> h4 ping -c 10 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=412 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=128 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=6 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=7 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=8 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=9 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=10 ttl=64 time=127 ms
+
+--- 10.0.0.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9017ms
+rtt min/avg/max/mdev = 126.548/155.517/412.442/85.642 ms
+mininet> dpctl dump-flows
+*** s1 ------------------------------------------------------------------------
+ cookie=0x0, duration=196.982s, table=0, n_packets=11, n_bytes=1022, priority=1,in_port="s1-eth2",dl_dst=52:f1:b2:66:4c:df actions=output:"s1-eth4"
+ cookie=0x0, duration=196.926s, table=0, n_packets=10, n_bytes=924, priority=1,in_port="s1-eth4",dl_dst=ca:14:93:cd:8f:05 actions=output:"s1-eth2"
+ cookie=0x0, duration=215.229s, table=0, n_packets=55, n_bytes=6027, priority=0 actions=CONTROLLER:65535
+*** s2 ------------------------------------------------------------------------
+ cookie=0x0, duration=197.109s, table=0, n_packets=11, n_bytes=1022, priority=1,in_port="s2-eth1",dl_dst=52:f1:b2:66:4c:df actions=output:"s2-eth2"
+ cookie=0x0, duration=196.938s, table=0, n_packets=10, n_bytes=924, priority=1,in_port="s2-eth2",dl_dst=ca:14:93:cd:8f:05 actions=output:"s2-eth1"
+ cookie=0x0, duration=215.283s, table=0, n_packets=56, n_bytes=6230, priority=0 actions=CONTROLLER:65535
+*** s3 ------------------------------------------------------------------------
+ cookie=0x0, duration=215.321s, table=0, n_packets=53, n_bytes=5887, priority=0 actions=CONTROLLER:65535
+*** s4 ------------------------------------------------------------------------
+ cookie=0x0, duration=197.107s, table=0, n_packets=11, n_bytes=1022, priority=1,in_port="s4-eth2",dl_dst=52:f1:b2:66:4c:df actions=output:"s4-eth1"
+ cookie=0x0, duration=197.085s, table=0, n_packets=10, n_bytes=924, priority=1,in_port="s4-eth1",dl_dst=ca:14:93:cd:8f:05 actions=output:"s4-eth2"
+ cookie=0x0, duration=215.357s, table=0, n_packets=55, n_bytes=6027, priority=0 actions=CONTROLLER:65535
+mininet> exit
+*** Stopping 1 controllers
+c0 
+*** Stopping 7 links
+.......
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done
+
+
+=================
+hard_timeout=5
+=================
+
+------------
+Terminal 1 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 38ms
+Audited 38 packages in 22ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+(lab2) huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ osken-manager self_learning_switch.py
+2 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app self_learning_switch.py
+loading app os_ken.controller.ofp_handler
+instantiating app self_learning_switch.py of Switch
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+[Packet matched]
+dpid=2, src=6e:c6:f9:09:18:f4, in_port=1, dst=22:af:09:88:12:b3, out_port=2
+[Packet matched]
+dpid=1, src=6e:c6:f9:09:18:f4, in_port=2, dst=22:af:09:88:12:b3, out_port=4
+[Packet matched]
+dpid=4, src=6e:c6:f9:09:18:f4, in_port=2, dst=22:af:09:88:12:b3, out_port=1
+[Packet matched]
+dpid=4, src=22:af:09:88:12:b3, in_port=1, dst=6e:c6:f9:09:18:f4, out_port=2
+[Packet matched]
+dpid=1, src=22:af:09:88:12:b3, in_port=4, dst=6e:c6:f9:09:18:f4, out_port=2
+[Packet matched]
+dpid=2, src=22:af:09:88:12:b3, in_port=2, dst=6e:c6:f9:09:18:f4, out_port=1
+[Packet matched]
+dpid=2, src=6e:c6:f9:09:18:f4, in_port=1, dst=22:af:09:88:12:b3, out_port=2
+[Packet matched]
+dpid=1, src=6e:c6:f9:09:18:f4, in_port=2, dst=22:af:09:88:12:b3, out_port=4
+[Packet matched]
+dpid=4, src=6e:c6:f9:09:18:f4, in_port=2, dst=22:af:09:88:12:b3, out_port=1
+[Packet matched]
+dpid=4, src=22:af:09:88:12:b3, in_port=1, dst=6e:c6:f9:09:18:f4, out_port=2
+[Packet matched]
+dpid=1, src=22:af:09:88:12:b3, in_port=4, dst=6e:c6:f9:09:18:f4, out_port=2
+[Packet matched]
+dpid=2, src=22:af:09:88:12:b3, in_port=2, dst=6e:c6:f9:09:18:f4, out_port=1
+
+------------
+Terminal 2 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 1ms
+Audited 38 packages in 3ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ sudo ./topo_1.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(s1, h1) (10.00Mbit 50ms delay) (10.00Mbit 50ms delay) (s1, s2) (10.00Mbit 34ms delay) (10.00Mbit 34ms delay) (s1, s3) (10.00Mbit 13ms delay) (10.00Mbit 13ms delay) (s1, s4) (s2, h2) (s3, h3) (s4, h4) 
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(10.00Mbit 50ms delay) (10.00Mbit 34ms delay) (10.00Mbit 13ms delay) (10.00Mbit 50ms delay) (10.00Mbit 34ms delay) (10.00Mbit 13ms delay) 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+*** Starting CLI:
+mininet> h4 ping -c 10 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=287 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=128 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=6 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=7 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=8 ttl=64 time=127 ms
+64 bytes from 10.0.0.2: icmp_seq=9 ttl=64 time=129 ms
+64 bytes from 10.0.0.2: icmp_seq=10 ttl=64 time=127 ms
+
+--- 10.0.0.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9005ms
+rtt min/avg/max/mdev = 126.625/143.197/287.313/48.042 ms
+mininet> exit
+*** Stopping 1 controllers
+c0 
+*** Stopping 7 links
+.......
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done
+
+
+h2 ⟺  (port_1)s2(port_2) ⟺  (port_2)s1(port_4) ⟺  (port_2)s4(port_1) ⟺  h4

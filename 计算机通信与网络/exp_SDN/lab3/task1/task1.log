@@ -1,0 +1,188 @@
+------------
+Terminal 1 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 41 packages in 19ms
+Audited 39 packages in 20ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab3/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab3
+💡 提示：退出虚拟环境请输入：deactivate
+(lab3) huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ osken-manager least_hops.py --observe-links
+2 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app least_hops.py
+loading app os_ken.controller.ofp_handler
+loading app os_ken.topology.switches
+loading app os_ken.controller.ofp_handler
+instantiating app None of NetworkAwareness
+creating context network_awareness
+instantiating app least_hops.py of LeastHops
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+instantiating app os_ken.topology.switches of Switches
+topo map:
+   node     ->     node   
+
+ 
+topo map:
+   node     ->     node   
+    6               7     
+    6               5     
+    7               8     
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    5               9     
+    1               9     
+    9               8     
+
+
+topo map:
+   node     ->     node   
+    6               7     
+    6               5     
+    7               8     
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    5               9     
+    1               9     
+    9               8     
+
+
+topo map:
+   node     ->     node   
+    6               7     
+    6               5     
+    7               8     
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    5               9     
+    1               9     
+    9               8     
+
+
+[ARP loop detected]
+dpid=4, src=26:92:a2:c4:ac:0a, dst=ff:ff:ff:ff:ff:ff, in_port=2 (previous=3)
+[ARP loop detected]
+dpid=2, src=26:92:a2:c4:ac:0a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=9, src=26:92:a2:c4:ac:0a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=5, src=26:92:a2:c4:ac:0a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=5, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=4)
+host not find/no path
+[ARP loop detected]
+dpid=9, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=2, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=4, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=2 (previous=4)
+topo map:
+   node     ->     node   
+    6               7     
+    6               5     
+    7               8     
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    5               9     
+    2            10.0.0.2 
+    1               9     
+    9               8     
+    9            10.0.0.9 
+
+
+path: 10.0.0.2 -> 10.0.0.9
+10.0.0.2 -> 1:s2:3 -> 2:s4:4 -> 2:s5:3 -> 3:s9:1 -> 10.0.0.9
+[ARP loop detected]
+dpid=5, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=2, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=9, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=4, src=b6:83:a2:44:de:8b, dst=26:92:a2:c4:ac:0a, in_port=2 (previous=4)
+[ARP loop detected]
+dpid=4, src=26:92:a2:c4:ac:0a, dst=b6:83:a2:44:de:8b, in_port=2 (previous=3)
+[ARP loop detected]
+dpid=2, src=26:92:a2:c4:ac:0a, dst=b6:83:a2:44:de:8b, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=9, src=26:92:a2:c4:ac:0a, dst=b6:83:a2:44:de:8b, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=5, src=26:92:a2:c4:ac:0a, dst=b6:83:a2:44:de:8b, in_port=3 (previous=2)
+
+
+
+------------
+Terminal 2
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 41 packages in 6ms
+Audited 39 packages in 5ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab3/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab3
+💡 提示：退出虚拟环境请输入：deactivate
+(lab3) huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ sudo ./topo.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Adding switches:
+s1 s2 s3 s4 s5 s6 s7 s8 s9 
+*** Adding links:
+(s1, h1) (10.00Mbit 20ms delay) (10.00Mbit 20ms delay) (s1, s9) (s2, h2) (10.00Mbit 16ms delay) (10.00Mbit 16ms delay) (s2, s3) (10.00Mbit 40ms delay) (10.00Mbit 40ms delay) (s2, s4) (s3, h3) (10.00Mbit 14ms delay) (10.00Mbit 14ms delay) (s3, s4) (s4, h4) (10.00Mbit 55ms delay) (10.00Mbit 55ms delay) (s4, s5) (s5, h5) (10.00Mbit 15ms delay) (10.00Mbit 15ms delay) (s5, s6) (10.00Mbit 100ms delay) (10.00Mbit 100ms delay) (s5, s9) (s6, h6) (10.00Mbit 10ms delay) (10.00Mbit 10ms delay) (s6, s7) (s7, h7) (10.00Mbit 12ms delay) (10.00Mbit 12ms delay) (s7, s8) (s8, h8) (10.00Mbit 13ms delay) (10.00Mbit 13ms delay) (s8, s9) (s9, h9) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Starting controller
+c0 
+*** Starting 9 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 ...(10.00Mbit 20ms delay) (10.00Mbit 16ms delay) (10.00Mbit 40ms delay) (10.00Mbit 16ms delay) (10.00Mbit 14ms delay) (10.00Mbit 40ms delay) (10.00Mbit 14ms delay) (10.00Mbit 55ms delay) (10.00Mbit 55ms delay) (10.00Mbit 15ms delay) (10.00Mbit 100ms delay) (10.00Mbit 15ms delay) (10.00Mbit 10ms delay) (10.00Mbit 10ms delay) (10.00Mbit 12ms delay) (10.00Mbit 12ms delay) (10.00Mbit 13ms delay) (10.00Mbit 20ms delay) (10.00Mbit 100ms delay) (10.00Mbit 13ms delay) 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+h5 h5-eth0:s5-eth1
+h6 h6-eth0:s6-eth1
+h7 h7-eth0:s7-eth1
+h8 h8-eth0:s8-eth1
+h9 h9-eth0:s9-eth1
+*** Starting CLI:
+mininet> h2 ping -c 10 h9
+PING 10.0.0.9 (10.0.0.9) 56(84) bytes of data.
+64 bytes from 10.0.0.9: icmp_seq=2 ttl=64 time=219 ms
+64 bytes from 10.0.0.9: icmp_seq=3 ttl=64 time=394 ms
+64 bytes from 10.0.0.9: icmp_seq=4 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=5 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=6 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=7 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=8 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=9 ttl=64 time=390 ms
+64 bytes from 10.0.0.9: icmp_seq=10 ttl=64 time=390 ms
+
+--- 10.0.0.9 ping statistics ---
+10 packets transmitted, 9 received, 10% packet loss, time 9053ms
+rtt min/avg/max/mdev = 218.993/371.754/394.060/54.021 ms
+mininet> exit
+*** Stopping 1 controllers
+c0 
+*** Stopping 19 links
+...................
+*** Stopping 9 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 
+*** Stopping 9 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Done

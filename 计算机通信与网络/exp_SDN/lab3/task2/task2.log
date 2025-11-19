@@ -1,0 +1,444 @@
+------------
+Terminal 1 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 41 packages in 24ms
+Audited 39 packages in 3ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab3/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab3
+(lab3) huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ osken-manager shortest_delay.py --observe-links
+2 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app shortest_delay.py
+loading app os_ken.controller.ofp_handler
+loading app os_ken.topology.switches
+loading app os_ken.controller.ofp_handler
+instantiating app None of NetworkAwareness
+creating context network_awareness
+instantiating app shortest_delay.py of ShortestDelay
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+instantiating app os_ken.topology.switches of Switches
+topo map:
+   node     ->     node   
+
+
+Link: 3 -> 4, delay: 19.45150ms
+Link: 3 -> 2, delay: 20.55597ms
+Link: 8 -> 7, delay: 13.80587ms
+Link: 7 -> 8, delay: 13.80587ms
+Link: 4 -> 3, delay: 19.45150ms
+Link: 2 -> 3, delay: 20.55597ms
+Link: 4 -> 2, delay: 41.30626ms
+Link: 2 -> 4, delay: 41.30626ms
+Link: 5 -> 4, delay: 57.41310ms
+Link: 4 -> 5, delay: 57.41310ms
+Link: 6 -> 7, delay: 0.00000ms
+Link: 6 -> 5, delay: 0.00000ms
+Link: 9 -> 8, delay: 10.70273ms
+Link: 1 -> 9, delay: 14.42933ms
+Link: 9 -> 1, delay: 14.42933ms
+Link: 7 -> 6, delay: 0.00000ms
+Link: 8 -> 9, delay: 10.70273ms
+Link: 5 -> 6, delay: 0.00000ms
+Link: 9 -> 5, delay: 52.35422ms
+Link: 5 -> 9, delay: 52.35422ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+Link: 3 -> 4, delay: 15.49125ms
+Link: 3 -> 2, delay: 17.18915ms
+Link: 8 -> 7, delay: 13.64553ms
+Link: 7 -> 8, delay: 13.64553ms
+Link: 4 -> 3, delay: 15.49125ms
+Link: 2 -> 3, delay: 17.18915ms
+Link: 4 -> 2, delay: 41.29028ms
+Link: 2 -> 4, delay: 41.29028ms
+Link: 5 -> 4, delay: 56.65326ms
+Link: 4 -> 5, delay: 56.65326ms
+Link: 6 -> 7, delay: 11.30331ms
+Link: 6 -> 5, delay: 16.27338ms
+Link: 9 -> 8, delay: 14.26780ms
+Link: 1 -> 9, delay: 22.59934ms
+Link: 9 -> 1, delay: 22.59934ms
+Link: 7 -> 6, delay: 11.30331ms
+Link: 8 -> 9, delay: 14.26780ms
+Link: 5 -> 6, delay: 16.27338ms
+Link: 9 -> 5, delay: 101.47309ms
+Link: 5 -> 9, delay: 101.47309ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+Link: 3 -> 4, delay: 13.27288ms
+Link: 3 -> 2, delay: 15.53619ms
+Link: 8 -> 7, delay: 11.31463ms
+Link: 7 -> 8, delay: 11.31463ms
+Link: 4 -> 3, delay: 13.27288ms
+Link: 2 -> 3, delay: 15.53619ms
+Link: 4 -> 2, delay: 38.79213ms
+Link: 2 -> 4, delay: 38.79213ms
+Link: 5 -> 4, delay: 53.98154ms
+Link: 4 -> 5, delay: 53.98154ms
+Link: 6 -> 7, delay: 10.67126ms
+Link: 6 -> 5, delay: 15.28454ms
+Link: 9 -> 8, delay: 12.66778ms
+Link: 1 -> 9, delay: 19.89949ms
+Link: 9 -> 1, delay: 19.89949ms
+Link: 7 -> 6, delay: 10.67126ms
+Link: 8 -> 9, delay: 12.66778ms
+Link: 5 -> 6, delay: 15.28454ms
+Link: 9 -> 5, delay: 99.21527ms
+Link: 5 -> 9, delay: 99.21527ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+Link: 3 -> 4, delay: 16.29174ms
+Link: 3 -> 2, delay: 18.68927ms
+Link: 8 -> 7, delay: 13.44991ms
+Link: 7 -> 8, delay: 13.44991ms
+Link: 4 -> 3, delay: 16.29174ms
+Link: 2 -> 3, delay: 18.68927ms
+Link: 4 -> 2, delay: 40.44425ms
+Link: 2 -> 4, delay: 40.44425ms
+Link: 5 -> 4, delay: 55.27115ms
+Link: 4 -> 5, delay: 55.27115ms
+Link: 6 -> 7, delay: 11.65998ms
+Link: 6 -> 5, delay: 16.50774ms
+Link: 9 -> 8, delay: 13.53693ms
+Link: 1 -> 9, delay: 22.01378ms
+Link: 9 -> 1, delay: 22.01378ms
+Link: 7 -> 6, delay: 11.65998ms
+Link: 8 -> 9, delay: 13.53693ms
+Link: 5 -> 6, delay: 16.50774ms
+Link: 9 -> 5, delay: 101.71771ms
+Link: 5 -> 9, delay: 101.71771ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+Link: 3 -> 4, delay: 14.08768ms
+Link: 3 -> 2, delay: 15.65564ms
+Link: 8 -> 7, delay: 12.04419ms
+Link: 7 -> 8, delay: 12.04419ms
+Link: 4 -> 3, delay: 14.08768ms
+Link: 2 -> 3, delay: 15.65564ms
+Link: 4 -> 2, delay: 39.99817ms
+Link: 2 -> 4, delay: 39.99817ms
+Link: 5 -> 4, delay: 55.00329ms
+Link: 4 -> 5, delay: 55.00329ms
+Link: 6 -> 7, delay: 10.95212ms
+Link: 6 -> 5, delay: 16.06214ms
+Link: 9 -> 8, delay: 13.37790ms
+Link: 1 -> 9, delay: 20.78700ms
+Link: 9 -> 1, delay: 20.78700ms
+Link: 7 -> 6, delay: 10.95212ms
+Link: 8 -> 9, delay: 13.37790ms
+Link: 5 -> 6, delay: 16.06214ms
+Link: 9 -> 5, delay: 100.28100ms
+Link: 5 -> 9, delay: 100.28100ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+Link: 3 -> 4, delay: 14.76741ms
+Link: 3 -> 2, delay: 16.79742ms
+Link: 8 -> 7, delay: 13.22639ms
+Link: 7 -> 8, delay: 13.22639ms
+Link: 4 -> 3, delay: 14.76741ms
+Link: 2 -> 3, delay: 16.79742ms
+Link: 4 -> 2, delay: 40.77268ms
+Link: 2 -> 4, delay: 40.77268ms
+Link: 5 -> 4, delay: 55.34291ms
+Link: 4 -> 5, delay: 55.34291ms
+Link: 6 -> 7, delay: 10.63812ms
+Link: 6 -> 5, delay: 15.51330ms
+Link: 9 -> 8, delay: 13.76736ms
+Link: 1 -> 9, delay: 20.39993ms
+Link: 9 -> 1, delay: 20.39993ms
+Link: 7 -> 6, delay: 10.63812ms
+Link: 8 -> 9, delay: 13.76736ms
+Link: 5 -> 6, delay: 15.51330ms
+Link: 9 -> 5, delay: 100.38686ms
+Link: 5 -> 9, delay: 100.38686ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    2            10.0.0.2 
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+
+
+[ARP loop detected]
+dpid=4, src=fe:e8:00:23:3f:7a, dst=ff:ff:ff:ff:ff:ff, in_port=2 (previous=3)
+[ARP loop detected]
+dpid=2, src=fe:e8:00:23:3f:7a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=9, src=fe:e8:00:23:3f:7a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=5, src=fe:e8:00:23:3f:7a, dst=ff:ff:ff:ff:ff:ff, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=5, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=4)
+host not find/no path
+[ARP loop detected]
+dpid=9, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=2, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=4, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=2 (previous=4)
+host not find/no path
+Link: 3 -> 4, delay: 15.10465ms
+Link: 3 -> 2, delay: 17.33029ms
+Link: 8 -> 7, delay: 13.42189ms
+Link: 7 -> 8, delay: 13.42189ms
+Link: 4 -> 3, delay: 15.10465ms
+Link: 2 -> 3, delay: 17.33029ms
+Link: 4 -> 2, delay: 41.05282ms
+Link: 2 -> 4, delay: 41.05282ms
+Link: 5 -> 4, delay: 55.95648ms
+Link: 4 -> 5, delay: 55.95648ms
+Link: 6 -> 7, delay: 10.90682ms
+Link: 6 -> 5, delay: 16.17551ms
+Link: 9 -> 8, delay: 13.75270ms
+Link: 1 -> 9, delay: 21.34919ms
+Link: 9 -> 1, delay: 21.34919ms
+Link: 7 -> 6, delay: 10.90682ms
+Link: 8 -> 9, delay: 13.75270ms
+Link: 5 -> 6, delay: 16.17551ms
+Link: 9 -> 5, delay: 101.42255ms
+Link: 5 -> 9, delay: 101.42255ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    2            10.0.0.2 
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+    9            10.0.0.9 
+
+
+path: 10.0.0.2 -> 10.0.0.9
+10.0.0.2 -> 1:s2:2 -> 2:s3:3 -> 3:s4:4 -> 2:s5:4 -> 2:s6:3 -> 2:s7:3 -> 2:s8:3 -> 4:s9:1 -> 10.0.0.9
+link delay dict: {'s2->s3': 17.330288887023926, 's3->s4': 15.10465145111084, 's4->s5': 55.956482887268066, 's5->s6': 16.175508499145508, 's6->s7': 10.906815528869629, 's7->s8': 13.421893119812012, 's8->s9': 13.75269889831543, 's9->s10.0.0.9': 0}
+path delay = 142.64834ms
+path RTT = 285.29668ms
+[ARP loop detected]
+dpid=5, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=2, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=2)
+[ARP loop detected]
+dpid=9, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=4, src=12:08:70:87:f8:5e, dst=fe:e8:00:23:3f:7a, in_port=2 (previous=4)
+[ARP loop detected]
+dpid=4, src=fe:e8:00:23:3f:7a, dst=12:08:70:87:f8:5e, in_port=2 (previous=3)
+[ARP loop detected]
+dpid=2, src=fe:e8:00:23:3f:7a, dst=12:08:70:87:f8:5e, in_port=3 (previous=1)
+[ARP loop detected]
+dpid=9, src=fe:e8:00:23:3f:7a, dst=12:08:70:87:f8:5e, in_port=3 (previous=4)
+[ARP loop detected]
+dpid=5, src=fe:e8:00:23:3f:7a, dst=12:08:70:87:f8:5e, in_port=3 (previous=2)
+Link: 3 -> 4, delay: 14.49394ms
+Link: 3 -> 2, delay: 16.32059ms
+Link: 8 -> 7, delay: 13.29899ms
+Link: 7 -> 8, delay: 13.29899ms
+Link: 4 -> 3, delay: 14.49394ms
+Link: 2 -> 3, delay: 16.32059ms
+Link: 4 -> 2, delay: 42.57119ms
+Link: 2 -> 4, delay: 42.57119ms
+Link: 5 -> 4, delay: 55.57108ms
+Link: 4 -> 5, delay: 55.57108ms
+Link: 6 -> 7, delay: 10.33103ms
+Link: 6 -> 5, delay: 15.33198ms
+Link: 9 -> 8, delay: 13.33582ms
+Link: 1 -> 9, delay: 20.19358ms
+Link: 9 -> 1, delay: 20.19358ms
+Link: 7 -> 6, delay: 10.33103ms
+Link: 8 -> 9, delay: 13.33582ms
+Link: 5 -> 6, delay: 15.33198ms
+Link: 9 -> 5, delay: 100.28839ms
+Link: 5 -> 9, delay: 100.28839ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    2            10.0.0.2 
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+    9            10.0.0.9 
+
+
+Link: 3 -> 4, delay: 14.28676ms
+Link: 3 -> 2, delay: 16.12031ms
+Link: 8 -> 7, delay: 12.64644ms
+Link: 7 -> 8, delay: 12.64644ms
+Link: 4 -> 3, delay: 14.28676ms
+Link: 2 -> 3, delay: 16.12031ms
+Link: 4 -> 2, delay: 40.75646ms
+Link: 2 -> 4, delay: 40.75646ms
+Link: 5 -> 4, delay: 55.73070ms
+Link: 4 -> 5, delay: 55.73070ms
+Link: 6 -> 7, delay: 10.67603ms
+Link: 6 -> 5, delay: 15.35952ms
+Link: 9 -> 8, delay: 13.80551ms
+Link: 1 -> 9, delay: 21.89493ms
+Link: 9 -> 1, delay: 21.89493ms
+Link: 7 -> 6, delay: 10.67603ms
+Link: 8 -> 9, delay: 13.80551ms
+Link: 5 -> 6, delay: 15.35952ms
+Link: 9 -> 5, delay: 100.85917ms
+Link: 5 -> 9, delay: 100.85917ms
+topo map:
+   node     ->     node   
+    3               4     
+    3               2     
+    4               2     
+    4               5     
+    2            10.0.0.2 
+    8               7     
+    8               9     
+    7               6     
+    5               6     
+    5               9     
+    9               1     
+    9            10.0.0.9 
+
+
+
+------------
+Terminal 2
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 41 packages in 8ms
+Audited 39 packages in 15ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab3/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab3
+💡 提示：退出虚拟环境请输入：deactivate
+(lab3) huster@huster-VMware-Virtual-Platform:~/桌面/lab3$ sudo ./topo.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding controller
+Unable to contact the remote controller at 127.0.0.1:6633
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Adding switches:
+s1 s2 s3 s4 s5 s6 s7 s8 s9 
+*** Adding links:
+(s1, h1) (10.00Mbit 20ms delay) (10.00Mbit 20ms delay) (s1, s9) (s2, h2) (10.00Mbit 16ms delay) (10.00Mbit 16ms delay) (s2, s3) (10.00Mbit 40ms delay) (10.00Mbit 40ms delay) (s2, s4) (s3, h3) (10.00Mbit 14ms delay) (10.00Mbit 14ms delay) (s3, s4) (s4, h4) (10.00Mbit 55ms delay) (10.00Mbit 55ms delay) (s4, s5) (s5, h5) (10.00Mbit 15ms delay) (10.00Mbit 15ms delay) (s5, s6) (10.00Mbit 100ms delay) (10.00Mbit 100ms delay) (s5, s9) (s6, h6) (10.00Mbit 10ms delay) (10.00Mbit 10ms delay) (s6, s7) (s7, h7) (10.00Mbit 12ms delay) (10.00Mbit 12ms delay) (s7, s8) (s8, h8) (10.00Mbit 13ms delay) (10.00Mbit 13ms delay) (s8, s9) (s9, h9) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Starting controller
+c0 
+*** Starting 9 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 ...(10.00Mbit 20ms delay) (10.00Mbit 16ms delay) (10.00Mbit 40ms delay) (10.00Mbit 16ms delay) (10.00Mbit 14ms delay) (10.00Mbit 40ms delay) (10.00Mbit 14ms delay) (10.00Mbit 55ms delay) (10.00Mbit 55ms delay) (10.00Mbit 15ms delay) (10.00Mbit 100ms delay) (10.00Mbit 15ms delay) (10.00Mbit 10ms delay) (10.00Mbit 10ms delay) (10.00Mbit 12ms delay) (10.00Mbit 12ms delay) (10.00Mbit 13ms delay) (10.00Mbit 20ms delay) (10.00Mbit 100ms delay) (10.00Mbit 13ms delay) 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+h5 h5-eth0:s5-eth1
+h6 h6-eth0:s6-eth1
+h7 h7-eth0:s7-eth1
+h8 h8-eth0:s8-eth1
+h9 h9-eth0:s9-eth1
+*** Starting CLI:
+mininet> h2 ping -c 10 h9
+PING 10.0.0.9 (10.0.0.9) 56(84) bytes of data.
+64 bytes from 10.0.0.9: icmp_seq=3 ttl=64 time=156 ms
+64 bytes from 10.0.0.9: icmp_seq=4 ttl=64 time=277 ms
+64 bytes from 10.0.0.9: icmp_seq=5 ttl=64 time=271 ms
+64 bytes from 10.0.0.9: icmp_seq=6 ttl=64 time=272 ms
+64 bytes from 10.0.0.9: icmp_seq=7 ttl=64 time=271 ms
+64 bytes from 10.0.0.9: icmp_seq=8 ttl=64 time=271 ms
+64 bytes from 10.0.0.9: icmp_seq=9 ttl=64 time=272 ms
+64 bytes from 10.0.0.9: icmp_seq=10 ttl=64 time=273 ms
+
+--- 10.0.0.9 ping statistics ---
+10 packets transmitted, 8 received, 20% packet loss, time 9086ms
+rtt min/avg/max/mdev = 156.038/257.758/276.596/38.487 ms
+mininet> exit
+*** Stopping 1 controllers
+c0 
+*** Stopping 19 links
+...................
+*** Stopping 9 switches
+s1 s2 s3 s4 s5 s6 s7 s8 s9 
+*** Stopping 9 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 
+*** Done

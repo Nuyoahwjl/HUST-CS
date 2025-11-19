@@ -1,0 +1,3 @@
+﻿  WebServer.cpp
+d:\desktop\computer-networking\exp_socket\socket-wjl\webserver\webserver.cpp(122): warning C4244: “参数”: 从“std::streamsize”转换到“const unsigned int”，可能丢失数据
+  WebServer.vcxproj -> D:\Desktop\Computer-Networking\exp_Socket\Socket-wjl\WebServer\Debug\WebServer.exe

@@ -1,0 +1,18 @@
+﻿  SR.cpp
+  SRRdtReceiver.cpp
+  SRRdtSender.cpp
+  正在生成代码...
+netsimlib.lib(DataStructure.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(DataStructure.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(FileAppMessageFeeder.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(FileAppMessageFeeder.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(FileAppMessageWriter.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(FileAppMessageWriter.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(NetworkService.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(NetworkService.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(NetworkServiceConfiguration.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(NetworkServiceConfiguration.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(NetworkServiceSimulator.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(NetworkServiceSimulator.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(RandomEvent.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(RandomEvent.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(RandomEventList.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(RandomEventList.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(RdtReceiver.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(RdtReceiver.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(RdtSender.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(RdtSender.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(stdafx.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(stdafx.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(Tool.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(Tool.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+netsimlib.lib(Utils.obj) : warning LNK4099: 未找到 PDB“netsimlib.pdb”(使用“netsimlib.lib(Utils.obj)”或在“D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\netsimlib.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  SR.vcxproj -> D:\Desktop\Computer-Networking\exp_RDT\Windows-VS2017\SR\Debug\SR.exe

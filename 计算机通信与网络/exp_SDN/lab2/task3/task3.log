@@ -1,0 +1,112 @@
+------------
+Terminal 1 
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 15ms
+Audited 38 packages in 14ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+(lab2) huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ osken-manager loop_detecting_switch.py
+2 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app loop_detecting_switch.py
+loading app os_ken.controller.ofp_handler
+instantiating app loop_detecting_switch.py of Switch_Dict
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+[Recording ARP request]
+dpid=4, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=1
+[Recording ARP request]
+dpid=1, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=4
+[Recording ARP request]
+dpid=3, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=3
+[Dropping ARP request (Loop detected)]
+dpid=1, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=3 (previous port=4)
+[Recording ARP request]
+dpid=2, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=2
+[Dropping ARP request (Loop detected)]
+dpid=3, src=0e:af:8a:ba:08:ca, dst_ip=10.0.0.2, in_port=2 (previous port=3)
+[Packet matched]
+dpid=2, src=12:82:a0:05:f4:60, in_port=1, dst=0e:af:8a:ba:08:ca, out_port=2
+[Packet matched]
+dpid=1, src=12:82:a0:05:f4:60, in_port=2, dst=0e:af:8a:ba:08:ca, out_port=4
+[Packet matched]
+dpid=4, src=12:82:a0:05:f4:60, in_port=2, dst=0e:af:8a:ba:08:ca, out_port=1
+[Packet matched]
+dpid=4, src=0e:af:8a:ba:08:ca, in_port=1, dst=12:82:a0:05:f4:60, out_port=2
+[Packet matched]
+dpid=1, src=0e:af:8a:ba:08:ca, in_port=4, dst=12:82:a0:05:f4:60, out_port=2
+[Packet matched]
+dpid=2, src=0e:af:8a:ba:08:ca, in_port=2, dst=12:82:a0:05:f4:60, out_port=1
+
+
+
+------------
+Terminal 2
+------------
+huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ source setup.sh
+🔧 正在同步项目依赖...
+Resolved 40 packages in 2ms
+Audited 38 packages in 2ms
+✅ 依赖同步成功
+🚀 正在激活虚拟环境...
+✔️ 虚拟环境已激活
+📦 当前 Python: /home/huster/桌面/lab2/.venv/bin/python3
+📁 当前目录: /home/huster/桌面/lab2
+💡 提示：退出虚拟环境请输入：deactivate
+🎯 可用命令：
+  - 运行控制器：osken-manager <script_name>.py
+  - 运行拓扑：  sudo ./topo_1.py 或 sudo ./topo_2.py
+(lab2) huster@huster-VMware-Virtual-Platform:~/桌面/lab2$ sudo ./topo_2.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding controller
+*** Adding hosts:
+h1 h2 h3 h4 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(s1, h1) (10.00Mbit) (10.00Mbit) (s1, s2) (10.00Mbit) (10.00Mbit) (s1, s3) (10.00Mbit) (10.00Mbit) (s1, s4) (s2, h2) (s3, h3) (10.00Mbit) (10.00Mbit) (s3, s4) (s4, h4) 
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(10.00Mbit) (10.00Mbit) (10.00Mbit) (10.00Mbit) (10.00Mbit) (10.00Mbit) (10.00Mbit) (10.00Mbit) 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s2-eth1
+h3 h3-eth0:s3-eth1
+h4 h4-eth0:s4-eth1
+*** Starting CLI:
+mininet> h4 ping -c 10 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=31.2 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.677 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.095 ms
+64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=0.108 ms
+64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=0.187 ms
+64 bytes from 10.0.0.2: icmp_seq=6 ttl=64 time=0.122 ms
+64 bytes from 10.0.0.2: icmp_seq=7 ttl=64 time=0.102 ms
+64 bytes from 10.0.0.2: icmp_seq=8 ttl=64 time=0.137 ms
+64 bytes from 10.0.0.2: icmp_seq=9 ttl=64 time=0.202 ms
+64 bytes from 10.0.0.2: icmp_seq=10 ttl=64 time=0.138 ms
+
+--- 10.0.0.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9140ms
+rtt min/avg/max/mdev = 0.095/3.292/31.161/9.290 ms
+mininet> exit
+*** Stopping 1 controllers
+c0 
+*** Stopping 8 links
+........
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done

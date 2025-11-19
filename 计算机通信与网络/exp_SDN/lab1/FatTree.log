@@ -1,0 +1,416 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/lab1$ sudo python3 FatTree.py
+[sudo] huster 的密码： 
+*** Creating network
+*** Adding hosts:
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+*** Adding switches:
+a11 a12 a21 a22 a31 a32 a41 a42 c1 c2 c3 c4 e11 e12 e21 e22 e31 e32 e41 e42 
+*** Adding links:
+(a11, e11) (a11, e12) (a12, e11) (a12, e12) (a21, e21) (a21, e22) (a22, e21) (a22, e22) (a31, e31) (a31, e32) (a32, e31) (a32, e32) (a41, e41) (a41, e42) (a42, e41) (a42, e42) (c1, a11) (c1, a21) (c1, a31) (c1, a41) (c2, a11) (c2, a21) (c2, a31) (c2, a41) (c3, a12) (c3, a22) (c3, a32) (c3, a42) (c4, a12) (c4, a22) (c4, a32) (c4, a42) (e11, h1) (e11, h2) (e12, h3) (e12, h4) (e21, h5) (e21, h6) (e22, h7) (e22, h8) (e31, h9) (e31, h10) (e32, h11) (e32, h12) (e41, h13) (e41, h14) (e42, h15) (e42, h16) 
+*** Configuring hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+*** 启动网络
+*** Starting controller
+
+*** Starting 20 switches
+a11 a12 a21 a22 a31 a32 a41 a42 c1 c2 c3 c4 e11 e12 e21 e22 e31 e32 e41 e42 ...
+*** 配置交换机standalone模式和STP
+--- a11: standalone mode + STP enabled
+--- a12: standalone mode + STP enabled
+--- a21: standalone mode + STP enabled
+--- a22: standalone mode + STP enabled
+--- a31: standalone mode + STP enabled
+--- a32: standalone mode + STP enabled
+--- a41: standalone mode + STP enabled
+--- a42: standalone mode + STP enabled
+--- c1 : standalone mode + STP enabled
+--- c2 : standalone mode + STP enabled
+--- c3 : standalone mode + STP enabled
+--- c4 : standalone mode + STP enabled
+--- e11: standalone mode + STP enabled
+--- e12: standalone mode + STP enabled
+--- e21: standalone mode + STP enabled
+--- e22: standalone mode + STP enabled
+--- e31: standalone mode + STP enabled
+--- e32: standalone mode + STP enabled
+--- e41: standalone mode + STP enabled
+--- e42: standalone mode + STP enabled
+*** Waiting for STP to converge (30 seconds)...
+*** 测试网络连通性
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h2 -> h1 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h3 -> h1 h2 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h4 -> h1 h2 h3 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h5 -> h1 h2 h3 h4 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h6 -> h1 h2 h3 h4 h5 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h7 -> h1 h2 h3 h4 h5 h6 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+h8 -> h1 h2 h3 h4 h5 h6 h7 h9 h10 h11 h12 h13 h14 h15 h16 
+h9 -> h1 h2 h3 h4 h5 h6 h7 h8 h10 h11 h12 h13 h14 h15 h16 
+h10 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h11 h12 h13 h14 h15 h16 
+h11 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h12 h13 h14 h15 h16 
+h12 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h13 h14 h15 h16 
+h13 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h14 h15 h16 
+h14 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h15 h16 
+h15 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h16 
+h16 -> h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 
+*** Results: 0% dropped (240/240 received)
+*** SUCCESS: All hosts are connected!
+*** Analyzing data paths using ovs-appctl fdb/show
+--- a11 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:01    0
+    1     0  00:00:00:00:00:0a    0
+    1     0  00:00:00:00:00:0b    0
+    1     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:0e    0
+    1     0  00:00:00:00:00:0f    0
+    1     0  00:00:00:00:00:10    0
+    3     0  00:00:00:00:00:02    0
+    4     0  00:00:00:00:00:03    0
+    4     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:05    0
+    1     0  00:00:00:00:00:06    0
+    1     0  00:00:00:00:00:07    0
+    1     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:09    0
+--- a12 MAC table ---
+ port  VLAN  MAC                Age
+    4     0  00:00:00:00:00:0c    0
+    4     0  00:00:00:00:00:0d    0
+    4     0  00:00:00:00:00:03    0
+    4     0  00:00:00:00:00:04    0
+    4     0  00:00:00:00:00:08    0
+    4     0  00:00:00:00:00:0e    0
+    4     0  00:00:00:00:00:0f    0
+--- a21 MAC table ---
+ port  VLAN  MAC                Age
+    1     0  00:00:00:00:00:01    0
+    1     0  00:00:00:00:00:02    0
+    3     0  00:00:00:00:00:05    0
+    3     0  00:00:00:00:00:06    0
+    4     0  00:00:00:00:00:07    0
+    4     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:03    0
+    1     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:09    0
+    1     0  00:00:00:00:00:0a    0
+    1     0  00:00:00:00:00:0b    0
+    1     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:0e    0
+    1     0  00:00:00:00:00:0f    0
+    1     0  00:00:00:00:00:10    0
+--- a22 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:05    0
+    3     0  00:00:00:00:00:06    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+--- a31 MAC table ---
+ port  VLAN  MAC                Age
+    1     0  00:00:00:00:00:01    0
+    3     0  00:00:00:00:00:0a    0
+    4     0  00:00:00:00:00:0b    0
+    4     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:02    0
+    3     0  00:00:00:00:00:09    0
+    1     0  00:00:00:00:00:03    0
+    1     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:05    0
+    1     0  00:00:00:00:00:06    0
+    1     0  00:00:00:00:00:07    0
+    1     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:0e    0
+    1     0  00:00:00:00:00:0f    0
+    1     0  00:00:00:00:00:10    0
+--- a32 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0a    0
+    3     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:09    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+--- a41 MAC table ---
+ port  VLAN  MAC                Age
+    1     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:0e    0
+    4     0  00:00:00:00:00:0f    0
+    4     0  00:00:00:00:00:10    0
+    1     0  00:00:00:00:00:05    0
+    1     0  00:00:00:00:00:03    0
+    1     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:07    0
+    1     0  00:00:00:00:00:02    0
+    1     0  00:00:00:00:00:01    0
+    1     0  00:00:00:00:00:06    0
+    1     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:0a    0
+    1     0  00:00:00:00:00:0b    0
+    1     0  00:00:00:00:00:09    0
+--- a42 MAC table ---
+ port  VLAN  MAC                Age
+    4     0  00:00:00:00:00:0c    0
+    4     0  00:00:00:00:00:0d    0
+    4     0  00:00:00:00:00:08    0
+    4     0  00:00:00:00:00:0e    0
+    4     0  00:00:00:00:00:0f    0
+    4     0  00:00:00:00:00:10    0
+--- c1  MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    2     0  00:00:00:00:00:07    0
+    2     0  00:00:00:00:00:08    0
+    4     0  00:00:00:00:00:0d    0
+    4     0  00:00:00:00:00:0e    0
+    4     0  00:00:00:00:00:0f    0
+    4     0  00:00:00:00:00:10    0
+    1     0  00:00:00:00:00:01    0
+    1     0  00:00:00:00:00:02    0
+    1     0  00:00:00:00:00:04    0
+    2     0  00:00:00:00:00:06    0
+    2     0  00:00:00:00:00:05    0
+    1     0  00:00:00:00:00:03    0
+    3     0  00:00:00:00:00:0a    0
+    3     0  00:00:00:00:00:0b    0
+    3     0  00:00:00:00:00:09    0
+--- c2  MAC table ---
+ port  VLAN  MAC                Age
+    2     0  00:00:00:00:00:0c    0
+    2     0  00:00:00:00:00:08    0
+    2     0  00:00:00:00:00:0d    0
+    2     0  00:00:00:00:00:0e    0
+    2     0  00:00:00:00:00:0f    0
+--- c3  MAC table ---
+ port  VLAN  MAC                Age
+    1     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:03    0
+    1     0  00:00:00:00:00:0e    0
+    1     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:0f    0
+--- c4  MAC table ---
+ port  VLAN  MAC                Age
+    1     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:08    0
+    1     0  00:00:00:00:00:03    0
+    1     0  00:00:00:00:00:0e    0
+    1     0  00:00:00:00:00:04    0
+    1     0  00:00:00:00:00:0f    0
+--- e11 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:01    0
+    3     0  00:00:00:00:00:08    0
+    2     0  00:00:00:00:00:02    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e12 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:03    0
+    2     0  00:00:00:00:00:04    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e21 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:08    0
+    2     0  00:00:00:00:00:06    0
+    3     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:05    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e22 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    2     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:0d    0
+    1     0  00:00:00:00:00:07    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e31 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:09    0
+    2     0  00:00:00:00:00:0a    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e32 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:07    0
+    2     0  00:00:00:00:00:0c    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:09    0
+    3     0  00:00:00:00:00:0a    0
+    1     0  00:00:00:00:00:0b    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:10    0
+--- e41 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0d    0
+    2     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:02    0
+    3     0  00:00:00:00:00:03    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:06    0
+    3     0  00:00:00:00:00:01    0
+    3     0  00:00:00:00:00:0a    0
+    3     0  00:00:00:00:00:04    0
+    3     0  00:00:00:00:00:05    0
+    3     0  00:00:00:00:00:0f    0
+    3     0  00:00:00:00:00:09    0
+    3     0  00:00:00:00:00:10    0
+    3     0  00:00:00:00:00:07    0
+    3     0  00:00:00:00:00:0b    0
+--- e42 MAC table ---
+ port  VLAN  MAC                Age
+    3     0  00:00:00:00:00:0c    0
+    1     0  00:00:00:00:00:0f    0
+    2     0  00:00:00:00:00:10    0
+    3     0  00:00:00:00:00:0d    0
+    3     0  00:00:00:00:00:03    0
+    3     0  00:00:00:00:00:05    0
+    3     0  00:00:00:00:00:08    0
+    3     0  00:00:00:00:00:0e    0
+    3     0  00:00:00:00:00:0a    0
+    3     0  00:00:00:00:00:0b    0
+    3     0  00:00:00:00:00:09    0
+    3     0  00:00:00:00:00:01    0
+    3     0  00:00:00:00:00:02    0
+    3     0  00:00:00:00:00:07    0
+    3     0  00:00:00:00:00:06    0
+    3     0  00:00:00:00:00:04    0
+*** 运行CLI
+*** Starting CLI:
+mininet> links
+a11-eth3<->e11-eth3 (OK OK) 
+a11-eth4<->e12-eth3 (OK OK) 
+a12-eth3<->e11-eth4 (OK OK) 
+a12-eth4<->e12-eth4 (OK OK) 
+a21-eth3<->e21-eth3 (OK OK) 
+a21-eth4<->e22-eth3 (OK OK) 
+a22-eth3<->e21-eth4 (OK OK) 
+a22-eth4<->e22-eth4 (OK OK) 
+a31-eth3<->e31-eth3 (OK OK) 
+a31-eth4<->e32-eth3 (OK OK) 
+a32-eth3<->e31-eth4 (OK OK) 
+a32-eth4<->e32-eth4 (OK OK) 
+a41-eth3<->e41-eth3 (OK OK) 
+a41-eth4<->e42-eth3 (OK OK) 
+a42-eth3<->e41-eth4 (OK OK) 
+a42-eth4<->e42-eth4 (OK OK) 
+c1-eth1<->a11-eth1 (OK OK) 
+c1-eth2<->a21-eth1 (OK OK) 
+c1-eth3<->a31-eth1 (OK OK) 
+c1-eth4<->a41-eth1 (OK OK) 
+c2-eth1<->a11-eth2 (OK OK) 
+c2-eth2<->a21-eth2 (OK OK) 
+c2-eth3<->a31-eth2 (OK OK) 
+c2-eth4<->a41-eth2 (OK OK) 
+c3-eth1<->a12-eth1 (OK OK) 
+c3-eth2<->a22-eth1 (OK OK) 
+c3-eth3<->a32-eth1 (OK OK) 
+c3-eth4<->a42-eth1 (OK OK) 
+c4-eth1<->a12-eth2 (OK OK) 
+c4-eth2<->a22-eth2 (OK OK) 
+c4-eth3<->a32-eth2 (OK OK) 
+c4-eth4<->a42-eth2 (OK OK) 
+e11-eth1<->h1-eth0 (OK OK) 
+e11-eth2<->h2-eth0 (OK OK) 
+e12-eth1<->h3-eth0 (OK OK) 
+e12-eth2<->h4-eth0 (OK OK) 
+e21-eth1<->h5-eth0 (OK OK) 
+e21-eth2<->h6-eth0 (OK OK) 
+e22-eth1<->h7-eth0 (OK OK) 
+e22-eth2<->h8-eth0 (OK OK) 
+e31-eth1<->h9-eth0 (OK OK) 
+e31-eth2<->h10-eth0 (OK OK) 
+e32-eth1<->h11-eth0 (OK OK) 
+e32-eth2<->h12-eth0 (OK OK) 
+e41-eth1<->h13-eth0 (OK OK) 
+e41-eth2<->h14-eth0 (OK OK) 
+e42-eth1<->h15-eth0 (OK OK) 
+e42-eth2<->h16-eth0 (OK OK) 
+mininet> h1 ping -c 3 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=1.18 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.114 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.061 ms
+
+--- 10.0.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2008ms
+rtt min/avg/max/mdev = 0.061/0.450/1.175/0.513 ms
+mininet> h1 ping -c 3 h16
+PING 10.0.0.16 (10.0.0.16) 56(84) bytes of data.
+64 bytes from 10.0.0.16: icmp_seq=1 ttl=64 time=0.612 ms
+64 bytes from 10.0.0.16: icmp_seq=2 ttl=64 time=0.119 ms
+64 bytes from 10.0.0.16: icmp_seq=3 ttl=64 time=0.044 ms
+
+--- 10.0.0.16 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2078ms
+rtt min/avg/max/mdev = 0.044/0.258/0.612/0.251 ms
+mininet> sh ovs-ofctl show e11
+OFPT_FEATURES_REPLY (xid=0x2): dpid:000000000000000b
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(e11-eth1): addr:2e:00:1e:67:bd:48
+     config:     0
+     state:      STP_FORWARD
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(e11-eth2): addr:86:6f:27:98:1e:1b
+     config:     0
+     state:      STP_FORWARD
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(e11-eth3): addr:86:54:52:ec:b4:d8
+     config:     0
+     state:      STP_FORWARD
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(e11-eth4): addr:fa:36:54:0b:a4:6a
+     config:     0
+     state:      STP_FORWARD
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(e11): addr:c2:a4:46:26:9c:4a
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+mininet> exit
+*** 停止网络
+*** Stopping 0 controllers
+
+*** Stopping 48 links
+................................................
+*** Stopping 20 switches
+a11 a12 a21 a22 a31 a32 a41 a42 c1 c2 c3 c4 e11 e12 e21 e22 e31 e32 e41 e42 
+*** Stopping 16 hosts
+h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 
+*** Done

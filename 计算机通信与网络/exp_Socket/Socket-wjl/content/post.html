@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>POST请求示例</title>
+</head>
+<body>
+    <h2>使用表单发送POST请求</h2>
+    
+    <!-- 简单表单POST -->
+    <form method="post" action="/submit">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="message">消息:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="提交">
+    </form>
+
+    <!-- 带文件上传的表单 -->
+    <!-- <h3>文件上传</h3>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg,.png,.pdf">
+        <input type="submit" value="上传文件">
+    </form> -->
+</body>
+</html>
