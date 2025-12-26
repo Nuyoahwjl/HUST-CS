@@ -1,4 +1,4 @@
-## *[demo_1](./demo.ipynb)*
+## *[demo_1](./demo.pdf)*
 
 ### *model(LeNet)*
 ```

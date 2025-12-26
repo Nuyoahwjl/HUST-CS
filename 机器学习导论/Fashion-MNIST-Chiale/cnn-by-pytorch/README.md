@@ -1,4 +1,4 @@
-## *[demo_2](./demo.ipynb)*
+## *[demo_2](./demo.pdf)*
 
 ### *model*
 ```
