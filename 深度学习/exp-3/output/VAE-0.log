@@ -1,0 +1,20 @@
+Epoch 01/20 | beta=0.20 | train_total=304.85 recon=287.28 kl=87.84 | test_recon=191.49 | 
+Epoch 02/20 | beta=0.40 | train_total=175.39 recon=161.75 kl=34.10 | test_recon=134.28 | 
+Epoch 03/20 | beta=0.60 | train_total=140.60 recon=124.41 kl=26.98 | test_recon=111.96 | 
+Epoch 04/20 | beta=0.80 | train_total=129.69 recon=110.56 kl=23.91 | test_recon=102.81 | 
+Epoch 05/20 | beta=1.00 | train_total=126.02 recon=103.59 kl=22.43 | test_recon= 98.38 | 
+Epoch 06/20 | beta=1.00 | train_total=121.52 recon= 99.19 kl=22.33 | test_recon= 95.87 | 
+Epoch 07/20 | beta=1.00 | train_total=118.61 recon= 96.26 kl=22.34 | test_recon= 94.95 | 
+Epoch 08/20 | beta=1.00 | train_total=117.29 recon= 94.95 kl=22.34 | test_recon= 92.26 | 
+Epoch 09/20 | beta=1.00 | train_total=115.80 recon= 93.38 kl=22.42 | test_recon= 90.86 | 
+Epoch 10/20 | beta=1.00 | train_total=114.41 recon= 92.08 kl=22.34 | test_recon= 90.37 | 
+Epoch 11/20 | beta=1.00 | train_total=113.64 recon= 91.27 kl=22.36 | test_recon= 91.94 | 
+Epoch 12/20 | beta=1.00 | train_total=112.74 recon= 90.39 kl=22.35 | test_recon= 89.45 | 
+Epoch 13/20 | beta=1.00 | train_total=112.26 recon= 90.06 kl=22.21 | test_recon= 88.69 | 
+Epoch 14/20 | beta=1.00 | train_total=111.53 recon= 89.40 kl=22.13 | test_recon= 87.89 | 
+Epoch 15/20 | beta=1.00 | train_total=111.03 recon= 88.83 kl=22.20 | test_recon= 88.06 | 
+Epoch 16/20 | beta=1.00 | train_total=110.57 recon= 88.46 kl=22.11 | test_recon= 88.31 | 
+Epoch 17/20 | beta=1.00 | train_total=110.00 recon= 88.07 kl=21.93 | test_recon= 87.11 | 
+Epoch 18/20 | beta=1.00 | train_total=109.60 recon= 87.69 kl=21.91 | test_recon= 86.99 | 
+Epoch 19/20 | beta=1.00 | train_total=109.18 recon= 87.41 kl=21.77 | test_recon= 86.71 | 
+Epoch 20/20 | beta=1.00 | train_total=108.93 recon= 87.06 kl=21.87 | test_recon= 86.24 |
