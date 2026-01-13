@@ -1,0 +1,115 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab3_3_rrsched
+分支 'lab3_3_rrsched' 设置为跟踪 'origin/lab3_3_rrsched'。
+切换到一个新分支 'lab3_3_rrsched'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab3_2_yield -m "continue lab3_3"
+自动合并 kernel/strap.c
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c |  3 +--
+ kernel/process.c       | 10 +++++++++-
+ kernel/strap.c         |  7 ++++---
+ kernel/syscall.c       |  4 +++-
+ kernel/vmm.c           |  8 ++++++--
+ 5 files changed, 23 insertions(+), 9 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/process.c
+compiling kernel/sched.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vmm.c
+compiling kernel/machine/mtrap.c
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_two_long_loops.c
+linking obj/app_two_long_loops ...
+User app has been built into "obj/app_two_long_loops"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_two_long_loops
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x000000008000b000, PKE kernel size: 0x000000000000b000 .
+free physical memory address: [0x000000008000b000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080005000
+kernel page table is on 
+Switch to user mode...
+in alloc_proc. user frame 0x0000000087fbc000, user stack 0x000000007ffff000, user kstack 0x0000000087fbb000 
+User application is loading.
+Application: ./obj/app_two_long_loops
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087faf000, user stack 0x000000007ffff000, user kstack 0x0000000087fae000 
+going to insert process 1 to ready queue.
+Parent: Hello world! 
+Parent running 0 
+Parent running 10000000 
+Ticks 0
+Parent running 20000000 
+Ticks 1
+going to insert process 0 to ready queue.
+going to schedule process 1 to run.
+Child: Hello world! 
+Child running 0 
+Child running 10000000 
+Ticks 2
+Child running 20000000 
+Ticks 3
+going to insert process 1 to ready queue.
+going to schedule process 0 to run.
+Parent running 30000000 
+Ticks 4
+Parent running 40000000 
+Ticks 5
+going to insert process 0 to ready queue.
+going to schedule process 1 to run.
+Child running 30000000 
+Ticks 6
+Child running 40000000 
+Ticks 7
+going to insert process 1 to ready queue.
+going to schedule process 0 to run.
+Parent running 50000000 
+Parent running 60000000 
+Ticks 8
+Parent running 70000000 
+Ticks 9
+going to insert process 0 to ready queue.
+going to schedule process 1 to run.
+Child running 50000000 
+Child running 60000000 
+Ticks 10
+Child running 70000000 
+Ticks 11
+going to insert process 1 to ready queue.
+going to schedule process 0 to run.
+Parent running 80000000 
+Ticks 12
+Parent running 90000000 
+Ticks 13
+going to insert process 0 to ready queue.
+going to schedule process 1 to run.
+Child running 80000000 
+Ticks 14
+Child running 90000000 
+Ticks 15
+going to insert process 1 to ready queue.
+going to schedule process 0 to run.
+User exit with code:0.
+going to schedule process 1 to run.
+User exit with code:0.
+no more ready processes, system shutdown now.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab3_3 is done."
+[lab3_3_rrsched 7f1f6a1] my work on lab3_3 is done.
+ 1 file changed, 6 insertions(+), 1 deletion(-)

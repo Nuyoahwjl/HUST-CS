@@ -1,0 +1,67 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/process.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/machine/minit.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_helloworld.c
+compiling user/user_lib.c
+linking obj/app_helloworld ...
+User app has been built into "obj/app_helloworld"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_helloworld
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+Application: ./obj/app_helloworld
+Application program entry point (virtual address): 0x0000000081000000
+Switch to user mode...
+Hello world!
+User exit with code:0.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab1_1 is done."
+作者身份未知
+
+*** 请告诉我您是谁。
+
+运行
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+来设置您账号的缺省身份标识。
+如果仅在本仓库设置身份标识，则省略 --global 参数。
+
+fatal: 无法自动探测邮件地址（得到 'huster@huster-VMware-Virtual-Platform.(none)'）
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git config --global user.email "3508529368@qq.com"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git config --global user.name "Nuyoahwjl"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git config --list
+user.email=3508529368@qq.com
+user.name=Nuyoahwjl
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://gitee.com/hustos/riscv-pke.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.lab1_1_syscall.remote=origin
+branch.lab1_1_syscall.merge=refs/heads/lab1_1_syscall
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab1_1 is done."
+[lab1_1_syscall 0b7252f] my work on lab1_1 is done.
+ 1 file changed, 1 insertion(+), 1 deletion(-)

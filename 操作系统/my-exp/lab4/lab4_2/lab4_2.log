@@ -1,0 +1,107 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab4_2_directory
+分支 'lab4_2_directory' 设置为跟踪 'origin/lab4_2_directory'。
+切换到一个新分支 'lab4_2_directory'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab4_1_file -m "continue lab4_2"
+自动合并 kernel/rfs.c
+自动合并 kernel/syscall.c
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c |  3 +--
+ kernel/process.c       | 10 +++++++++-
+ kernel/rfs.c           |  5 ++++-
+ kernel/strap.c         | 14 ++++++++++----
+ kernel/syscall.c       |  4 +++-
+ kernel/vmm.c           |  8 ++++++--
+ 6 files changed, 33 insertions(+), 11 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make clean
+rm -fr obj
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/hash_table.c
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/hostfs.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/proc_file.c
+compiling kernel/ramdev.c
+compiling kernel/rfs.c
+compiling kernel/sched.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vfs.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+compiling kernel/machine/mtrap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_directory.c
+compiling user/user_lib.c
+linking obj/app_directory ...
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_directory
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x0000000080010000, PKE kernel size: 0x0000000000010000 .
+free physical memory address: [0x0000000080010000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080008000
+kernel page table is on 
+RAMDISK0: base address of RAMDISK0 is: 0x0000000087f35000
+RFS: format RAMDISK0 done!
+Switch to user mode...
+in alloc_proc. user frame 0x0000000087f29000, user stack 0x000000007ffff000, user kstack 0x0000000087f28000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+User application is loading.
+Application: ./obj/app_directory
+CODE_SEGMENT added at mapped info offset:4
+DATA_SEGMENT added at mapped info offset:5
+Application program entry point (virtual address): 0x0000000000010186
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+
+======== Test 1: open and read dir ========
+------------------------------
+ls "/RAMDISK0":
+[name]               [inode_num]
+------------------------------
+
+======== Test 2: make dir ========
+make: /RAMDISK0/sub_dir
+------------------------------
+ls "/RAMDISK0":
+[name]               [inode_num]
+sub_dir              1
+------------------------------
+write: /RAMDISK0/sub_dir/ramfile
+file descriptor fd: 0
+write content: 
+hello world
+------------------------------
+ls "/RAMDISK0/sub_dir":
+[name]               [inode_num]
+ramfile              2
+------------------------------
+
+All tests passed!
+
+User exit with code:0.
+no more ready processes, system shutdown now.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab4_2 is done."
+[lab4_2_directory 4bb5333] my work on lab4_2 is done.
+ 1 file changed, 2 insertions(+), 1 deletion(-)
