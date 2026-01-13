@@ -1,4 +1,4 @@
-- ***output/***文件夹下为各个模型的训练日志（log）
+- ***output***文件夹下为各个模型的训练日志（log）
 - ***VAE-0.ipynb***文件为基本任务相关代码的脚本
 - ***VAE-Conditional.ipynb***文件为进阶任务相关代码的脚本
 - ***report.pdf***文件为实验报告
