@@ -1,0 +1,134 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab2_challenge3_multicoremem
+分支 'lab2_challenge3_multicoremem' 设置为跟踪 'origin/lab2_challenge3_multicoremem'。
+切换到一个新分支 'lab2_challenge3_multicoremem'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab2_3_pagefault -m "continue to work on lab2_challenge3"
+自动合并 kernel/machine/mtrap.c
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c | 3 +--
+ kernel/strap.c         | 7 ++++---
+ kernel/vmm.c           | 8 ++++++--
+ 3 files changed, 11 insertions(+), 7 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+compiling kernel/machine/mtrap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_alloc0.c
+compiling user/user_lib.c
+linking obj/app_alloc0 ...
+User app has been built into "obj/app_alloc0"
+compiling user/app_alloc1.c
+linking obj/app_alloc1 ...
+User app has been built into "obj/app_alloc1"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike -p2 ./obj/riscv-pke ./obj/app_alloc0 ./obj/app_alloc1
+HTIF is available!
+(Emulated) memory size: 2048 MB
+In m_start, hartid:0
+hartid = 0: Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x000000008000a000, PKE kernel size: 0x000000000000a000 .
+free physical memory address: [0x000000008000a000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080006000
+hartid = 0: User application is loading.
+In m_start, hartid:1
+hartid = 1: Enter supervisor mode...
+hartid = 1: User application is loading.
+hartid = 0: user frame 0x0000000087fbc000, user stack 0x000000007ffff000, user kstack 0x0000000087fbb000 
+hartid = 0: Application: ./obj/app_alloc0
+hartid = 1: user frame 0x0000000087fb8000, user stack 0x000000007ffff000, user kstack 0x0000000087fb7000 
+hartid = 1: Application: ./obj/app_alloc1
+hartid = 0: Application program entry point (virtual address): 0x0000000000010078
+hartid = 1: Application program entry point (virtual address): 0x0000000000010078
+hartid = 0: Switch to user mode...
+hartid = 0: alloc page 0x87fa4000
+hartid = 0: alloc page 0x87fa3000
+hartid = 1: Switch to user mode...
+hartid = 0: vaddr 0x00400000 is mapped to paddr 0x87fa4000
+hartid = 1: alloc page 0x87fa2000
+hartid = 1: alloc page 0x87fa1000
+=== user alloc 0 @ vaddr 0x00400000
+hartid = 1: vaddr 0x00400000 is mapped to paddr 0x87fa2000
+hartid = 0: alloc page 0x87fa0000
+hartid = 0: vaddr 0x00401000 is mapped to paddr 0x87fa0000
+>>> user alloc 1 @ vaddr 0x00400000
+=== user alloc 0 @ vaddr 0x00401000
+hartid = 1: alloc page 0x87f9f000
+hartid = 1: vaddr 0x00401000 is mapped to paddr 0x87f9f000
+hartid = 0: alloc page 0x87f9e000
+hartid = 0: vaddr 0x00402000 is mapped to paddr 0x87f9e000
+>>> user alloc 1 @ vaddr 0x00401000
+=== user alloc 0 @ vaddr 0x00402000
+hartid = 1: alloc page 0x87f9d000
+hartid = 1: vaddr 0x00402000 is mapped to paddr 0x87f9d000
+hartid = 0: alloc page 0x87f9c000
+hartid = 0: vaddr 0x00403000 is mapped to paddr 0x87f9c000
+>>> user alloc 1 @ vaddr 0x00402000
+=== user alloc 0 @ vaddr 0x00403000
+hartid = 1: alloc page 0x87f9b000
+hartid = 1: vaddr 0x00403000 is mapped to paddr 0x87f9b000
+hartid = 0: alloc page 0x87f9a000
+hartid = 0: vaddr 0x00404000 is mapped to paddr 0x87f9a000
+>>> user alloc 1 @ vaddr 0x00403000
+=== user alloc 0 @ vaddr 0x00404000
+hartid = 1: alloc page 0x87f99000
+hartid = 1: vaddr 0x00404000 is mapped to paddr 0x87f99000
+=== user 0: 0
+>>> user alloc 1 @ vaddr 0x00404000
+=== user 0: 1
+>>> user 1: 5
+=== user 0: 2
+>>> user 1: 6
+=== user 0: 3
+>>> user 1: 7
+=== user 0: 4
+>>> user 1: 8
+hartid = 0: User exit with code: 0.
+>>> user 1: 9
+hartid = 1: User exit with code: 0.
+hartid = 0: shutdown with code: 0.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git status
+位于分支 lab2_challenge3_multicoremem
+您的分支领先 'origin/lab2_challenge3_multicoremem' 共 12 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     kernel/elf.c
+	修改：     kernel/kernel.c
+	修改：     kernel/machine/mentry.S
+	修改：     kernel/machine/minit.c
+	修改：     kernel/pmm.c
+	修改：     kernel/process.c
+	修改：     kernel/process.h
+	修改：     kernel/strap.c
+	修改：     kernel/syscall.c
+	修改：     kernel/vmm.c
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab2_challenge3 is done."
+[lab2_challenge3_multicoremem 2503ea4] my work on lab2_challenge3 is done.
+ 10 files changed, 215 insertions(+), 411 deletions(-)

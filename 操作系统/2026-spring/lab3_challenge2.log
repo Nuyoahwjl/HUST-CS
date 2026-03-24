@@ -1,0 +1,176 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab3_challenge2_semaphore
+分支 'lab3_challenge2_semaphore' 设置为跟踪 'origin/lab3_challenge2_semaphore'。
+切换到一个新分支 'lab3_challenge2_semaphore'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab3_3_rrsched -m "continue to work on lab3_challenge2"
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c |  3 +--
+ kernel/process.c       | 10 +++++++++-
+ kernel/strap.c         | 14 ++++++++++----
+ kernel/syscall.c       |  4 +++-
+ kernel/vmm.c           |  8 ++++++--
+ 5 files changed, 29 insertions(+), 10 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/sched.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+compiling kernel/machine/mtrap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_semaphore.c
+compiling user/user_lib.c
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_semaphore
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x000000008000b000, PKE kernel size: 0x000000000000b000 .
+free physical memory address: [0x000000008000b000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080005000
+kernel page table is on 
+Switch to user mode...
+in alloc_proc. user frame 0x0000000087fbc000, user stack 0x000000007ffff000, user kstack 0x0000000087fbb000 
+User application is loading.
+Application: ./obj/app_semaphore
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087faf000, user stack 0x000000007ffff000, user kstack 0x0000000087fae000 
+going to insert process 1 to ready queue.
+Parent print 0
+going to schedule process 1 to run.
+User call fork.
+will fork a child from parent 1.
+in alloc_proc. user frame 0x0000000087fa3000, user stack 0x000000007ffff000, user kstack 0x0000000087fa2000 
+going to insert process 2 to ready queue.
+Child0 print 0
+going to schedule process 2 to run.
+Child1 print 0
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 1
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 1
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 1
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 2
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 2
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 2
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 3
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 3
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 3
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 4
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 4
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 4
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 5
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 5
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 5
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 6
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 6
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 6
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 7
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 7
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 7
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 8
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Child0 print 8
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Child1 print 8
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+Parent print 9
+going to insert process 1 to ready queue.
+User exit with code:0.
+going to schedule process 1 to run.
+Child0 print 9
+going to insert process 2 to ready queue.
+User exit with code:0.
+going to schedule process 2 to run.
+Child1 print 9
+User exit with code:0.
+no more ready processes, system shutdown now.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git status
+位于分支 lab3_challenge2_semaphore
+您的分支领先 'origin/lab3_challenge2_semaphore' 共 18 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     kernel/process.c
+	修改：     kernel/syscall.c
+	修改：     kernel/syscall.h
+	修改：     user/user_lib.c
+	修改：     user/user_lib.h
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab3_challenge2 is done."
+[lab3_challenge2_semaphore c879e15] my work on lab3_challenge2 is done.
+ 5 files changed, 163 insertions(+), 67 deletions(-)

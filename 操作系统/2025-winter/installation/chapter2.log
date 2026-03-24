@@ -1,0 +1,90 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS$ cd riscv-pke
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab1_1_syscall
+已经位于 'lab1_1_syscall'
+您的分支与上游分支 'origin/lab1_1_syscall' 一致。
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ tree -L 3
+.
+├── kernel
+│   ├── config.h
+│   ├── elf.c
+│   ├── elf.h
+│   ├── kernel.c
+│   ├── kernel.lds
+│   ├── machine
+│   │   ├── mentry.S
+│   │   └── minit.c
+│   ├── process.c
+│   ├── process.h
+│   ├── riscv.h
+│   ├── strap.c
+│   ├── strap.h
+│   ├── strap_vector.S
+│   ├── syscall.c
+│   └── syscall.h
+├── LICENSE.txt
+├── Makefile
+├── README.md
+├── spike_interface
+│   ├── atomic.h
+│   ├── dts_parse.c
+│   ├── dts_parse.h
+│   ├── spike_file.c
+│   ├── spike_file.h
+│   ├── spike_htif.c
+│   ├── spike_htif.h
+│   ├── spike_memory.c
+│   ├── spike_memory.h
+│   ├── spike_utils.c
+│   └── spike_utils.h
+├── user
+│   ├── app_helloworld.c
+│   ├── user.lds
+│   ├── user_lib.c
+│   └── user_lib.h
+└── util
+    ├── functions.h
+    ├── load_store.S
+    ├── snprintf.c
+    ├── snprintf.h
+    ├── string.c
+    ├── string.h
+    └── types.h
+
+6 directories, 40 files
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/process.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/machine/minit.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_helloworld.c
+compiling user/user_lib.c
+linking obj/app_helloworld ...
+User app has been built into "obj/app_helloworld"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_helloworld
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+Application: ./obj/app_helloworld
+Application program entry point (virtual address): 0x0000000081000000
+Switch to user mode...
+call do_syscall to accomplish the syscall and lab1_1 here.
+
+System is shutting down with exit code -1.

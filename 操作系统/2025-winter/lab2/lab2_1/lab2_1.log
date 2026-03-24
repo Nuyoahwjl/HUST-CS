@@ -1,0 +1,50 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab2_1_pagetable
+分支 'lab2_1_pagetable' 设置为跟踪 'origin/lab2_1_pagetable'。
+切换到一个新分支 'lab2_1_pagetable'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab1_3_irq -m "continue lab2_1"
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c | 3 +--
+ kernel/strap.c         | 5 +++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_helloworld_no_lds.c
+linking obj/app_helloworld_no_lds ...
+User app has been built into "obj/app_helloworld_no_lds"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_helloworld_no_lds
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x0000000080007000, PKE kernel size: 0x0000000000007000 .
+free physical memory address: [0x0000000080007000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080004000
+kernel page table is on 
+User application is loading.
+user frame 0x0000000087fbc000, user stack 0x000000007ffff000, user kstack 0x0000000087fbb000 
+Application: ./obj/app_helloworld_no_lds
+Application program entry point (virtual address): 0x0000000000010078
+Switch to user mode...
+Hello world!
+User exit with code:0.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab2_1 is done."
+[lab2_1_pagetable fba8244] my work on lab2_1 is done.
+ 1 file changed, 3 insertions(+), 1 deletion(-)

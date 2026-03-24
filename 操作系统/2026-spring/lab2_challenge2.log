@@ -1,0 +1,77 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab2_challenge2_singlepageheap
+分支 'lab2_challenge2_singlepageheap' 设置为跟踪 'origin/lab2_challenge2_singlepageheap'。
+切换到一个新分支 'lab2_challenge2_singlepageheap'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab2_3_pagefault -m "continue to work on lab2_challenge2"
+自动合并 kernel/machine/mtrap.c
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c | 3 +--
+ kernel/strap.c         | 7 ++++---
+ kernel/vmm.c           | 8 ++++++--
+ 3 files changed, 11 insertions(+), 7 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+compiling kernel/machine/mtrap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_singlepageheap.c
+compiling user/user_lib.c
+linking obj/app_singlepageheap ...
+User app has been built into "obj/app_singlepageheap"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke ./obj/app_singlepageheap
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x0000000080008000, PKE kernel size: 0x0000000000008000 .
+free physical memory address: [0x0000000080008000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080005000
+kernel page table is on 
+User application is loading.
+user frame 0x0000000087fbc000, user stack 0x000000007ffff000, user kstack 0x0000000087fbb000 
+Application: ./obj/app_singlepageheap
+Application program entry point (virtual address): 0x000000000001008a
+Switch to user mode...
+hello, world!!!
+User exit with code:0.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git status
+位于分支 lab2_challenge2_singlepageheap
+您的分支领先 'origin/lab2_challenge2_singlepageheap' 共 12 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     kernel/kernel.c
+	修改：     kernel/process.h
+	修改：     kernel/syscall.c
+	修改：     kernel/syscall.h
+	修改：     user/user_lib.c
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab2_challenge2 is done."
+[lab2_challenge2_singlepageheap f274a00] my work on lab2_challenge2 is done.
+ 5 files changed, 235 insertions(+), 23 deletions(-)

@@ -1,0 +1,298 @@
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git checkout lab4_challenge3_shell
+分支 'lab4_challenge3_shell' 设置为跟踪 'origin/lab4_challenge3_shell'。
+切换到一个新分支 'lab4_challenge3_shell'
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git merge lab4_3_hardlink -m "continue to work on lab4_challenge3"
+Merge made by the 'ort' strategy.
+ kernel/machine/mtrap.c |  3 +--
+ kernel/process.c       | 10 +++++++++-
+ kernel/rfs.c           | 14 +++++++++++---
+ kernel/strap.c         | 14 ++++++++++----
+ kernel/syscall.c       |  4 +++-
+ kernel/vmm.c           |  8 ++++++--
+ 6 files changed, 40 insertions(+), 13 deletions(-)
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ make
+compiling util/hash_table.c
+compiling util/snprintf.c
+compiling util/string.c
+linking  obj/util.a ...
+Util lib has been build into "obj/util.a"
+compiling spike_interface/dts_parse.c
+compiling spike_interface/spike_file.c
+compiling spike_interface/spike_htif.c
+compiling spike_interface/spike_memory.c
+compiling spike_interface/spike_utils.c
+linking  obj/spike_interface.a ...
+Spike lib has been build into "obj/spike_interface.a"
+compiling kernel/elf.c
+compiling kernel/hostfs.c
+compiling kernel/kernel.c
+compiling kernel/pmm.c
+compiling kernel/process.c
+compiling kernel/proc_file.c
+compiling kernel/ramdev.c
+compiling kernel/rfs.c
+compiling kernel/sched.c
+compiling kernel/strap.c
+compiling kernel/syscall.c
+compiling kernel/vfs.c
+compiling kernel/vmm.c
+compiling kernel/machine/minit.c
+compiling kernel/machine/mtrap.c
+compiling kernel/strap_vector.S
+compiling kernel/machine/mentry.S
+compiling kernel/machine/mtrap_vector.S
+linking obj/riscv-pke ...
+PKE core has been built into "obj/riscv-pke"
+compiling user/app_shell.c
+compiling user/user_lib.c
+linking hostfs_root/bin/app_shell ...
+User app has been built into "hostfs_root/bin/app_shell"
+compiling user/app_ls.c
+linking hostfs_root/bin/app_ls ...
+User app has been built into "hostfs_root/bin/app_ls"
+compiling user/app_mkdir.c
+linking hostfs_root/bin/app_mkdir ...
+User app has been built into "hostfs_root/bin/app_mkdir"
+compiling user/app_touch.c
+linking hostfs_root/bin/app_touch ...
+User app has been built into "hostfs_root/bin/app_touch"
+compiling user/app_cat.c
+linking hostfs_root/bin/app_cat ...
+User app has been built into "hostfs_root/bin/app_cat"
+compiling user/app_echo.c
+linking hostfs_root/bin/app_echo ...
+User app has been built into "hostfs_root/bin/app_echo"
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ spike ./obj/riscv-pke /bin/app_shell
+In m_start, hartid:0
+HTIF is available!
+(Emulated) memory size: 2048 MB
+Enter supervisor mode...
+PKE kernel start 0x0000000080000000, PKE kernel end: 0x0000000080011000, PKE kernel size: 0x0000000000011000 .
+free physical memory address: [0x0000000080011000, 0x0000000087ffffff] 
+kernel memory manager is initializing ...
+KERN_BASE 0x0000000080000000
+physical address of _etext is: 0x0000000080009000
+kernel page table is on 
+RAMDISK0: base address of RAMDISK0 is: 0x0000000087f35000
+RFS: format RAMDISK0 done!
+Switch to user mode...
+in alloc_proc. user frame 0x0000000087f29000, user stack 0x000000007ffff000, user kstack 0x0000000087f28000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+User application is loading.
+Application: /bin/app_shell
+CODE_SEGMENT added at mapped info offset:4
+DATA_SEGMENT added at mapped info offset:5
+Application program entry point (virtual address): 0x00000000000100b0
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+
+======== Shell Start ========
+
+Next command: /bin/app_mkdir /RAMDISK0/sub_dir
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087f0e000, user stack 0x000000007ffff000, user kstack 0x0000000087f0c000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 1 to ready queue.
+going to schedule process 1 to run.
+Application: /bin/app_mkdir
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+
+======== mkdir command ========
+mkdir: /RAMDISK0/sub_dir
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_touch /RAMDISK0/sub_dir/ramfile1
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087ee5000, user stack 0x000000007ffff000, user kstack 0x0000000087ee4000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 2 to ready queue.
+going to schedule process 2 to run.
+Application: /bin/app_touch
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+
+======== touch command ========
+touch: /RAMDISK0/sub_dir/ramfile1
+file descriptor fd: 0
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_touch /RAMDISK0/sub_dir/ramfile2
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087ec6000, user stack 0x000000007ffff000, user kstack 0x0000000087ecc000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 3 to ready queue.
+going to schedule process 3 to run.
+Application: /bin/app_touch
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+
+======== touch command ========
+touch: /RAMDISK0/sub_dir/ramfile2
+file descriptor fd: 0
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_echo /RAMDISK0/sub_dir/ramfile1
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087ea1000, user stack 0x000000007ffff000, user kstack 0x0000000087ea7000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 4 to ready queue.
+going to schedule process 4 to run.
+Application: /bin/app_echo
+CODE_SEGMENT added at mapped info offset:4
+DATA_SEGMENT added at mapped info offset:5
+Application program entry point (virtual address): 0x00000000000100b0
+
+======== echo command ========
+echo: /RAMDISK0/sub_dir/ramfile1
+file descriptor fd: 0
+write content: 
+hello world
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_cat /RAMDISK0/sub_dir/ramfile1
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087e7c000, user stack 0x000000007ffff000, user kstack 0x0000000087e82000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 5 to ready queue.
+going to schedule process 5 to run.
+Application: /bin/app_cat
+CODE_SEGMENT added at mapped info offset:4
+Application program entry point (virtual address): 0x0000000000010078
+
+======== cat command ========
+cat: /RAMDISK0/sub_dir/ramfile1
+file descriptor fd: 0
+read content: 
+hello world
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_ls /RAMDISK0/sub_dir
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087e56000, user stack 0x000000007ffff000, user kstack 0x0000000087e5c000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 6 to ready queue.
+going to schedule process 6 to run.
+Application: /bin/app_ls
+CODE_SEGMENT added at mapped info offset:4
+DATA_SEGMENT added at mapped info offset:5
+Application program entry point (virtual address): 0x00000000000100b0
+---------- ls command -----------
+ls "/RAMDISK0/sub_dir":
+[name]               [inode_num]
+ramfile1             2
+ramfile2             3
+------------------------------
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+Next command: /bin/app_ls /RAMDISK0
+
+==========Command Start============
+
+User call fork.
+will fork a child from parent 0.
+in alloc_proc. user frame 0x0000000087e31000, user stack 0x000000007ffff000, user kstack 0x0000000087e2a000 
+FS: created a file management struct for a process.
+in alloc_proc. build proc_file_management successfully.
+do_fork map code segment at pa:0000000087f10000 of parent to child at va:0000000000011a08.
+going to insert process 7 to ready queue.
+going to schedule process 7 to run.
+Application: /bin/app_ls
+CODE_SEGMENT added at mapped info offset:4
+DATA_SEGMENT added at mapped info offset:5
+Application program entry point (virtual address): 0x00000000000100b0
+---------- ls command -----------
+ls "/RAMDISK0":
+[name]               [inode_num]
+sub_dir              1
+------------------------------
+User exit with code:0.
+going to insert process 0 to ready queue.
+going to schedule process 0 to run.
+==========Command End============
+
+User exit with code:0.
+no more ready processes, system shutdown now.
+System is shutting down with exit code 0.
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git status
+位于分支 lab4_challenge3_shell
+您的分支领先 'origin/lab4_challenge3_shell' 共 24 个提交。
+  （使用 "git push" 来发布您的本地提交）
+
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+	修改：     kernel/elf.c
+	修改：     kernel/elf.h
+	修改：     kernel/process.c
+	修改：     kernel/process.h
+	修改：     kernel/sched.c
+	修改：     kernel/sched.h
+	修改：     kernel/syscall.c
+	修改：     kernel/syscall.h
+	修改：     user/user_lib.c
+	修改：     user/user_lib.h
+
+未跟踪的文件:
+  （使用 "git add <文件>..." 以包含要提交的内容）
+	hostfs_root/bin/
+
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+huster@huster-VMware-Virtual-Platform:~/桌面/OS/riscv-pke$ git commit -a -m "my work on lab4_challenge3 is done."
+[lab4_challenge3_shell 1530926] my work on lab4_challenge3 is done.
+ 10 files changed, 374 insertions(+), 95 deletions(-)
