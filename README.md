@@ -44,11 +44,10 @@
   </a>
 </div> -->
 
-
 <div align="center">
 <h2 align="center">⭐ <i>Star History</i> ⭐</h2>
   <a href="https://starchart.cc/Nuyoahwjl/HUST-CS">
-     <img width="600" alt="Star History Chart" src="https://starchart.cc/Nuyoahwjl/HUST-CS.svg?variant=adaptive"/>
+     <img width="600" alt="Star History Chart" src="https://starchart.cc/Nuyoahwjl/HUST-CS.svg?background=%23ffffff&axis=%23101010&line=%23f83838"/>
   </a>
 </div>
 
