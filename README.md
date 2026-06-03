@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="300" src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/HUST-CS/HUST-CS.png" />
+  <img width="300" src="https://raw.githubusercontent.com/Nuyoahwjl/HUST-CS/main/HUST-CS.png" />
   <h2 align="center">🏫 <i>School of Computer Science & Technology, HUST</i> 🏫</h2>
   <p align="center">🏆 <i>Course archive: notes, code, lab reports, courseware, etc</i> 🏆</p>
 </div>
@@ -54,7 +54,7 @@
 
 <div align="center">
 <h2 align="center">⚡️ <i>Stay Awesome</i> ⚡️</h2>
-   <img src="https://cdn.jsdelivr.net/gh//Nuyoahwjl/Nuyoahwjl/image/header_.png"/>
+   <img src="https://raw.githubusercontent.com/Nuyoahwjl/Nuyoahwjl/main/image/header_.png"/>
 </div>
 <br>
 
