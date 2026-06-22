@@ -1,0 +1,945 @@
+任务描述
+本关任务：生成LLVM IR中间代码
+
+LLVM IR介绍
+LLVM IR可以理解为一种与平台无关的汇编语言，其详细介绍参见:
+LLVM Language Reference Manual
+https://llvm.org/docs/LangRef.html
+LLVM IR是一种基于静态单赋值(SSA)的中间表达，它提供类型安全(强类型约束)、低级别操作、灵活性，以及能清晰表达“所有”高级程序设计语言的能力。它是贯穿LLVM编译策略全阶段的通用代码表示。
+
+LLVM IR有三种存在形式：
+
+内存(in memory)。作为编译器在编译期间的中间表达(IR)
+二进制编码文件(on-disk bitcode), 文件以.bc为后缀
+可读文本(human readable text)，文件以.ll为后缀
+三种表现形式是等价的,这里仅介绍.ll形式。
+
+LLVM IR的目标是轻量、低级别操作(接近于汇编语言)，同时又易于表达、有类型、易扩展，能成为一种通用的中间代码。
+
+LLVM IR是基于SSA的，以下指令虽然符合语法，但不是SSA形式, LLVM能检测出其错误： 
+%x = add i32 1, %x
+(对应C语言的: x = x + 1;)
+
+观察LLVM工具链生成的LLVM IR
+学习LLVM IR的一个最好方法是实践，你可以写出Sysy语言的程序，并将程序保存为后缀为'.c'的文件，这样就可以用LLVM工具链去生成对应的LLVM IR文件，观察它，并对照LLVM IR语言参考手册去理解。如果你对Sysy语言的某种语法结构或某种数据类型对应的LLVM IR形式没有把握，不妨写一个短程序，聚焦在该语法结构或数据类型，用LLVM工具生成LLVM IR。如果程序调用了Sysy运行时库函数，请用C语言的extern关键字说明该库函数。
+
+先看一个例子。
+
+先准备一个C程序文件add.c:
+
+ int add(int a, int b){
+    return a + b;
+}
+int main() {
+    int a = 10;
+    int b;
+    b = 20;
+    return add(a, b);
+}
+clang可以将add.c翻译成LLVM IR形式.
+clang -S -emit-llvm add.c -o add.ll
+clang -c -emit-llvm add.c -o add.bc
+
+其中,add.ll是可读形式，其内容为：
+
+; ModuleID = 'add.c'
+source_filename = "add.c"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+; Function Attrs: noinline nounwind optnone uwtable
+define dso_local i32 @add(i32 %0, i32 %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, i32* %3, align 4
+  store i32 %1, i32* %4, align 4
+  %5 = load i32, i32* %3, align 4
+  %6 = load i32, i32* %4, align 4
+  %7 = add nsw i32 %5, %6
+  ret i32 %7
+}
+; Function Attrs: noinline nounwind optnone uwtable
+define dso_local i32 @main() #0 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 0, i32* %1, align 4
+  store i32 10, i32* %2, align 4
+  store i32 20, i32* %3, align 4
+  %4 = load i32, i32* %2, align 4
+  %5 = load i32, i32* %3, align 4
+  %6 = call i32 @add(i32 %4, i32 %5)
+  ret i32 %6
+}
+attributes #0 = { noinline nounwind optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"uwtable", i32 1}
+!2 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!"clang version 13.0.0 (https://github.com/llvm/llvm-project/ 24c8eaec9467b2aaf70b0db33a4e4dd415139a50)"}
+ 
+以上.ll文件由clang13生成，不同的版本输出的LLVM IR略有不同。其中：
+
+1,6,18行，分号';'至行尾为注释。
+
+2-4行分别描述该IR的源程序，目标平台的数据布局和目标平台。每个部分都是可选的，你可以先忽略他们。不过，如果不指定目标平台和数据布局，LLVM不会做与机器有关的优化。
+
+第7行用关键字'define'定义了一个函数'@add',该函数有两个形参：%0和%1,两个形参和函数的返回值都是i32类型的,它对应C语言的int型。函数原型后的#0是对函数标注的属性，属性标注#0在第32行。该程序有两个函数，两个函数的标注属性是一样的。一个程序可能有多组属性标注。属性标注不是必须的，但标注可以提高LLVM后端生成的目标代码的性能。 
+
+第8,9行分别为两个局部变量%3,%4分配内存,4字节对齐。两个变量都是32位int。
+
+第10,11行将函数的两个实参值分别存入局部变量%3,%4对应的存储单元。
+
+第12,13行又将其分别取到局部变量%5和%6.
+
+第14行,执行add运算,将%5和%6的和赋给局部变量%7。
+
+第15行,返回值%7,它是i32即int型。
+
+第19-30行定义了@main函数。
+第34-40行是元数据,它们可以指导后端更好地生成目标代码。元数据是可选的。
+
+函数定义中的dso_local是运行时说明符，可选。
+第14行add运算符后的nsw表示“No Signed Wrap”,当运算后的结果溢出时触发特别处理,也是可选的。
+
+.bc和.ll形式可以互转：
+
+.bc转.ll
+llvm-dis add.bc -o add1.ll
+
+.ll转.bc
+llvm-as add.ll -o add1.bc
+
+用即时编译(JIT)器lli解释执行LLVM IR：
+lli add.ll
+lli add.bc
+
+将llvm ir编译成汇编语言:
+clang -S add.ll -o add.s
+
+将llvm ir编译成目标代码:
+clang -o add add.ll
+
+标识符(Identifier)
+LLVM IR的标识符有两种类型： 
+
+global
+全局标识符(函数,全局变量)以'@'打头.
+
+local
+局部标识符(寄存器名, 类型)以'%'打头。
+
+基于不同用途，标识符有三种格式：
+
+命名值(named value)
+由前缀（@|%）加字符串表示，如 %foo, @DivisionByZero, %a.really.long.identifier，@.str等。其正则表达式为：
+[%@][-a-zA-Z$._][-a-zA-Z$._0-9]*。
+
+未命名值(unamed value)
+由其前缀(@|%)加无符号数字表示，如 %12, @2, %44等。只要运算的结果未赋值给命名的变量，就会创建一个未命名的临时变量来保存运算的中间结果。未命名的临时变量以函数为单位，从0开始，按顺序编号。值得注意的是：未命名的函数形参，以及基本块都参与编号。
+
+常量
+常量须与其类型一致，如:
+
+‘0’是一个int型常量;
+‘123.421’或'1.23421e+2'是都是合法的float型常量;
+‘true’和'false'是boolean型常量。
+‘null’是指针类型的常量。
+
+LLVM IR分别用i32, float，i1和ptr表示int, float, boolean,和指针类型。
+
+注：标识符由‘@’或‘%’前缀开头，出于两方面的考虑：一是编译器不用担心其与现有保留字冲突，且未来还可以毫无顾忌地扩充保留字；二是编译器可以方便的设置临时变量而不需要考虑符号表冲突。比如i32是LLVM IR的保留字，它也可能被程序员用来给程序中的某个变量命名，但允许以‘%i32’或‘@i32’命名变量或函数名的高级程序设计语言罕见。
+
+IR代码结构
+Module：
+LLVM程序由模块组成，每个输入程序都对应一个模块，模块包括函数、全局变量和符号表。多个模块可以被LLVM 链接器（linker）组合在一起。可以将LLVM中的Module类比为C程序中的源文件。一个C源文件中包含函数和全局变量定义、外部函数和外部函数声明，一个Module中包含的内容也基本如此。
+
+Function：
+被Module所包含，LLVM的Function包含函数名、函数的返回值和参数类型，Function内部则包含BasicBlock。
+
+BasicBlock：
+与编译技术中常见的基本块(basic block)的概念是一致的，BasicBlock有一个进入标号和一条结束指令(terminator)。结束指令一般是br跳转指令或者ret返回指令。
+
+注：基本块是指程序中一个顺序执行的语句序列，它只有一个入口语句和一个出口语句。执行时从其入口语句进入，顺序执行完基本块的全部语句，从出口语句退出。
+
+Instruction：
+LLVM IR的最基本的单位，Instruction被包含在BasicBlock中，一个BasicBlock可以有多条Instruction。
+
+以下是由"Helloworld.c"的C语言程序翻译成的 LLVM IR：
+
+ ; Declare the string constant as a global constant.
+@.str = private unnamed_addr constant [13 x i8] c"hello world\0A\00"
+; External declaration of the puts function
+declare i32 @puts(ptr nocapture) nounwind
+; Definition of main function
+define i32 @main() {
+  ; Call puts function to write out the string to stdout.
+  call i32 @puts(ptr @.str)
+  ret i32 0
+}
+; Named metadata
+!0 = !{i32 42, null, !"string"}
+!foo = !{!0}
+它由全局变量@.str,外部函数定义@puts,函数定义@main和metadata组成。
+注意字符串"hello word\0A\00"是常量，类型是[13 x i8]，即13个元素的数组，数组的每个元素为i8类型(char,1个字节)。 
+变量@.str的Linkage修饰符private表示，其只能在本module访问。Linkage Type.
+未加linkage修饰符的全局符号，缺省值为external。函数@puts来自stdio.h，是一个外部定义函数，在本module只作引用性说明(declare)，其linkage为external。
+Sysy语言的运行时库函数，均为外部定义函数。一种可行的翻译方案是将其所有运行时库函数，全部予以说明：
+
+declare i32 @getint()
+declare float @getfloat()
+declare i32 @getch()
+declare i32 @getarray(i32*)
+declare i32 @getfarray(float*)
+declare void @putint(i32)
+declare void @putfloat(float)
+declare void @putch(i32)
+declare void @putarray(i32, i32*)
+declare void @putfarray(i32, float*)
+declare void @_sysy_starttime(i32)
+declare void @_sysy_stoptime(i32)
+函数(Function)
+1.函数定义
+函数定义的语法：
+
+define [linkage] [PreemptionSpecifier] [visibility] [DLLStorageClass]
+       [cconv] [ret attrs]
+       <ResultType> @<FunctionName> ([argument list])
+       [(unnamed_addr|local_unnamed_addr)] [AddrSpace] [fn Attrs]
+       [section "name"] [partition "name"] [comdat [($name)]] [align N]
+       [gc] [prefix Constant] [prologue Constant] [personality Constant]
+       (!name !N)* { ... }
+上述语法中，绝大部分是可选的，如前面提到的linkage、运行时说明符等。可以简写为：
+define <ResultType> @<FunctionName>([arument list]){...}   
+函数由关键词define定义，有一个返回值类型，函数名称，以及可选的参数列表。多个参数间用','号分隔，其中每个参数的格式为：
+<type> [parameter Attrs] [name]
+参数的类型是必须的，可以不命名，也可以命名。不命名则用未命名标识符%0，%1等代表参数名。
+
+2.函数说明
+ 函数由关键字declare说明，其余语法同define。
+
+类型系统(Type System)
+void类型
+void类型不代表任何值，也没有大小。跟c、java中的void一样，在需要的地方起占位作用。
+
+函数类型
+函数类型可以理解为函数的签名，它由一个返回值 类型和一个形式化的参数列表组成。参数列表中可以有一个‘...’类型，它表示参数的个数可变。返回值类型可以是void或某个具体类型(label和metadata除外). 函数类型的格式为：
+<returntype> (<parameter list>)
+举例：
+Examples:    
+
+函数类型	说明
+i32 (i32)	一个i32型参数, 返回i32
+i32 (ptr, ...)	可变参数,至少一个指针类型，返回一个整数,它就是printf函数的签名
+{i32, i32} (i32)	一个i32参数, 返回一个结构体,它有两个成员，均为i32类型的值
+整数型
+语法：
+iN        
+
+N为一个整数。举例：
+
+函数类型	说明
+i1	1位整数，多用于表达true/false
+i8	8位整数, 也可用于表达char
+i32	32位int
+i128	128位整数
+4.浮点型
+有float, double等多种。其中float为32位，double为64位。
+
+5.指针类型
+关键字ptr表示指针类型。在llvm 15以前，还可以在数据类型后加*表示指针，如i8*，i32*分别表示char* 和int*。
+
+6.标签类型
+关键字label表示标签(标号)类型。如：
+label if.then
+标签用来表示程序跳转的目标,在使用标号的后后面加冒号。如：
+if.then:
+if.else:
+L1:
+21:
+等。
+以下是两条无条件跳转语句，并用关键字label给出了跳转的目标：
+br label %21
+br label %if.then
+
+7.数组类型
+语法格式：
+[<元素个数> x <元数类型>]
+
+元素个数须为整数。元数类型可以仍为数组类型(多维数组)举例：
+
+[40 x i32]    40个32位整数元素的数组.
+[3 x [4 x i32]]    3x4=12个32位整数元素的数组.
+[12 x [10 x float]]    12x10个单精度浮点数的数组.
+
+LLVM IR指令
+LLVM IR指令集分为几大类：终结指令、一元运算、
+二元运算、存取指令，以及其它指令。
+
+1.终结指令
+如前所述，每个基本块以一个终结指令结束，这条指令决定下一个要执行的基本块。终结指令改变程序的控制流。终结指令主要有ret和br。
+
+(1) ret
+语法:
+ret <type> <value>; 带返回值的return 
+ret void       ; 不带返回值的return
+例:
+ret i32 5 ; 返回整数5
+ret void ; 从void函数返回
+ret { i32, i8 } { i32 4, i8 2 } ; 返回一个结构体,两个成员值为4和2。 
+
+(2) br
+
+语法格式(前者为条件跳转，后者为无条件跳转)：
+br i1 <cond>, label <iftrue>, label <iffalse>
+br label <dest> ; 无条件跳转
+
+例：
+
+Test:
+  %cond = icmp eq i32 %a, %b
+  br i1 %cond, label %IfEqual, label %IfUnequal
+IfEqual:
+  ret i32 1
+IfUnequal:
+  ret i32 0 
+上述代码比较a,b的大小，若相等跳转IfEqual，否则跳转到IfUnequal。
+
+2.一元运算
+fneg
+符号位取反。操作数须是float型。
+语法：
+<result> = fneg [fast-math flags]* <ty> <op1>   ; yields ty:result
+
+例：
+<result> = fneg float %val ; yields float:result = -%var
+
+3.二元运算
+‘add’  整型加
+‘fadd’ 浮点加
+‘sub’  整型减
+‘fsub’ 浮点减
+‘mul’  整型乘法
+‘fmul’ 浮点乘
+‘udiv’ 无符号整数除(结果仍是整型)
+‘sdiv’ 有符号整数除(结果仍是整型)
+‘fdiv’ 浮点除
+‘urem’ 无符号整数取余
+‘srem’ 有符号整数取余
+‘frem’ 浮点取余
+
+4.位运算
+‘shl’ 左移
+‘lshr’ 逻辑右移，高位补0
+‘ashr’ 算术右移，最高位是符号位
+‘and’ 逻辑与
+‘or’  逻辑或
+‘xor’ 逻辑异或
+
+5.存取与寻址
+‘alloca’ 在当前函数的栈帧上分配空间
+‘load’ 从memory读数据
+‘store’ 向meory写数据
+‘getelementptr’  获取array或struct元素的地址
+
+6.类型转换
+‘trunc .. to’ 截断高位，长转短
+‘zext .. to’ 高位填0，短转长
+‘sext .. to’ 符号位填充 ，短转长
+‘fptrunc .. to’ 浮点长转短，截断
+‘fpext .. to’ 浮点短转长
+‘fptoui .. to’ 浮点转无符号整数
+‘fptosi .. to’ 浮点转有符号整数 
+‘uitofp .. to’ 无符号整数转浮点
+‘sitofp .. to’ 有符号整数转浮点
+‘bitcast .. to’ 直转,不改变任何一个bit.即一种类型写入，以另一种类型读出。被转换的值必须与目标类型等宽(所占字节数)
+
+7.其它运算
+‘icmp’ 整型比较：eq/ne/ugt/uge/ult/ule/sgt/sge/slt/sle
+‘fcmp’ 浮点型比较
+‘phi’ 实现SSA的phi函数
+‘call’函数调用
+
+LLVM IR固有函数
+LLVM IR还提供了丰富的函数，这些函数名都以“llvm.”开头。详情可查LLVM  IR语言手册。
+
+LLVM IR生成器框架
+LLVM IR生成器在基于flex/bison C++版词法/语法分析器的基础上新添了中间代码生成功能。即其词法/语法分析代码源自实验3-2。
+
+.
+├── lib  #运行时库函数
+│   ├── sylib.c
+│   └── sylib.h
+├── src #源程序 
+│   ├── AST #前端词法/语法分析/AST
+│   │   ├── CMakeLists.txt
+│   │   ├── ast.cpp
+│   │   ├── ast.h
+│   │   ├── define.h
+│   │   ├── parser.cpp
+│   │   ├── parser.hpp
+│   │   ├── parser.y
+│   │   ├── tokens.cpp
+│   │   └── tokens.l
+│   ├── CMakeLists.txt　　#cmake文件
+│   ├── IR  #中间代码生成
+│   │   ├── CMakeLists.txt
+│   │   ├── genIR.cpp
+│   │   ├── genIR.h
+│   │   ├── ir.cpp
+│   │   └── ir.h
+│   └── main.cpp  #主控程序
+└── test_cases  #测试用例及输入和输出
+　   ├── 012_func_defn.out
+　   ├── 012_func_defn.sy
+　   ├── 038_continue.out
+   　├── 038_continue.sy
+　   ├── 067_sort_test7.in
+　   ├── 067_sort_test7.out
+　   ├── 067_sort_test7.sy
+　   ├── 087_gcd.in
+　   ├── 087_gcd.out
+　   ├── 087_gcd.sy
+　   ├── test2.out
+　   └── test2.sy
+
+lib文件夹下存放着Sysy语言运行时库函数，测试时需要与库函数联编；
+AST文件夹下存放的是前端词法分析、语法分析以及AST生成的相关程序；其中tokens.cpp由flex根据tokens.l生成,parser.cpp和parser.hpp由bison根据parser.y生成。实际生成IRGen的目标代码时，tokens.l和parser.y不再需要。
+test_cases文件夹里存放的是测试用例，以及输入文件及预期输出结果；
+src/main.cpp是主程序：
+
+main.cpp
+#include <fstream>
+#include <iostream>
+#include "genIR.h"
+#include "ast.h"
+#include "define.h"
+extern unique_ptr<CompUnitAST> root;
+extern int yyparse();
+extern FILE *yyin;
+int main(int argc, char **argv) {
+    assert(argc >= 2);
+    char *filename;
+    bool print_ir = false;
+    
+    for (int i = 1; i < argc; i++) {
+        if (argv[i] == std::string("-ir")) {
+            print_ir = true;
+        } else {
+            filename = argv[i];
+        }
+    }
+    yyin = fopen(filename, "r");
+    if (yyin == nullptr) {
+        std::cout << "yyin open" << filename << "failed" << std::endl;
+        return -1;
+    }
+    yyparse();
+    GenIR genIR;
+    root -> accept(genIR);
+    std::unique_ptr<Module> m = genIR.getModule();
+    std::string IR = m -> print();
+    if (print_ir){
+        std::cout << IR << std::endl;
+    }
+    return 0;
+}
+main.cpp先检查命令行参数，确保有一个参数为待分析的文件名，一个参数为选项'-ir'。
+如果没有带参数'-r'，将在内存生成LLVM IR，但不输出。如果带参数'-r;',则输出LLVM IR。
+(注：实际代码略作了化简,只要待分析文件名前有一个参数，就默认输出IR)
+
+第29行调用yypase()进行语法分析，并生成AST。全局变量root指向AST的根结点。
+
+第31行，创建GenIR类的一个实例genIR。genIR作 为visitor将visit()抽象语法树(AST)的各类结点,并据此生成中间代码。
+
+第32行，AST的根结点root调用其accept()方法，将访问者genIR作为方法的参数，实现double dispatch。访问者将按程序的编程遍历AST，生成IR。
+
+第33行，调用genIR的getModule()方法，返回IR的module()的指针。由于Sysy语言程序只有一个文件，每个文件会被翻译成一个module。所以，本编译器每次生成的IR只有一个module。
+
+第35行，调用module的print()方法获得IR的可读形式(string)。
+
+第37行，输出可读的IR。
+
+程序执行时，可以通过重定向符'>'将输出的IR写入一个.ll文件。然后用clang联编.ll和sylib.c生成可执行的二进制代码，运行二进制代码文件(必要时给定输入)，检查输出是否符合预期。
+
+genIR.h和genIR.cpp
+定义了两个类:
+
+Scope(作用域)
+GenIR(中间代码)
+Scope类
+成员：符号表symbol
+std::vector<std::map<std::string, Value *>> symbol
+
+采用多符号表结构
+每个作用域有各自的符号表
+用vector维护作用域
+进入新作用域时，创建空的新符号表，并将其push_back到vector
+退出作用域时，从vector中pop_back其符号表
+符号表是一种map<std::string, Value *>结构，类似于<键,值>对。这里类型Value是LLVM IR中的named value或unamed value。可以是全局变量，局部变量，函数名等。
+
+每visit到一个新符号，调用符号表的push()方法，将其insert到当前作用域的符号表。
+
+Scope类有以下方法
+
+enter()-进入一个新作用域
+exit()-退出当前作用域
+bool in_global()-是否在global作用域
+bool push(std::string name, Value *val)-将符号及其value插入到当前作用域的符号表
+Value* find(std::string name) -符号表查找
+GenIR类
+GenIR类继承自Visitor类，它重写了Visitor的所有visit()方法:
+
+    void visit(CompUnitAST &ast) override;
+    void visit(DeclDefAST &ast) override;
+    void visit(DeclAST &ast) override;
+    void visit(DefAST &ast) override;
+    void visit(InitValAST &ast) override;
+    void visit(FuncDefAST &ast) override;
+    void visit(FuncFParamAST &ast) override;
+    void visit(BlockAST &ast) override;
+    void visit(BlockItemAST &ast) override;
+    void visit(StmtAST &ast) override;
+    void visit(ReturnStmtAST &ast) override;
+    void visit(SelectStmtAST &ast) override;
+    void visit(IterationStmtAST &ast) override;
+    void visit(AddExpAST &ast) override;
+    void visit(LValAST &ast) override;
+    void visit(MulExpAST &ast) override;
+    void visit(UnaryExpAST &ast) override;
+    void visit(PrimaryExpAST &ast) override;
+    void visit(CallAST &ast) override;
+    void visit(NumberAST &ast) override;
+    void visit(RelExpAST &ast) override;
+    void visit(EqExpAST &ast) override;
+    void visit(LAndExpAST &ast) override;
+    void visit(LOrExpAST &ast) override;
+这一组visit()方法用于产生AST各子树的IR。
+
+GenIR的几个重要成员
+
+IRStmtBuilder *builder;
+Scope scope;
+std::unique_ptr module;
+GenIR有一个module对象，一个作用域对象(管理符号表) ,和一个语句构造器对象
+
+除visit()外，GenIR还新添了一些方法。
+
+GenIR的constructor一开始就new一个Module对象module，一个语句构造器对象builder，然后将Sysy语言运行时库函数全部加入到module对象。当然每个库函数都通过new一个Function对象，然后将Fuction对象加入到module。 每个Function对象都有一个类型和名字。函数的类型是一个二元组：一个返回值类型和参数类型，参数类型是积类型，用vector实现。
+
+Module类,Function类和类型都定义在ir.h中：
+class Module 
+class Fuction
+class Type
+class IntegerType;
+class ArrayType;
+class PointerType;
+class FunctionType;
+class Argument  
+
+GenIR.cpp是对GenIR.h中定义的类和方法的实现。当然，最复杂的部分是visit()方法，它根据不同的AST结点生成不同的LLVM IR代码。
+
+ir.h和ir.cpp
+LLVM IR的基本元素都定义在ir.h中，并在ir.cpp中实现
+
+class Module
+
+一个Sysy程序对应一个Module，所以，Module类是顶级的类。
+
+一个Module由若干个全局变量(或常量)说明和若干个函数组成(函数定义或函数引用说明)。因此，Module类最重要的成员是全局变量和函数:
+
+std::vector<GlobalVariable*> global_list_;
+std::vector<Function*> function_list_;
+Module最重要的方法：向module添加全局变量和函数,以及getMainFunc()方法，每个module有一个main()函数。
+
+void add_global_variable(GlobalVariable* g) { global_list_.push_back(g); }
+void add_function(Function* f) { function_list_.push_back(f); }
+  
+Function *getMainFunc();  
+class GlobalVariable
+
+GlobalVariable的constructor需提供以下参数：
+std::string name -名字
+Module* m - 属于哪个module
+Type* ty - 类型
+bool is_const -是否常量
+Constant* init = nullptr - 常量初始化器
+
+其中Type类，Constant类下文介绍。
+
+class Function
+Function的constructor,需提供其类型，函数名和其所属的module(parent)。
+
+ Function有以下重要成员：
+
+//函数的基本块  
+std::vector<BasicBlock*> basic_blocks_;  // basic blocks
+//函数的参数 
+std::vector<Argument*> arguments_;       //函数所属的基本块
+Module* parent_; 
+//函数内部的顺序编号(参数,local变量与标号)  
+unsigned seq_cnt_; 
+函数有类型，有若干个基本块，若干个形参，所属module，以及以函数为单位的unamed value的顺序编号。一般从0开始，函数的未命名形参，局部变量，标签都参与编号。
+
+在本系统，在生成具体参数名，变量名，标签名时，使用了以下规则:
+
+函数参数在编号前加‘arg_’前缀,如:
+i32 @f(i32 %arg_0, i32 %arg_1)
+变量名在编号前加前缀‘v’，如:
+%v2, %v12
+标签名在编号前加前缀‘label_’，如
+label_8
+函数的入口标号固定为: label_entry
+函数的return基本块标号固定为:label_ret
+函数的几个重要方法：
+
+//添加基本块
+void add_basic_block(BasicBlock* bb) { basic_blocks_.push_back(bb); }
+//获取函数类型  
+Type* get_return_type() const { return static_cast<FunctionType*>(type_)->result_; }
+//函数是引用说明(declare)，还是定义(define)
+bool is_declaration() { return basic_blocks_.empty(); }
+//获得return所在基本块的指针  
+ BasicBlock *getRetBB();
+ 
+分别表示向函数添加基本块，获得函数返回值类型， 是引用说明(delare)还是定义(define)函数，获取返回语句所在基本块。
+
+class BasicBlock
+ 一个基本块运行完后，可以到达的所有基本块是该基本块的后继基本块，可以直接运行并到达某一基本块的所有基本块是该基本块的前趋基本块。 
+
+ 基本块由若干条连续执行的指令组成，这些指令要么都不执行，要么全部执行。所以基本块的中间没有终结指令(br/ret)，基本块以一条终结指令终止(br/ret)。
+
+基本块有一个标号，标号就是基本块的名字，其类型是label。一个跳转语句(br)的目标一定是某个基本块的开始语句(跳转语句br结束一个基本块，并决定控制流程到达下一基本块)。
+
+从函数的首个基本块出发，到达基本块n的任一通路都要经过基本块m，则称m是n的支配基本块，又称支配结点。基本块n的所有支配结点(集本块）的集合，称为支配结点集。  
+
+函数的入口基本块总是命名为label_entry，函数的return基本块，总是命名为label_ret.
+
+BasicBlock类的几个重要属性:
+
+//基本块的指令集
+std::list<Instruction*> instr_list_;
+//基本块所属的函数
+Function* parent_;
+//基本块的前趋基本块集
+std::vector<BasicBlock*> pre_bbs_;
+//基本块的后继基本块集
+std::vector<BasicBlock*> succ_bbs_;
+//基本块的支配关系
+std::set<BasicBlock*> dom_frontier_;
+std::set<BasicBlock*> rdom_frontier_;
+std::set<BasicBlock*> rdoms_;
+//
+BasicBlock* idom_;
+//基本块入口的活跃变量集
+std::set<Value*> live_in;
+//基本块出口的活跃变量集
+std::set<Value*> live_out;
+ 
+指令类Instruction下文介绍.
+BasicBlock的方法都围绕往基本块添加指令设计，以及处理基本块间的关系，还有活跃变量的处理。
+
+class Type及其派生类
+LLVM IR的类型定义在ir.h。
+
+class Type;
+class IntegerType;
+class ArrayType;
+class PointerType;
+class FunctionType; 
+其中Type为基本类型，是所类型的基类，其它为构造类型。
+Type有属性：tid_
+TypeID tid_;
+TypeID是枚举类型：
+
+    enum TypeID {
+        VoidTyID,      // Void
+        LabelTyID,     // Labels, e.g., BasicBlock
+        IntegerTyID,   // Integers, include 32 bits and 1 bit
+        FloatTyID,     // Floats, only 32 bits
+        FunctionTyID,  // Functions
+        ArrayTyID,     // Arrays
+        PointerTyID,   // Pointer
+    };
+其中void,float,label为基本类型，它们只有tid_属性(表达属性的编号)。其余为构造类型，继承自Type，然后添加新的必要属性。比如:
+
+IntegerType添加了num_bits_属性，表达几位整型，如i1,i32,i128
+unsigned int IntegerType::num_bits_;  
+
+ArrayType:
+ArrayType(Type* contained, unsigned num_elements)
+这是由num_elements个contained类型构成的数组类型.
+
+PointerType(Type* contained)是指向contained类型的指针类型。
+
+FunctionType(Type* result, std::vector<Type*> params)是函数类型，它由返回值类型result，和参数类型params类型组成. params是一个积类型，用vector<>实现。其中每个元素是类型，它顺序对应每个函数参数的类型。
+
+class Value及其派生类
+Value类是所有命名/非命名，局部/全局量的基类，也是所有函数，基本块，函数参数，以及指令的基类。只有Module不是Value的子类。以下类都源自Value:
+
+class Constant;
+class ConstantInt;
+class ConstantFloat;
+class ConstantArray;
+class ConstantZero;
+class GlobalVariable;
+class Function;
+class BasicBlock;
+class Argument;
+class Instruction;
+//具体的指令又都派生于Instruction
+class BinaryInst;
+class UnaryInst;
+class ICmpInst;
+class FCmpInst;
+class CallInst;
+class BranchInst;
+class ReturnInst;
+class GetElementPtrInst;
+class StoreInst;
+class LoadInst;
+class AllocaInst; 
+Value类有三个属性:类型，名字及引用链
+
+ Type* type_;
+ std::string name_;
+ std::list<Use> use_list_;  //所有引用该Value的Instruction的集合，以及该Value在该Instruction的第几个操作数位置被引用
+Value还定义了几个方法，其中方法：
+
+virtual std::string print() = 0; 
+被所有类继承并被重写，它返回可读形式的对应的IR代码。
+前述Module类也有print()方法，它用+=运算，拼接其全局变量，函数的print()方法返回的std:string，从而得到整个Module可读形式的IR。
+
+Type以及派生类也有print()方法。
+
+class Instruction及其派生类
+Instruction的重要属性：
+
+//指令所在的基本块  
+BasicBlock* parent_;
+//指令代号
+OpID op_id_;
+//操作数的个数
+unsigned num_ops_;
+//操作数
+std::vector<Value*> operands_;  // operands of this value
+//引用链
+std::vector<std::list<Use>::iterator> use_pos_; // 与操作数数组一一对应，是对应的操作数的uselist里面，与当前指令相关的use的迭代器
+//迭代器std::vector<std::list<Instruction*>::iterator> pos_in_bb;// 在bb的指令list的位置迭代器,最多只能有一个
+其中OpId是枚举类型,它列举了常用的LLVM IR指令：
+
+ enum OpID {
+    // Terminator Instructions
+    Ret = 11,
+    Br,
+    // Standard unary operators
+    FNeg,
+    // Standard binary operators
+    Add,
+    Sub,
+    Mul,
+    SDiv,
+    SRem,
+    UDiv,
+    URem,
+    // Float binary opeartors
+    FAdd,
+    FSub,
+    FMul,
+    FDiv,
+    // Logical operators
+    Shl,
+    LShr,
+    AShr,
+    And,
+    Or,
+    Xor,
+    // Memory operators
+    Alloca,
+    Load,
+    Store,
+    GetElementPtr,
+    // Cast operators
+    ZExt,
+    FPtoSI,
+    SItoFP,
+    BitCast,
+    // Other operators
+    ICmp,
+    FCmp,
+    PHI,
+    Call,
+ };
+其它指令，都由Instruction派生。所有指令都有print()方法，返回std:string可读符号串。
+
+class IRStmtBuilder
+用于产生可类语句，它有两个属性：
+
+BasicBlock* BB_; //所属基本块
+Module* m_; //所属Module
+以下是上述两个属性的getter:
+
+Module* get_module() { return m_; }
+BasicBlock* get_insert_block() { return this->BB_; }
+该类有一个构造方法，析构方法，和一堆产生各类指令的方法：
+
+BinaryInst* create_iadd(Value* v1, Value* v2);
+
+BinaryInst* create_isub(Value* v1, Value* v2);
+
+BinaryInst* create_imul(Value* v1, Value* v2);
+
+BinaryInst* create_isdiv(Value* v1, Value* v2);
+
+BinaryInst* create_isrem(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_eq(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_ne(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_gt(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_ge(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_lt(Value* v1, Value* v2);
+
+ICmpInst* create_icmp_le(Value* v1, Value* v2);
+
+BinaryInst* create_fadd(Value* v1, Value* v2); 
+
+BinaryInst* create_fsub(Value* v1, Value* v2); 
+
+BinaryInst* create_fmul(Value* v1, Value* v2);
+
+BinaryInst* create_fdiv(Value* v1, Value* v2);
+
+FCmpInst* create_fcmp_eq(Value* v1, Value* v2);
+
+FCmpInst* create_fcmp_ne(Value* v1, Value* v2);
+
+FCmpInst* create_fcmp_gt(Value* v1, Value* v2);
+
+FCmpInst* create_fcmp_ge(Value* v1, Value* v2);
+
+FCmpInst* create_fcmp_lt(Value* v1, Value* v2); 
+
+FCmpInst* create_fcmp_le(Value* v1, Value* v2);
+
+CallInst* create_call(Value* func, std::vector<Value*> args);
+
+BranchInst* create_br(BasicBlock* if_true); 
+
+BranchInst* create_cond_br(Value* cond, BasicBlock* if_true, BasicBlock* if_false);
+
+ReturnInst* create_ret(Value* val);
+
+ReturnInst* create_void_ret(); 
+
+GetElementPtrInst* create_gep(Value* ptr, std::vector<Value*> idxs); 
+
+StoreInst* create_store(Value* val, Value* ptr);
+
+LoadInst* create_load(Type* ty, Value* ptr); 
+
+LoadInst* create_load(Value* ptr); 
+
+AllocaInst* create_alloca(Type* ty); 
+
+ZextInst* create_zext(Value* val, Type* ty);
+
+FpToSiInst* create_fptosi(Value* val, Type* ty);
+
+SiToFpInst* create_sitofp(Value* val, Type* ty); 
+
+Bitcast* create_bitcast(Value *val, Type *ty);
+
+以上各方法顾名思义，即知其创建的是何指令。
+
+编程要求
+请在genIR.cpp文件中，实现genIR.h中说明的visit()方法(genIR.cpp的410行之后)
+   void visit(StmtAST &ast) override;
+中，赋值语句的翻译。
+
+先回忆一下，class StmtAST的定义：  
+
+class StmtAST : public BaseAST {
+public:
+    STYPE sType;
+    unique_ptr<LValAST> lVal = nullptr;
+    unique_ptr<AddExpAST> exp= nullptr;
+    unique_ptr<ReturnStmtAST> returnStmt = nullptr;
+    unique_ptr<SelectStmtAST> selectStmt = nullptr;
+    unique_ptr<IterationStmtAST> iterationStmt = nullptr;
+    unique_ptr<BlockAST> block = nullptr;
+    void accept(Visitor &visitor) override;
+};
+  
+当sType=ASS时，结点类型为赋值语句，它有两个子节点：lVal和exp。其语义是将exp的值store到代表左值的变量地址。
+
+注意：在Sysy的文法中，LVal不仅是赋值语句的左值，也可以出现在表达式中：
+
+左值表达式： LVal→Ident {'[' Exp ']'}
+基本表达式： PrimaryExp→'(' Exp ')' | LVal | Number
+你应当重点阅读LValAST的visit方法(genIR.cpp 740行以后):
+void visit(LValAST &ast) override;
+
+正因为LVal的两处不同出现，其visit()不总是返回左值的地址，当
+bool isTrueLVal = false 
+时，它会生成一条load指令，取变量对应地址中的值，用于表达式计算。否则返回代表左值的变量地址(指针).
+
+genIR.cpp中中能对你有用的全局临时变量：
+bool requireLVal = false;             //告诉LVal节点当前是赋值语句的左值，还是表达式的一部分
+Value *recentVal = nullptr;           //存有最近表达式对象的指针
+
+几乎所有visit()生成的结果都存放在recentVal中。在visit()之后，可以立即取走。
+
+genIR.cppg一开始，还用宏定义给出了i32,float及其对应的指针i32*,float*等类型的名字：
+
+#define INT32_T  (module->int32_ty_)
+#define FLOAT_T  (module->float32_ty_)
+#define INT32PTR_T (module->get_pointer_type(module->int32_ty_))
+#define FLOATPTR_T (module->get_pointer_type(module->float32_ty_))
+简单地説，你需要作的工作是：
+
+在visit(lVal)之前通过全局临时变量，传递信息，表示当前的lVal是赋值语句左值，不是表达式。
+在visit(lVal)之后从recentVal取左值的Value(一个Value类的对象)。
+在visit(exp)后，从recentVal取右值的Value(也是一个Value类的对象).
+检查赋值语句左值和右值的类型，必要时作类型转换。LLVM IR是强类型语言，所有指令的两个操作数必须是同一类型。比如：
+当左值为指向i32的指针而右值是一float类型的值时，右值应当转为i32。
+当左值为指向float的指针而右值是一个int类型的值时，右值应当转为float。 类型转换函数都有对应的方法，如：
+ IRStmtBuilder::create_fptosi(Value *val, Type *ty)  
+ 把一个float转换成signed int。
+
+  注：赋值语句的左值是一个指针(变量的地址)，如i32*,float*；右值是一个值，类型为i32或float。
+
+调用IRStmtBuilder::create_store(Value *val, Value *ptr)方法生成store指令。
+注意两个操作数别弄反方向，虽然都是Value类型。
+
+在genIR实例化时即已创建IRStmtmBuilder类的builer对象。可直接调用builder->create_xxx方法创建各种语句。
+
+测试说明
+评测程序将在src文件夹下执行以下命令：
+mkdir build
+cd build
+cmake ..
+make -j4
+
+构建compiler.然后执行
+./compiler -ir case.sy > case.ll
+将用例case.sy翻译成LLVM IR中间代码case.ll。
+
+最后用clang连编case.ll和sylib.c生成X86_64平台的可执行代码case.target 
+
+如果评测用例有输入文件case.in则以此为输入:
+./case.target < case.in
+
+否则直接执行
+./case.target
+
+最后检查输出结果和程序返回值是否正确。
+
+如果你在本地评测或在命令行自行评测，请用chmod命令赋予case.target的执行权限。
+
+注：case代表某个测试例的名字
+
+中间代码是与平台无关的，如果能在X86_64上运行得出正确结果，有理由相信在ARM及RISCV64平台上也能得出正确结果。

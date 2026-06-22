@@ -1,0 +1,167 @@
+任务描述
+利用antlr生成Sysy2022语言的语法分析程序，要求任给一个语法正确的Sysy2022语言的源程序，输出其抽象语法树(AST)。
+
+相关知识
+为了完成本关任务，你需要掌握：
+Sysy2022语言的定义
+antlr的visitor模式
+modern c++相关知识
+抽象语法树AST
+
+相关知识
+请自行查阅抽象语法树的相关资料，可以参考：
+gcc实现中的AST
+http://www.cse.iitb.ac.in/grc/intdocs/gcc-implementation-details.html#toc_Top
+c++17标准
+antlr官方文档
+
+语法分析程序框架
+为方便同学们完成编译器的构造，实训为同学们提供了部分代码的框架，包括：
+
+.
+├── Sysy.g4   # 语法规则 
+├── SysyLex.g4  # 词法规则
+├── src
+│   ├── Makefile # Makefile
+│   ├── AstVisitor.cpp
+│   ├── AstVisitor.h
+│   ├── Display.h #输出接口的基类头文件
+│   ├── ast.cpp  # 打印AST
+│   ├── ast.h   # 头文件 
+│   ├── common.h #基本类型的头文件common.h
+│   ├── utils.h #输出的函数头文件utils.h
+│   └── main.cpp   #main函数
+└── test_cases     #测试用例，有(无)语法错误的各一组 
+    ├── 012_func_defn.sy
+    ├── 038_continue.sy
+    ├── 067_sort_test7.sy
+    ├── 087_gcd.sy
+    ├── case_1.sy
+    ├── case_2.sy
+    ├── case_3.sy
+    ├── case_4.sy
+    ├── case_5.sy
+    └── test2.sy
+定义了一些方便输出的函数头文件utils.h
+定义输出接口的基类头文件Display.h
+定义基本类型的头文件common.h
+方便你编程的ast.h和ast.cpp，可以在其中定义派生类型
+AstVisitor.h，派生自antlr生成的SysyBaseVisitor类。
+AstVisitor.cpp，你需要补充其中的visitWhile()方法
+main.cpp，你需要根据自己编写的AstVisitor和AstRewriter来补充该文件，使其可以正确输出AST。
+makefile，你可以根据需要修改makefile文件。
+编程要求
+本关和上一关共用一套程序。
+如果你没有通过第1关,请回到第1关完善文法。
+如果你已经通过第1关,则继续完成你在上一关未完成的visitWhile()方法。
+
+antlr4生成的语法分析器采用了访问者模式，它根据Sysy.g4和SysyLex.g4文件生成SysyBaseVisitor类(还有其它类)，你需要在该基类基础上创建新的类:AstVisitor，以实现AST的构造。这个类的实现在AstVisitor.cpp文件中，对应头文件为AstVisitor.h:
+
+ namespace frontend {
+    using namespace ast;
+    class AstVisitor : public SysyBaseVisitor {
+    public:
+        [[nodiscard]] std::unique_ptr<CompileUnit> compileUnit();
+        antlrcpp::Any visitCompUnit(SysyParser::CompUnitContext *ctx) override;
+        antlrcpp::Any visitConstDecl(SysyParser::ConstDeclContext *ctx) override;
+        antlrcpp::Any visitInt(SysyParser::IntContext *ctx) override;
+        antlrcpp::Any visitFloat(SysyParser::FloatContext *ctx) override;
+        antlrcpp::Any visitVarDecl(SysyParser::VarDeclContext *ctx) override;
+        antlrcpp::Any visitInit(SysyParser::InitContext *ctx) override;
+        antlrcpp::Any visitInitList(SysyParser::InitListContext *ctx) override;
+        antlrcpp::Any visitFuncDef(SysyParser::FuncDefContext *ctx) override;
+        antlrcpp::Any visitVoid(SysyParser::VoidContext *ctx) override;
+        antlrcpp::Any visitScalarParam(SysyParser::ScalarParamContext *ctx) override;
+        antlrcpp::Any visitArrayParam(SysyParser::ArrayParamContext *ctx) override;
+        antlrcpp::Any visitBlock(SysyParser::BlockContext *ctx) override;
+        antlrcpp::Any visitAssign(SysyParser::AssignContext *ctx) override;
+        antlrcpp::Any visitExprStmt(SysyParser::ExprStmtContext *ctx) override;
+        antlrcpp::Any visitBlockStmt(SysyParser::BlockStmtContext *ctx) override;
+        antlrcpp::Any visitIfElse(SysyParser::IfElseContext *ctx) override;
+        antlrcpp::Any visitWhile(SysyParser::WhileContext *ctx) override;
+        antlrcpp::Any visitBreak(SysyParser::BreakContext *ctx) override;
+        antlrcpp::Any visitContinue(SysyParser::ContinueContext *ctx) override;
+        antlrcpp::Any visitReturn(SysyParser::ReturnContext *ctx) override;
+        antlrcpp::Any visitLVal(SysyParser::LValContext *ctx) override;
+        antlrcpp::Any visitPrimaryExp_(SysyParser::PrimaryExp_Context *ctx) override;
+        antlrcpp::Any visitLValExpr(SysyParser::LValExprContext *ctx) override;
+        antlrcpp::Any visitDecIntConst(SysyParser::DecIntConstContext *ctx) override;
+        antlrcpp::Any visitOctIntConst(SysyParser::OctIntConstContext *ctx) override;
+        antlrcpp::Any visitHexIntConst(SysyParser::HexIntConstContext *ctx) override;
+        antlrcpp::Any visitDecFloatConst(SysyParser::DecFloatConstContext *ctx) override;
+        antlrcpp::Any visitHexFloatConst(SysyParser::HexFloatConstContext *ctx) override;
+        antlrcpp::Any visitCall(SysyParser::CallContext *ctx) override;
+        antlrcpp::Any visitUnaryAdd(SysyParser::UnaryAddContext *ctx) override;
+        antlrcpp::Any visitUnarySub(SysyParser::UnarySubContext *ctx) override;
+        antlrcpp::Any visitNot(SysyParser::NotContext *ctx) override;
+        antlrcpp::Any visitStringConst(SysyParser::StringConstContext *ctx) override;
+        antlrcpp::Any visitDiv(SysyParser::DivContext *ctx) override;
+        antlrcpp::Any visitMod(SysyParser::ModContext *ctx) override;
+        antlrcpp::Any visitMul(SysyParser::MulContext *ctx) override;
+        antlrcpp::Any visitAdd(SysyParser::AddContext *ctx) override;
+        antlrcpp::Any visitSub(SysyParser::SubContext *ctx) override;
+        antlrcpp::Any visitGeq(SysyParser::GeqContext *ctx) override;
+        antlrcpp::Any visitLt(SysyParser::LtContext *ctx) override;
+        antlrcpp::Any visitLeq(SysyParser::LeqContext *ctx) override;
+        antlrcpp::Any visitGt(SysyParser::GtContext *ctx) override;
+        antlrcpp::Any visitNeq(SysyParser::NeqContext *ctx) override;
+        antlrcpp::Any visitEq(SysyParser::EqContext *ctx) override;
+        antlrcpp::Any visitAnd(SysyParser::AndContext *ctx) override;
+        antlrcpp::Any visitOr(SysyParser::OrContext *ctx) override;
+        antlrcpp::Any visitNumber(SysyParser::NumberContext *ctx) override;
+    private:
+        std::vector<std::unique_ptr<Expression>>
+        visitDimensions(const std::vector<SysyParser::ExpContext *> &ctxs);
+        std::unique_ptr<CompileUnit> m_compile_unit;
+    };
+} // namespace frontend
+其中visitWhile()方法未完成，请在AstVisitor中补充代码实现这个方法：
+       antlrcpp::Any visitWhile(SysyParser::WhileContext *ctx) override;
+WhileContex定义在SysyParser.h(antlr4自动生成)：
+
+   class  WhileContext : public StmtContext {
+  public:
+    WhileContext(StmtContext *ctx);
+    antlr4::tree::TerminalNode *While();
+    antlr4::tree::TerminalNode *Lparen();
+    CondContext *cond();
+    antlr4::tree::TerminalNode *Rparen();
+    StmtContext *stmt();
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+WhileContext派生自StmtContex,而StmtContext派生自antlr4::ParserRuleContext,后者又派生自RuleContext.它们都有一个继承自ParserTree的accept()方法.
+
+在右侧编辑器修改、补充代码，完成识别Sysy2022语言的语法识别器。在编辑器窗一次只能显示一个文件，可以通过点击“代码文件”旁边的小三角箭头，在多个文件中自由切换。
+
+我们已经为你提供好了Makefile文件，测试程序将直接make，编译上述程序框架中的文件，然后用make生成的程序parser来测试一组测试用例。
+
+本关的测试用例都是没有语法错误的，parser将对测试用例进行语法分析，并输出AST。AST的输出函数不需要你完成。
+
+由于AST的绘制并无统一标准，万一你输出的AST与预期结果不同，可向老师申请人工复核。如果老师认可你输出的AST，可以人工赋分(虽然系统仍显示未过关，但不影响成绩)。
+
+注意事项
+平台测试的antlr版本是4.9.3,若要在本地测试，我们建议你安装相应版本的antlr。
+对于Linux系统，可以使用以下命令获取得到4.9.3版本的源码：
+
+wget https://www.antlr.org/download/antlr4-cpp-runtime-4.9.3-source.zip
+具体的安装方法可以见antlr c++ runtime安装文档
+
+编译antlr程序时，需要手动链接到antlr c++ runtime库，比如:
+g++ *.cpp -lantlrr-runtime 
+不过，框架已为你准备了Makefile，它会自动链接antlr4 runtime库.
+
+main
+main.cpp-主函数读取待分析的源程序，送入SysyLexer中进行词法解析，通过CommonTokenStream生成token流，将结果送入SysyParser。parser.CompUnit()得到语法树的根，其中CompUnit是语法文件中的第一条语法。用类AstVisitor遍历语法树，生成AST，最后调用ast->print(std::cout,0)，打印输出AST。
+
+helper function
+utils.h中定义了一些方便输出和调试的函数，可以供你使用。
+Display.h中定义了一个基类Display。后续在定义AST上节点的类型时，可以继承Display类，并实现虚函数print来方便输出。
+common.h中定义一些基本类型，例如常量类型、数值类型等。
+
+测试说明
+平台会make你编写的代码，并检查是否成功生成scanner，若make成功，即运行scanner， 对指定的程序进行语法分析，输出AST。一共有5个测试集, 每个测试集都必须输出完整的AST，由评测机自动比对，如果与预其结果不一致，可以提请老师人工复核，并评定分数。
+
+评测机先调用antlr4将Sysy.g4和SysyLex.g4编译成一系列的cpp和.h文件(Listener基类，Visitor基类，Listener类，Visitor类，Lex类，Parser类)，再由make生成parser,然后运行parser分析测试用例，因此，评测的时间可能会稍长。
+

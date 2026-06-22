@@ -1,0 +1,137 @@
+任务描述
+完成SysY2022的语法分析程序。要求任给一个SysY2022语言的源程序，能识别源程序中出现的语义错误。
+
+语义检查程序框架
+为方便同学们完成编译器的构造，实训为同学们提供了部分代码的框架，包括：
+
+./src
+├── CMakeLists.txt
+├── checker
+│   ├── CMakeLists.txt
+│   ├── checker.cpp # 语义检查的类实现文件
+│   ├── checker.h # 语义检查器的类定义
+│   ├── errorReporter.cpp # 报错模块的类定义
+│   └── errorReporter.h # 报错模块的类实现文件
+│...
+在checker.h中定义了语法检查器类Checker，继承类Visitor,语法检查的实现用到了访问者模式。
+
+访问者模式
+访问者模式是一种设计模式，它的应用场景主要为：
+
+遍历某个数据结构的每个节点，并对每个节点做一些操作
+数据结构相对固定
+操作有多种
+访问者模式的类构成如下所示：
+
+抽象访问者（Visitor）：声明了一个或者多个访问操作，形成所有的具体元素角色必须实现的接口。
+具体访问者（ConcreteVisitor）：实现抽象访问者角色所声明的接口，也就是抽象访问者所声明的各个访问操作。
+抽象节点（Element）：声明一个接受操作，接受一个访问者对象作为一个参量。
+具体节点（ConcreteElement）：实现了抽象元素所规定的接受操作。
+结构对象（ObiectStructure）：有如下的一些责任，可以遍历结构中的所有元素；如果需要，提供一个高层次的接口让访问者对象可以访问每一个元素；如果需要，可以设计成一个复合对象或者一个聚集，如列（List）或集合（Set）。
+
+
+从以上的UML类图可以概括出访问者模式的实现做法：
+
+每个节点类（被访问）预留出通用的接口accept()
+提供一个访问者基类
+为每种操作编写访问者类，它继承自访问者基类
+class Checker : public Visitor{
+public:
+    void visit(CompUnitAST& ast) override;
+    
+}
+// checker.cpp
+void Checker::visit(CompUnitAST &ast) {
+  make_new_table();
+  for (auto &decl : ast.declDefList) {
+    decl->accept(*this);
+  }
+}
+// Visitor.h
+class Visitor {
+public:
+  virtual void visit(CompUnitAST &ast) = 0;
+  ...
+}
+// ast.cpp
+void CompUnitAST::accept(Visitor &visitor) { visitor.visit(*this); }
+一个使用的示例，在插入新的函数时
+
+void Checker::visit(FuncDefAST &ast) {
+  // 将函数插入符号表
+  if (!InsertFunc(ast)) {
+    // TODO ERROR
+    err.error(ErrorType::FuncDuplicated, *ast.id);
+    exit(int(ErrorType::FuncDuplicated));
+  }
+  start_of_new_func = true;
+  ast.block->accept(*this);
+}
+当InsertFunc(ast)出现error时表明函数重复定义，若没有error则继续遍历语法树ast.block->accept(*this);
+
+符号表
+在checker.h中定义了结构体Entry用于表示记录符号表中每一个符号的相关属性。
+
+  struct Entry {
+    bool is_array{};                         //是否为数组
+    bool is_func{};                          //是否为函数
+    TYPE type;                 //变量类型or返回值类型
+    int array_length{};                      //如果是数组，则长度非0
+    std::vector<int> arlen_value;          //数组的每一维长度
+    std::vector<Entry> func_params; //函数参数列表
+  };
+使用std::map<std::string, Entry>记录一个作用域的中符号名与Entry的对应关系,std::list<std::map<std::string, Entry>> table记录当前遍历的所有作用域中的关系。
+在checker.h文件中同样定义了关于符号表的几个方法。
+
+Entry *Lookup(const std::string& name) 用于遍历并查询符号表是否含有某个符号（包含变量和函数）
+bool InsertVar(const DeclAST& node) 在符号表中插入变量，注意这里的node节点里可能包含若干个变量定义（可以查看DeclAST类的定义），所以需要遍历node节点的defList，插入时注意Redefined Variable Error。
+bool InsertFunc(const FuncDefAST& node) 在符号表中插入新的函数，插入新的函数需要在当前的table中加入新的符号表，要对函数的每一个参数遍历并插入到新的符号表中，同时也要注意检查是否有Redefined Function Error，函数和形参均需插入到符号表中（注意是不同作用域，形参是在新创建的符号表中）。
+void make_new_table() 插入新的表项，例如对于初始节点，或者进入某个新的作用域时需要插入新的表项。
+void delete_table() 删除当前的表项。
+ErrorReporter
+本关为语义错误定义了枚举类ErrorType：
+
+enum class ErrorType {
+  VarUnknown = 1,
+  VarDuplicated,
+  FuncUnknown,
+  FuncDuplicated,
+  FuncParamsNotMatch,
+  FuncReturnTypeNotMatch,
+  ArrayIndexNotInt,
+  BreakNotInLoop,
+  ContinueNotInLoop,
+  VisitVariableError,
+};
+分别代表了不同的错误类型，同时ErrorReporter提供了error方法，该方法接受两个参数：type表明出现的ErrorType，ast表示出错的节点的名称，例如：
+类FuncDefAST用于表示函数定义，包含一个属性id，表示函数的标识符，（int gcd(int a, int b) {...}中的gcd）,当检测到函数重复定义的语义错误时，调用error方法，并退出程序。
+
+            err.error(ErrorType::FuncDuplicated, *node.id);
+            exit(int(ErrorType::FuncDuplicated));
+AST结点的属性is_inloop
+ast.h(该文件不需修改，故不可见)中为以下AST结点定义了继承属性is_inloop:
+class BlockAST
+class BlockItemListAST
+class BlockItemAST
+class StmtAST
+class SelectStmtAST
+class IterationStmtAST
+
+属性is_inloop的初值为false:
+bool is_inloop = false;
+
+checker（checker.cpp）在visit每个结点前，应当给结点的继承属性is_inloop正确赋值：复制父结点的is_inloop属性。仅当发现visit的结点是IterationStmtAST时，置is_inloop属性为true. 当stmt.sType为STYPE::BRE或STYPEP::CONT时，检查break/coniture语句是否在循环内。
+
+编程要求
+在右侧编辑器修改、补充代码，完成识别Sysy2022语言的语义检查器。在本次关卡中你只需要修改语义检查器Checker的源文件src/checker/checker.h和src/checker/checker.cpp，需要能检测出以下语义错误：
+
+Redefined Variable 当前作用域重复定义变量，以及函数形参重复定义。
+Use Undefined Variable 使用未定义变量
+Redefined Function 函数重复定义
+Use Undefined Function 使用未定义函数
+Can not Match Function Parameters 函数参数/类型不匹配，即函数调用必须保证实际参数的个数和类型都与函数声明中的形式参数完全匹配。
+Func return type not match 函数返回值类型不匹配, 例如函数返回类型void/float时，函数内出现带返回值为int的return语句
+Array index not int 数组下标不是整数
+Break not in loop break语句不在循环中
+Continue not in loop continue语句不在循环中
+Visit non-array variable in the form of subscript variables 对非数组变量采用下标变量的形式访问
